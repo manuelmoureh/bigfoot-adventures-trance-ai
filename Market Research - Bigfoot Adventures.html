@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Market &amp; Competitive Intelligence — Bigfoot Adventures Ltd · Trance AI</title>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   TRANCE AI — BIGFOOT ADVENTURES MARKET INTELLIGENCE DECK
+   Theme: Trance AI Purple (#9D4EDD / #A004DF / #7C3AED)
+   Matches: AI Transformation - Bigfoot Adventures.html
+   ============================================================ */
+
+:root {
+  font-size: clamp(13px, 2.2vh, 16px);
+  --ink: #0A090D;
+  --surface: #110F17;
+  --card: #181524;
+  --card-hover: #211C33;
+  --border: #2D2744;
+  --paper: #FAF9FC;
+  --paper-warm: #F4F1F9;
+
+  --text: #FAF8FC;
+  --ink-text: #0B0A10;
+  --muted: #797193;
+  --muted-light: #A49BBE;
+  --hairline: #E2DDF0;
+
+  /* TRANCE AI BRAND PURPLES */
+  --purple: #A004DF;
+  --purple-bright: #B52DF0;
+  --purple-glow: rgba(160, 4, 223, 0.45);
+  --purple-soft: rgba(160, 4, 223, 0.12);
+  --purple-border: rgba(160, 4, 223, 0.35);
+  --deep-violet: #5200A8;
+
+  /* ACCENT TOKENS */
+  --cyan: #06B6D4;
+  --magenta: #EC4899;
+  --amber: #F59E0B;
+  --emerald: #10B981;
+  --red: #EF4444;
+
+  --maxw: 1200px;
+  --ease: cubic-bezier(.22, .61, .36, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: auto; overflow: hidden; height: 100%; font-size: clamp(14px, 1.15vw, 22px); }
+body {
+  font-family: 'Satoshi', system-ui, -apple-system, sans-serif;
+  background: var(--ink);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  height: 100%;
+}
+
+.deck {
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+.slide {
+  position: relative;
+  height: 100dvh;
+  min-height: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(.5rem, 2vh, 2.5rem) clamp(1.4rem, 5vw, 5rem);
+  overflow: hidden;
+}
+.slide.dark { background: var(--ink); color: var(--text); }
+.slide.light { background: var(--paper); color: var(--ink-text); }
+.slide.warm { background: var(--paper-warm); color: var(--ink-text); }
+.inner { width: 100%; max-width: var(--maxw); margin: 0 auto; position: relative; z-index: 2; }
+
+.slide.dark::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(160, 4, 223, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(160, 4, 223, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse 95% 80% at 50% 40%, #000 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 95% 80% at 50% 40%, #000 55%, transparent 100%);
+}
+.slide.light::before, .slide.warm::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(82, 0, 168, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(82, 0, 168, 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse 95% 80% at 50% 40%, #000 50%, transparent 100%);
+  mask-image: radial-gradient(ellipse 95% 80% at 50% 40%, #000 50%, transparent 100%);
+}
+
+.eyebrow {
+  font-size: clamp(.62rem, .8vw, .75rem);
+  font-weight: 700; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--muted); display: inline-flex; align-items: center; gap: .6rem;
+}
+.dark .eyebrow { color: var(--muted-light); }
+.dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--purple); flex: none;
+  box-shadow: 0 0 0 0 var(--purple-glow); animation: pulse 2.6s var(--ease) infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--purple-glow); }
+  70% { box-shadow: 0 0 0 10px rgba(160, 4, 223, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(160, 4, 223, 0); }
+}
+
+h1, h2, h3 { font-weight: 900; line-height: 1.04; letter-spacing: -.025em; }
+.display { font-size: clamp(2.2rem, 5.6vw, 4.4rem); font-weight: 900; line-height: 1.04; letter-spacing: -.03em; }
+.title { font-size: clamp(1.7rem, 3.8vw, 2.9rem); font-weight: 900; line-height: 1.06; letter-spacing: -.025em; }
+.subtitle { font-size: clamp(1.05rem, 1.75vw, 1.35rem); font-weight: 500; color: var(--muted); line-height: 1.45; }
+.dark .subtitle { color: var(--muted-light); }
+.lede { font-size: clamp(.98rem, 1.35vw, 1.12rem); line-height: 1.6; color: var(--muted); max-width: 64ch; }
+.dark .lede { color: var(--muted-light); }
+.purple { color: var(--purple-bright); }
+.tnum { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.light .card, .warm .card { background: #fff; border-color: var(--hairline); box-shadow: 0 1px 3px rgba(10,9,13,.04); }
+.dark .card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.42); border-color: var(--purple-border); }
+.light .card:hover, .warm .card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(10,9,13,.08); }
+
+.inner {
+  opacity: 0; transform: scale(.96) translateY(16px);
+  transition: opacity 1.1s cubic-bezier(.16, 1, .3, 1), transform 1.1s cubic-bezier(.16, 1, .3, 1);
+}
+.slide.visible .inner { opacity: 1; transform: none; }
+.slide.exiting .inner {
+  opacity: 0 !important; transform: scale(.97) translateY(-10px) !important;
+  transition: opacity .38s cubic-bezier(.55, 0, 1, .45), transform .38s cubic-bezier(.55, 0, 1, .45) !important;
+}
+
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.slide.visible .reveal { opacity: 1; transform: none; }
+.slide.visible .reveal.d1 { transition-delay: .08s; }
+.slide.visible .reveal.d2 { transition-delay: .16s; }
+.slide.visible .reveal.d3 { transition-delay: .24s; }
+.slide.visible .reveal.d4 { transition-delay: .32s; }
+.slide.visible .reveal.d5 { transition-delay: .40s; }
+.slide.visible .reveal.d6 { transition-delay: .48s; }
+.slide.visible .reveal.d7 { transition-delay: .56s; }
+.slide.visible .reveal.d8 { transition-delay: .64s; }
+.slide.visible .reveal.d9 { transition-delay: .72s; }
+.slide.visible .reveal.d10 { transition-delay: .80s; }
+
+.chrome-foot, .chrome-page, .chrome-side {
+  position: absolute; z-index: 5; font-size: .62rem; font-weight: 700; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--muted); opacity: .65; pointer-events: none;
+}
+.dark .chrome-foot, .dark .chrome-page, .dark .chrome-side { color: var(--muted-light); opacity: .55; }
+.chrome-foot { left: clamp(1.4rem, 6vw, 3.2rem); bottom: clamp(1.2rem, 3vw, 1.8rem); display: flex; align-items: center; gap: .5rem; }
+.chrome-page { right: clamp(1.4rem, 6vw, 3.2rem); bottom: clamp(1.2rem, 3vw, 1.8rem); }
+.chrome-side { right: .5rem; bottom: clamp(1.2rem, 3vw, 1.8rem); transform: rotate(180deg); writing-mode: vertical-rl; letter-spacing: .32em; font-size: .55rem; opacity: .4; }
+.chrome-foot .fdot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); opacity: .9; }
+
+#progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--purple); width: 0; z-index: 60; transition: width .15s linear; box-shadow: 0 0 10px var(--purple-glow); }
+#dots { position: fixed; right: clamp(.5rem, 1.4vw, 1rem); top: 50%; transform: translateY(-50%); z-index: 55; display: flex; flex-direction: column; gap: 9px; }
+#dots button { width: 9px; height: 9px; border-radius: 50%; border: 1px solid var(--muted); background: transparent; cursor: pointer; padding: 0; transition: all .3s var(--ease); }
+#dots button.active { background: var(--purple); border-color: var(--purple-bright); transform: scale(1.4); box-shadow: 0 0 8px var(--purple-glow); }
+#dots button:hover { border-color: var(--purple-bright); }
+@media(max-width:760px){
+  #dots { display: none; }
+  .chrome-side { display: none; }
+  .slide { padding-top: 2.8rem; padding-bottom: 2.8rem; }
+  .inner { max-height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .inner::-webkit-scrollbar { display: none; }
+}
+
+.row { display: flex; gap: clamp(1rem, 2.4vw, 2.2rem); align-items: center; flex-wrap: wrap; }
+.col { display: flex; flex-direction: column; }
+.split { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(1.4rem, 4vw, 3.4rem); align-items: center; }
+@media(max-width:880px){ .split { grid-template-columns: 1fr; gap: 1.6rem; } }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 1.6vw, 1.2rem); }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.8rem, 1.6vw, 1.2rem); }
+.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(.7rem, 1.4vw, 1rem); }
+@media(max-width:880px){ .grid3, .grid4 { grid-template-columns: 1fr 1fr; } .grid2 { grid-template-columns: 1fr; } }
+@media(max-width:560px){ .grid3, .grid4 { grid-template-columns: 1fr; } }
+
+.badge {
+  display: inline-flex; align-items: center; gap: .5rem; font-size: .72rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; padding: .4rem .75rem; border-radius: 100px; border: 1px solid var(--border);
+}
+.light .badge, .warm .badge { border-color: var(--hairline); }
+.badge.purple { background: var(--purple-soft); border-color: var(--purple-border); color: var(--purple-bright); }
+.badge.warn { background: rgba(245,158,11,.1); border-color: rgba(245,158,11,.4); color: var(--amber); }
+.badge.cyan { background: rgba(6,182,212,.1); border-color: rgba(6,182,212,.4); color: var(--cyan); }
+.badge.emerald { background: rgba(16,185,129,.1); border-color: rgba(16,185,129,.4); color: var(--emerald); }
+.badge.red { background: rgba(239,68,68,.1); border-color: rgba(239,68,68,.4); color: var(--red); }
+.badge.amber { background: rgba(245,158,11,.1); border-color: rgba(245,158,11,.4); color: var(--amber); }
+
+.impact { display: inline-flex; flex-direction: column; gap: .15rem; border-left: 3px solid var(--purple); padding: .55rem 0 .55rem .9rem; margin-top: .4rem; }
+.impact .k { font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted-light); }
+.impact .v { font-size: clamp(1.05rem, 1.9vw, 1.48rem); font-weight: 900; color: var(--purple-bright); letter-spacing: -.01em; }
+
+.bar-track { height: 10px; border-radius: 6px; background: rgba(255,255,255,.08); overflow: hidden; }
+.light .bar-track, .warm .bar-track { background: rgba(10,9,13,.07); }
+.bar-fill { height: 100%; width: 0; border-radius: 6px; transition: width 1.2s var(--ease); }
+.slide.visible .bar-fill { width: var(--w); }
+
+.kbd-hint {
+  position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%); z-index: 55;
+  font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); opacity: .6;
+  display: flex; gap: .6rem; align-items: center; transition: opacity .6s; background: rgba(10,9,13,.75); padding: .3rem .8rem; border-radius: 20px; border: 1px solid var(--border);
+}
+@media(max-width:760px){ .kbd-hint { display: none; } }
+
+/* ---- Market deck extras ---- */
+.flow { display: flex; align-items: stretch; gap: .6rem; flex-wrap: wrap; }
+.flow .fcard { flex: 1 1 150px; }
+.flow .farrow { display: flex; align-items: center; justify-content: center; color: var(--purple-bright); font-size: 1.4rem; font-weight: 900; }
+@media(max-width:880px){ .flow { flex-direction: column; } .flow .farrow { transform: rotate(90deg); } }
+
+.wcloud { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .5rem 1.1rem; padding: 1rem; }
+.wcloud span { font-weight: 900; line-height: 1; white-space: nowrap; }
+.wc1 { font-size: clamp(1.8rem,3.4vw,2.6rem); color: var(--purple-bright); }
+.wc2 { font-size: clamp(1.25rem,2.2vw,1.7rem); color: var(--cyan); }
+.wc3 { font-size: clamp(.95rem,1.5vw,1.2rem); color: var(--text); font-weight: 700; }
+.wc4 { font-size: clamp(.72rem,1.1vw,.9rem); color: var(--muted-light); font-weight: 700; }
+.wcloud span:nth-child(3n) { transform: rotate(-3deg); display: inline-block; }
+.wcloud span:nth-child(4n) { transform: rotate(2deg); display: inline-block; }
+.wcloud span:nth-child(5n) { color: var(--magenta); }
+.wcloud span:nth-child(7n) { color: var(--emerald); }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<nav id="dots" aria-label="Slide navigation"></nav>
+<div class="kbd-hint" id="hint"><span>&#8595; / Space — Next</span><span>·</span><span>&#8593; — Prev</span></div>
+
+<main class="deck" id="deck">
+
+<!-- ============ SLIDE 1 — TITLE (dark) ============ -->
+<section class="slide dark" data-i="1">
+  <div class="inner">
+    <div class="split">
+      <div class="col" style="gap:1.5rem">
+        <div class="eyebrow reveal d1">
+          <span class="dot"></span>TRANCE AI · MARKET INTELLIGENCE
+        </div>
+        <h1 class="display reveal d2" style="font-size:clamp(2.5rem,5vw,4.5rem)">
+          Where Bigfoot's Business<br>Actually Comes From<span class="purple">.</span>
+        </h1>
+        <p class="subtitle reveal d3" style="max-width:40ch">
+          Market &amp; Competitive Intelligence for <strong style="color:var(--text);font-weight:700">Bigfoot Adventures Ltd</strong>.<br>
+          What we know about the market, and where things stand today.
+        </p>
+        <div class="reveal d4" style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.4rem">
+          <span class="badge">Prepared Exclusively for Bigfoot Leadership</span>
+          <span class="badge purple"><span class="dot"></span>Market &amp; Competitive Research</span>
+        </div>
+      </div>
+
+      <div class="reveal d3" style="display:flex;justify-content:center;align-items:center;position:relative">
+        <svg viewBox="0 0 400 400" width="100%" style="max-width:440px;overflow:visible" aria-hidden="true">
+          <defs>
+            <radialGradient id="rdrGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#A004DF" stop-opacity="0.2"/>
+              <stop offset="70%" stop-color="#A004DF" stop-opacity="0.05"/>
+              <stop offset="100%" stop-color="#A004DF" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="rdrCore" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#B52DF0" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#A004DF" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <circle cx="200" cy="200" r="196" fill="url(#rdrGlow)"/>
+          <circle cx="200" cy="200" r="44" fill="none" stroke="#A004DF" stroke-opacity="0.3" stroke-width="0.9"/>
+          <circle cx="200" cy="200" r="88" fill="none" stroke="#A004DF" stroke-opacity="0.22" stroke-width="0.9"/>
+          <circle cx="200" cy="200" r="132" fill="none" stroke="#A004DF" stroke-opacity="0.16" stroke-width="0.9"/>
+          <circle cx="200" cy="200" r="176" fill="none" stroke="#A004DF" stroke-opacity="0.1" stroke-width="0.9"/>
+          <g stroke="#A004DF" stroke-opacity="0.09" stroke-width="0.7">
+            <line x1="200" y1="10" x2="200" y2="390"/>
+            <line x1="200" y1="10" x2="200" y2="390" transform="rotate(30 200 200)"/>
+            <line x1="200" y1="10" x2="200" y2="390" transform="rotate(60 200 200)"/>
+            <line x1="200" y1="10" x2="200" y2="390" transform="rotate(90 200 200)"/>
+            <line x1="200" y1="10" x2="200" y2="390" transform="rotate(120 200 200)"/>
+            <line x1="200" y1="10" x2="200" y2="390" transform="rotate(150 200 200)"/>
+          </g>
+          <line x1="200" y1="200" x2="200" y2="24" stroke="#B52DF0" stroke-opacity="0.75" stroke-width="1.5" stroke-linecap="round">
+            <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="4.8s" repeatCount="indefinite"/>
+          </line>
+          <circle cx="200" cy="200" r="10" fill="none" stroke="#A004DF" stroke-width="1.2">
+            <animate attributeName="r" values="10;180" dur="4s" repeatCount="indefinite"/>
+            <animate attributeName="stroke-opacity" values="0.65;0" dur="4s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="200" cy="200" r="10" fill="none" stroke="#EC4899" stroke-width="1">
+            <animate attributeName="r" values="10;180" dur="4s" begin="1.33s" repeatCount="indefinite"/>
+            <animate attributeName="stroke-opacity" values="0.65;0" dur="4s" begin="1.33s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="200" cy="200" r="16" fill="url(#rdrCore)">
+            <animate attributeName="r" values="14;20;14" dur="2.4s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="200" cy="200" r="6" fill="#A004DF"/>
+          <circle cx="200" cy="200" r="2.5" fill="#EC4899"/>
+        </svg>
+        <img src="AI Transformation - Bigfoot Adventures/assets/White.png" alt="Trance AI" style="position:absolute;width:140px;opacity:.9;filter:drop-shadow(0 0 12px var(--purple-glow))"/>
+      </div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Presented by Trance AI</div>
+  <div class="chrome-page">01 / 12</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<!-- ============ SLIDE 2 — THE REAL ENGINE (dark) ============ -->
+<section class="slide dark" data-i="2">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>Level 01 · Market Reality</div>
+    <div class="split" style="margin-top:1.4rem">
+      <div class="col" style="gap:1.4rem">
+        <h2 class="title reveal d2">The Real Engine.<br><span class="purple">B2B Ground Handling.</span></h2>
+        <p class="lede reveal d3">
+          The growth engine here isn't a consumer booking funnel — it's the <strong style="color:var(--text)">roughly 15 travel agents</strong> who already send business year-round, sourced from India, Japan, Russia, the US, and Spain. The buyers are abroad, and most of them are agents, not travelers. There's no local or African B2C market to build for.
+        </p>
+        <p class="lede reveal d4">
+          That's the foundation for everything else here — the AI agent, the site, the content, the automations. All of it is built for agents first.
+        </p>
+        <div class="card reveal d5" style="border-left:4px solid var(--purple);background:rgba(160,4,223,.08)">
+          <div style="font-size:1.02rem;font-weight:700;color:var(--text);line-height:1.5">
+            The AI agent's job stops at <strong style="color:var(--purple-bright)">"request a quote."</strong> Daniel handles rates and closes personally — the system's role is to qualify, route, and never let a lead go cold.
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal d4" style="display:flex;justify-content:center;align-items:center">
+        <div style="position:relative;width:100%;max-width:400px;height:340px;display:flex;align-items:center;justify-content:center">
+          <div style="position:absolute;width:240px;height:240px;border-radius:50%;border:1px dashed var(--purple-border);animation:spin 25s linear infinite"></div>
+          <div style="background:var(--card);border:2px solid var(--purple-bright);border-radius:50%;width:120px;height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 25px var(--purple-glow);z-index:2;text-align:center">
+            <span style="font-size:.7rem;font-weight:700;letter-spacing:.1em;color:var(--purple-bright)">BIGFOOT</span>
+            <span style="font-size:.6rem;color:var(--muted-light)">B2B CORE</span>
+          </div>
+          <div style="position:absolute;top:14px;left:30px;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.4);padding:.4rem .8rem;border-radius:20px;font-size:.7rem;font-weight:700;color:var(--emerald)">🤝 15 Agent Partners</div>
+          <div style="position:absolute;bottom:24px;right:10px;background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.4);padding:.4rem .8rem;border-radius:20px;font-size:.7rem;font-weight:700;color:var(--cyan)">🌍 India · Japan · Russia · US · Spain</div>
+          <div style="position:absolute;top:34px;right:0;background:rgba(236,72,153,.12);border:1px solid rgba(236,72,153,.4);padding:.4rem .8rem;border-radius:20px;font-size:.7rem;font-weight:700;color:var(--magenta)">🚫 No Local B2C</div>
+          <div style="position:absolute;bottom:34px;left:0;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.4);padding:.4rem .8rem;border-radius:20px;font-size:.7rem;font-weight:700;color:var(--amber)">📇 Zoho-Native</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Reframe</div>
+  <div class="chrome-page">02 / 12</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<!-- ============ SLIDE 3 — COMPETITIVE LANDSCAPE (light) ============ -->
+<section class="slide light" data-i="3">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>Competitive Landscape</div>
+    <h2 class="title reveal d2" style="margin:.3rem 0 1rem">
+      Who Bigfoot Is Actually Competing With<br>
+      <span style="font-size:.52em;font-weight:500;color:var(--muted)">Ground Handlers Fighting for the Same Agent Allocations</span>
+    </h2>
+
+    <div class="grid4 reveal d3" style="gap:1rem">
+      <div class="card" style="border-top:3px solid var(--red)">
+        <div style="font-size:.68rem;font-weight:700;color:var(--red);letter-spacing:.08em">POLLMAN'S TOURS &amp; SAFARIS</div>
+        <div style="font-size:.8rem;color:var(--muted);margin-top:.5rem;line-height:1.5">50+ years, 200+ vehicle fleet (Land Cruisers, minibuses, luxury coaches). Wins on sheer scale and logistics depth for international agencies.</div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--amber)">
+        <div style="font-size:.68rem;font-weight:700;color:var(--amber);letter-spacing:.08em">SOMAK SAFARIS</div>
+        <div style="font-size:.8rem;color:var(--muted);margin-top:.5rem;line-height:1.5">50+ years, owns its own camps (Ashnil Mara, Samburu, Aruba). Pitches agents on cost advantage from owning the lodges, plus full ground-handling incl. conferences/events.</div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--cyan)">
+        <div style="font-size:.68rem;font-weight:700;color:var(--cyan);letter-spacing:.08em">SUNWORLD SAFARIS</div>
+        <div style="font-size:.8rem;color:var(--muted);margin-top:.5rem;line-height:1.5">Owner-run since 1997, 4x4 specialist, Top Category A member of the Kenya Association of Tour Operators. Closest in size/positioning to Bigfoot.</div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--purple-bright)">
+        <div style="font-size:.68rem;font-weight:700;color:var(--purple-bright);letter-spacing:.08em">MEEKTRAILS SAFARIS</div>
+        <div style="font-size:.8rem;color:var(--muted);margin-top:.5rem;line-height:1.5">Family-owned, 5.0/5 across 282 reviews. Smaller but fast-growing — same review-driven trust model Bigfoot already has.</div>
+      </div>
+    </div>
+
+    <div class="card reveal d4" style="margin-top:1rem;border-left:4px solid var(--purple)">
+      <div style="font-size:.95rem;font-weight:700;color:var(--ink-text)">Where Bigfoot wins: reviews and guide reputation.</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:.3rem">1,492 TripAdvisor reviews at 5.0/5, Travelers' Choice every year since 2019 — none of the four above lead with guide-level review strength the way Bigfoot's reviews already do.</div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Competitive Matrix</div>
+  <div class="chrome-page">03 / 12</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<!-- ============ SLIDE 4 — AGENT PARTNER PATTERNS (dark) ============ -->
+<section class="slide dark" data-i="4">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>Travel Agent Patterns</div>
+    <h2 class="title reveal d2" style="margin:.2rem 0 1rem">
+      How Agent Partners Actually Operate<br>
+      <span style="font-size:.52em;font-weight:500;color:var(--muted-light)">Existing Relationships vs. New-Market Prospect Profiles</span>
+    </h2>
+
+    <div class="split reveal d3" style="gap:1.6rem">
+      <div class="col" style="gap:.8rem">
+        <div class="badge purple" style="width:fit-content">Existing Partners</div>
+        <div class="card">
+          <div style="font-weight:900;color:var(--text)">TeamWise Africa Travel</div>
+          <div style="font-size:.78rem;color:var(--muted-light);margin-top:.3rem">Arusha/Nairobi, founded 2017. Tailor-made safaris, Kilimanjaro climbs, cross-border East Africa journeys. Local + European management.</div>
+        </div>
+        <div class="card">
+          <div style="font-weight:900;color:var(--text)">Cosmic Safaris (Nairobi)</div>
+          <div style="font-size:.78rem;color:var(--muted-light);margin-top:.3rem">17 years crafting East Africa tours. Directors personally involved in every booking — same relationship-first model as Bigfoot itself.</div>
+        </div>
+      </div>
+
+      <div class="col" style="gap:.8rem">
+        <div class="badge cyan" style="width:fit-content">New-Market Prospect Profiles (US)</div>
+        <div class="card">
+          <div style="font-weight:900;color:var(--text)">Protravel International</div>
+          <div style="font-size:.78rem;color:var(--muted-light);margin-top:.3rem">Virtuoso's #1 US producer for 15 consecutive years — the scale end of the market.</div>
+        </div>
+        <div class="card">
+          <div style="font-weight:900;color:var(--text)">Africa Adventure Consultants (Denver)</div>
+          <div style="font-size:.78rem;color:var(--muted-light);margin-top:.3rem">Condé Nast Traveler-recognized advisors, East/Southern Africa specialists — exactly the profile to target for new agent allocations.</div>
+        </div>
+        <div class="card">
+          <div style="font-weight:900;color:var(--text)">Audley Travel US · African Travel Inc. · Micato Safaris</div>
+          <div style="font-size:.78rem;color:var(--muted-light);margin-top:.3rem">Established Kenya-specialist sellers in the US market — a shortlist to prioritize in outbound.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Agent Patterns</div>
+  <div class="chrome-page">04 / 12</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<!-- ============ SLIDE 5 — GUIDE TIER & REVIEW-LINKAGE (light) ============ -->
+<section class="slide light" data-i="5">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>Differentiation Strategy</div>
+    <h2 class="title reveal d2" style="margin:.3rem 0 1rem">
+      Guide Tiers, Tied to Real Reviews<br>
+      <span style="font-size:.52em;font-weight:500;color:var(--muted)">Gold · Silver · Bronze, Built Around Guides Who Already Score Well on TripAdvisor</span>
+    </h2>
+
+    <div class="grid3 reveal d3" style="gap:1rem">
+      <div class="card" style="border-top:4px solid #D4AF37">
+        <div style="font-size:.72rem;font-weight:700;color:#B8860B;letter-spacing:.1em">GOLD TIER</div>
+        <div style="font-size:.85rem;color:var(--muted);margin-top:.5rem;line-height:1.5">Multi-lingual, highest review density, repeat-guest requests. Illustrative example: <strong style="color:var(--ink-text)">Samuel</strong> — "the best tour guide I have ever had," per a January 2026 review.</div>
+      </div>
+      <div class="card" style="border-top:4px solid #B0B0B0">
+        <div style="font-size:.72rem;font-weight:700;color:#8A8A8A;letter-spacing:.1em">SILVER TIER</div>
+        <div style="font-size:.85rem;color:var(--muted);margin-top:.5rem;line-height:1.5">Strong review consistency, named repeatedly by guests. Illustrative examples: <strong style="color:var(--ink-text)">Tony, Francis</strong> — both named across multiple 2026 reviews for patience and animal knowledge.</div>
+      </div>
+      <div class="card" style="border-top:4px solid #B87333">
+        <div style="font-size:.72rem;font-weight:700;color:#B87333;letter-spacing:.1em">BRONZE TIER</div>
+        <div style="font-size:.85rem;color:var(--muted);margin-top:.5rem;line-height:1.5">Building review history, strong on newer routes. Illustrative example: <strong style="color:var(--ink-text)">Elvis, Lawrence</strong> — recently named, trending positive.</div>
+      </div>
+    </div>
+
+    <div class="card reveal d4" style="margin-top:1rem;border-left:4px solid var(--purple)">
+      <div style="font-size:.85rem;color:var(--muted);line-height:1.5"><strong style="color:var(--ink-text)">This tiering is a proposed framework, not a final assignment</strong> — actual tiers need Daniel's roster and language data to lock. The point: Bigfoot already has the review proof to make this real, most competitors don't.</div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Guide Strategy</div>
+  <div class="chrome-page">05 / 12</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<!-- ============ SLIDE 6 — VOICE OF THE GUEST (dark) ============ -->
+<section class="slide dark" data-i="6">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>Voice of the Guest</div>
+    <h2 class="title reveal d2" style="margin:.2rem 0 .6rem;text-align:center">
+      What 1,492 Reviewers Are Actually Saying<br>
+      <span class="purple" style="font-size:.55em">Pulled Directly from TripAdvisor</span>
+    </h2>
+
+    <div class="card reveal d3" style="background:#0F0D16;border:1px solid var(--purple-border)">
+      <div class="wcloud">
+        <span class="wc1">MAASAI MARA</span>
+        <span class="wc2">KNOWLEDGEABLE</span>
+        <span class="wc1">AMAZING</span>
+        <span class="wc3">PATIENT</span>
+        <span class="wc2">BIG FIVE</span>
+        <span class="wc1">PROFESSIONAL</span>
+        <span class="wc3">PUNCTUAL</span>
+        <span class="wc2">LAND CRUISER</span>
+        <span class="wc4">EYESIGHT</span>
+        <span class="wc3">GAME DRIVES</span>
+        <span class="wc2">SAFE</span>
+        <span class="wc4">LAKE NAKURU</span>
+        <span class="wc3">RECOMMEND</span>
+        <span class="wc1">ONCE IN A LIFETIME</span>
+        <span class="wc4">SAMBURU</span>
+        <span class="wc3">SEAMLESS</span>
+        <span class="wc2">INCREDIBLE</span>
+        <span class="wc4">MIGRATION</span>
+        <span class="wc3">FLEXIBLE</span>
+        <span class="wc2">WILDLIFE</span>
+        <span class="wc4">WELCOMING</span>
+        <span class="wc3">FAMILY</span>
+        <span class="wc4">EXCELLENT</span>
+        <span class="wc3">UNFORGETTABLE</span>
+        <span class="wc4">FUN</span>
+        <span class="wc4">CONFIDENT</span>
+      </div>
+    </div>
+    <p class="lede reveal d4" style="text-align:center;margin:.8rem auto 0;max-width:70ch">
+      No complaints about price, booking friction, or communication gaps in the pattern — the language guests reach for is guide competence and emotional payoff. That's the raw material for every piece of guide-tier and testimonial content going forward.
+    </p>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Review Mining</div>
+  <div class="chrome-page">06 / 12</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<!-- ============ SLIDE 7 — CONTENT & SECURITY (light) ============ -->
+<section class="slide light" data-i="7">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>Content &amp; Account Security</div>
+    <h2 class="title reveal d2" style="margin:.3rem 0 1rem">
+      Current Content, and a Security Problem to Fix First<br>
+    </h2>
+
+    <div class="split reveal d3" style="gap:1.6rem">
+      <div class="col" style="gap:.9rem">
+        <div class="card">
+          <div style="font-weight:900;color:var(--ink-text)">Where things stand</div>
+          <div style="font-size:.85rem;color:var(--muted);margin-top:.4rem;line-height:1.55">
+            Facebook carries a mature 31K-follower audience built over years. Instagram sits far smaller — not from neglect, but because <strong style="color:var(--ink-text)">the Instagram account was hacked.</strong> That's a security incident to resolve, not a content-volume problem.
+          </div>
+        </div>
+        <div class="card" style="border-left:4px solid var(--purple)">
+          <div style="font-weight:900;color:var(--ink-text)">Content strategy going forward</div>
+          <div style="font-size:.85rem;color:var(--muted);margin-top:.4rem;line-height:1.55">
+            Light-touch, not a production engine: curate and repost viral East-Africa wildlife moments already circulating, mixed with Bigfoot's own guide/fleet/day-tour highlights. Agents don't need destination-awareness content — they've already recce'd Kenya.
+          </div>
+        </div>
+      </div>
+
+      <div class="col" style="gap:.6rem">
+        <div class="badge red" style="width:fit-content">Security — Do First</div>
+        <div class="card">
+          <ul style="font-size:.83rem;color:var(--muted);line-height:1.9;padding-left:1.1rem">
+            <li>Audit current admin/owner access on both Facebook and Instagram</li>
+            <li>Enable 2FA on every business social account</li>
+            <li>Consolidate admin roles to Daniel + one verified backup</li>
+            <li>Initiate platform account-recovery for the compromised Instagram account</li>
+            <li>Move brand assets into a secured, shared business manager</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Content &amp; Security</div>
+  <div class="chrome-page">07 / 12</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<!-- ============ SLIDE 8 — WEBSITE GAP AUDIT (dark) ============ -->
+<section class="slide dark" data-i="8">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>Website Audit</div>
+    <h2 class="title reveal d2" style="margin:.2rem 0 1rem">
+      The Current Site Sells the Wrong Business<br>
+      <span style="font-size:.52em;font-weight:500;color:var(--muted-light)">Where It Doesn't Match How Bigfoot Actually Wins Business</span>
+    </h2>
+
+    <div class="split reveal d3" style="gap:1.6rem">
+      <div class="col" style="gap:.7rem">
+        <div class="badge red" style="width:fit-content">What's Working Against the Pivot</div>
+        <div class="card" style="border-left:4px solid var(--red)">
+          <div style="font-size:.85rem;color:var(--text);line-height:1.6">The homepage states, verbatim: <em>"Every itinerary is managed in-house by Bigfoot Adventures — no middle agents."</em> That directly contradicts the actual business — travel agents are the money-maker, not something to route around.</div>
+        </div>
+        <div class="card">
+          <div style="font-size:.82rem;color:var(--muted-light);line-height:1.7">No agent-facing rate-request path · No downloadable fleet/guide spec sheet · No dedicated trade/B2B section · Contact form treats every inquiry as consumer-only</div>
+        </div>
+      </div>
+
+      <div class="col" style="gap:.7rem">
+        <div class="badge emerald" style="width:fit-content">Recommended New Site</div>
+        <div class="card">
+          <ul style="font-size:.83rem;color:var(--muted-light);line-height:1.9;padding-left:1.1rem">
+            <li>New "Travel Trade / Partners" section with a rate-request flow (not public pricing)</li>
+            <li>Guide showcase built on the Gold/Silver/Bronze tiering</li>
+            <li>Fleet page reframed around reliability and terrain capability for agents booking on their client's behalf</li>
+            <li>Keep destinations, deals, and FAQ content — those are already solid and don't need rebuilding</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Site Audit</div>
+  <div class="chrome-page">08 / 12</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<!-- ============ SLIDE 9 — AUTOMATIONS, ILLUSTRATED (dark) ============ -->
+<section class="slide dark" data-i="9">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>What We'll Build</div>
+    <h2 class="title reveal d2" style="margin:.2rem 0 1rem">
+      How the Automations Actually Work<br>
+      <span style="font-size:.52em;font-weight:500;color:var(--muted-light)">Every Step Lands in Zoho. Nothing Closes Without Daniel.</span>
+    </h2>
+
+    <div class="flow reveal d3">
+      <div class="card fcard" style="border-top:3px solid var(--cyan);text-align:center">
+        <div style="font-size:1.4rem">📩</div>
+        <div style="font-size:.78rem;font-weight:700;color:var(--text);margin-top:.4rem">Inbound Inquiry</div>
+        <div style="font-size:.68rem;color:var(--muted-light);margin-top:.3rem">WhatsApp, email, or website form — B2C or agent</div>
+      </div>
+      <div class="farrow">→</div>
+      <div class="card fcard" style="border-top:3px solid var(--purple-bright);text-align:center">
+        <div style="font-size:1.4rem">🤖</div>
+        <div style="font-size:.78rem;font-weight:700;color:var(--text);margin-top:.4rem">AI Qualification Agent</div>
+        <div style="font-size:.68rem;color:var(--muted-light);margin-top:.3rem">Tags B2C vs. agent, gathers trip details — never quotes</div>
+      </div>
+      <div class="farrow">→</div>
+      <div class="card fcard" style="border-top:3px solid var(--amber);text-align:center">
+        <div style="font-size:1.4rem">📇</div>
+        <div style="font-size:.78rem;font-weight:700;color:var(--text);margin-top:.4rem">Zoho CRM Record</div>
+        <div style="font-size:.68rem;color:var(--muted-light);margin-top:.3rem">Every conversation logged automatically, nothing siloed</div>
+      </div>
+      <div class="farrow">→</div>
+      <div class="card fcard" style="border-top:3px solid var(--emerald);text-align:center">
+        <div style="font-size:1.4rem">🧑‍💼</div>
+        <div style="font-size:.78rem;font-weight:700;color:var(--text);margin-top:.4rem">Daniel Quotes &amp; Closes</div>
+        <div style="font-size:.68rem;color:var(--muted-light);margin-top:.3rem">Manual, by design — the human touch stays</div>
+      </div>
+    </div>
+
+    <div class="grid3 reveal d4" style="gap:1rem;margin-top:1.2rem">
+      <div class="card" style="border-left:3px solid var(--purple)">
+        <div style="font-size:.78rem;font-weight:700;color:var(--purple-bright)">Agent Nurture Sequence</div>
+        <div style="font-size:.75rem;color:var(--muted-light);margin-top:.3rem">Seasonal inventory + migration-window pushes to the 15 existing agents, running in Zoho year-round</div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--cyan)">
+        <div style="font-size:.78rem;font-weight:700;color:var(--cyan)">Review-Request Automation</div>
+        <div style="font-size:.75rem;color:var(--muted-light);margin-top:.3rem">Post-trip WhatsApp/email prompt, tagged to the specific guide who led the trip</div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--emerald)">
+        <div style="font-size:.78rem;font-weight:700;color:var(--emerald)">Dashboard</div>
+        <div style="font-size:.75rem;color:var(--muted-light);margin-top:.3rem">Bookings and revenue by agent and source market, fed from Zoho</div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Automation Blueprint</div>
+  <div class="chrome-page">09 / 12</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<!-- ============ SLIDE 10 — NEW CHANNEL OPPORTUNITIES (light) ============ -->
+<section class="slide light" data-i="10">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>New Channels</div>
+    <h2 class="title reveal d2" style="margin:.3rem 0 1rem">
+      Channels Worth Opening Next<br>
+      <span style="font-size:.52em;font-weight:500;color:var(--muted)">Mapped and Ready to Scope</span>
+    </h2>
+
+    <div class="grid2 reveal d3" style="gap:1.2rem">
+      <div class="card" style="border-top:4px solid var(--cyan)">
+        <div style="font-size:1.05rem;font-weight:900;color:var(--ink-text)">🚢 Cruise-Line Ground Handling</div>
+        <p style="font-size:.83rem;color:var(--muted);margin-top:.5rem;line-height:1.55">Mombasa is a growing port-of-call for East Africa/Indian Ocean cruise itineraries. Identifying which lines call and who currently handles their shore excursions is the next scoping step — not yet named, deliberately, until verified.</p>
+      </div>
+      <div class="card" style="border-top:4px solid var(--purple-bright)">
+        <div style="font-size:1.05rem;font-weight:900;color:var(--ink-text)">🎪 Trade Shows</div>
+        <p style="font-size:.83rem;color:var(--muted);margin-top:.5rem;line-height:1.55">ATM Dubai (strong Indian/Gulf reach), WTM London and ITB Berlin (European reach) map directly onto the target source markets. Attendance depends on Daniel's existing contacts — worth checking before committing budget.</p>
+      </div>
+    </div>
+
+    <div class="card reveal d4" style="margin-top:1rem;border-left:4px solid var(--purple)">
+      <div style="font-size:.85rem;color:var(--muted);line-height:1.5"><strong style="color:var(--ink-text)">Secondary channel, already validated:</strong> impact organizations and school groups (Maranatha is a confirmed past client, found independently in a real TripAdvisor review) — a real, low-cost channel worth light prospecting.</div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Channel Mapping</div>
+  <div class="chrome-page">10 / 12</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<!-- ============ SLIDE 11 — US LEAD LIST, WIP (dark) ============ -->
+<section class="slide dark" data-i="11">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>Lead Generation · Work in Progress</div>
+    <h2 class="title reveal d2" style="margin:.2rem 0 1rem">
+      US Agents Worth Prospecting First<br>
+      <span style="font-size:.52em;font-weight:500;color:var(--muted-light)">First Confirmed Batch, Scaling Toward 100</span>
+    </h2>
+
+    <div class="reveal d3" style="background:#13101C;border:1px solid var(--border);border-radius:12px;padding:1.2rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem">
+        <span style="font-size:.72rem;font-weight:700;letter-spacing:.12em;color:var(--purple-bright)">CONFIRMED SO FAR</span>
+        <span class="badge amber">6 of 100 target</span>
+      </div>
+      <div class="grid3" style="gap:.7rem;font-size:.82rem">
+        <div style="background:#1A1726;padding:.6rem .8rem;border-radius:6px">Protravel International</div>
+        <div style="background:#1A1726;padding:.6rem .8rem;border-radius:6px">Africa Adventure Consultants</div>
+        <div style="background:#1A1726;padding:.6rem .8rem;border-radius:6px">Audley Travel US</div>
+        <div style="background:#1A1726;padding:.6rem .8rem;border-radius:6px">African Travel Inc.</div>
+        <div style="background:#1A1726;padding:.6rem .8rem;border-radius:6px">Micato Safaris</div>
+        <div style="background:#1A1726;padding:.6rem .8rem;border-radius:6px">Virtuoso Network (directory to mine further)</div>
+      </div>
+    </div>
+
+    <p class="lede reveal d4" style="margin-top:1rem">
+      This is deliberately a first real pass, not a padded list — every name above is independently verified. Scaling to 100 means mining the full Virtuoso and ASTA Africa-specialist directories and identifying named individual advisors at each agency, which is its own research pass.
+    </p>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Lead Generation</div>
+  <div class="chrome-page">11 / 12</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<!-- ============ SLIDE 12 — NEXT STEPS (dark) ============ -->
+<section class="slide dark" data-i="12">
+  <div class="inner" style="text-align:center">
+    <div class="eyebrow reveal d1" style="justify-content:center"><span class="dot"></span>Recommended Next Steps</div>
+    <h2 class="display reveal d2" style="margin:.6rem 0 .8rem;font-size:clamp(2rem,4.2vw,3.4rem)">
+      Fix The Foundation.<br><span class="purple">Then Build.</span>
+    </h2>
+    <p class="lede reveal d3" style="margin:0 auto 1.2rem;max-width:64ch;text-align:center">
+      Secure Instagram, confirm the guide-tier roster, correct the site's "no middle agents" messaging, and get Zoho/WhatsApp access moving — every one of these unblocks the actual build.
+    </p>
+
+    <div class="card reveal d4" style="background:rgba(160,4,223,.14);border:2px solid var(--purple-bright);display:inline-block;padding:1.4rem 2.2rem;max-width:640px;margin:0 auto;text-align:left">
+      <div style="font-size:.85rem;color:var(--muted-light);line-height:1.9">
+        1. Account-security pass on Instagram (recovery + 2FA)<br>
+        2. Confirm guide roster + tier assignments with Daniel<br>
+        3. Send Zoho/WhatsApp access request (blocks Day 1 of the build)<br>
+        4. Scale the US agent list toward 100, add UK/EU and Japan/India passes<br>
+        5. Scope cruise-line ground handling once port-call data is verified
+      </div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Trance AI &amp; Bigfoot Adventures</div>
+  <div class="chrome-page">12 / 12</div>
+  <div class="chrome-side">Internal — Trance AI 2026</div>
+</section>
+
+</main>
+
+<script>
+(function() {
+  const deck = document.getElementById('deck');
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const dotsContainer = document.getElementById('dots');
+  const hint = document.getElementById('hint');
+  let activeIndex = 0;
+
+  slides.forEach((slide, idx) => {
+    const btn = document.createElement('button');
+    btn.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+    if (idx === 0) btn.classList.add('active');
+    btn.addEventListener('click', () => {
+      slides[idx].scrollIntoView({ behavior: 'smooth' });
+    });
+    dotsContainer.appendChild(btn);
+  });
+
+  const dots = Array.from(dotsContainer.querySelectorAll('button'));
+
+  function updateActiveSlide() {
+    const scrollPos = deck.scrollTop;
+    const viewHeight = window.innerHeight;
+    const currentIndex = Math.round(scrollPos / viewHeight);
+
+    if (currentIndex !== activeIndex) {
+      if (slides[activeIndex]) slides[activeIndex].classList.add('exiting');
+      activeIndex = currentIndex;
+    }
+
+    slides.forEach((slide, idx) => {
+      if (idx === activeIndex) {
+        slide.classList.add('visible');
+        slide.classList.remove('exiting');
+      } else {
+        slide.classList.remove('visible');
+      }
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === activeIndex);
+    });
+
+    const totalScroll = deck.scrollHeight - viewHeight;
+    const progressPercent = totalScroll > 0 ? (scrollPos / totalScroll) * 100 : 0;
+    progress.style.width = `${progressPercent}%`;
+
+    if (activeIndex > 1 && hint) {
+      hint.style.opacity = '0';
+    }
+  }
+
+  deck.addEventListener('scroll', updateActiveSlide, { passive: true });
+  updateActiveSlide();
+
+  window.addEventListener('keydown', (e) => {
+    if (['ArrowDown', 'PageDown', ' '].includes(e.key)) {
+      e.preventDefault();
+      if (activeIndex < slides.length - 1) {
+        slides[activeIndex + 1].scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (['ArrowUp', 'PageUp'].includes(e.key)) {
+      e.preventDefault();
+      if (activeIndex > 0) {
+        slides[activeIndex - 1].scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      slides[0].scrollIntoView({ behavior: 'smooth' });
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      slides[slides.length - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+})();
+</script>
+</body>
+</html>
