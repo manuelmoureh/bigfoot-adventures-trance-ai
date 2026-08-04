@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Website Audit — Bigfoot Adventures Ltd · Trance AI</title>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
+<style>
+:root {
+  font-size: clamp(13px, 2.2vh, 16px);
+  --ink: #0A090D; --surface: #110F17; --card: #181524; --card-hover: #211C33; --border: #2D2744;
+  --paper: #FAF9FC; --paper-warm: #F4F1F9;
+  --text: #FAF8FC; --ink-text: #0B0A10; --muted: #797193; --muted-light: #A49BBE; --hairline: #E2DDF0;
+  --purple: #A004DF; --purple-bright: #B52DF0; --purple-glow: rgba(160, 4, 223, 0.45); --purple-soft: rgba(160, 4, 223, 0.12); --purple-border: rgba(160, 4, 223, 0.35); --deep-violet: #5200A8;
+  --cyan: #06B6D4; --magenta: #EC4899; --amber: #F59E0B; --emerald: #10B981; --red: #EF4444;
+  --maxw: 1200px; --ease: cubic-bezier(.22, .61, .36, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: auto; overflow: hidden; height: 100%; font-size: clamp(14px, 1.15vw, 22px); }
+body { font-family: 'Satoshi', system-ui, -apple-system, sans-serif; background: var(--ink); color: var(--text); -webkit-font-smoothing: antialiased; overflow: hidden; height: 100%; }
+.deck { height: 100dvh; overflow-y: scroll; scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+.slide { position: relative; height: 100dvh; min-height: 0; scroll-snap-align: start; scroll-snap-stop: always; display: flex; flex-direction: column; justify-content: center; padding: clamp(.5rem, 2vh, 2.5rem) clamp(1.4rem, 5vw, 5rem); overflow: hidden; }
+.slide.dark { background: var(--ink); color: var(--text); }
+.slide.light { background: var(--paper); color: var(--ink-text); }
+.slide.warm { background: var(--paper-warm); color: var(--ink-text); }
+.inner { width: 100%; max-width: var(--maxw); margin: 0 auto; position: relative; z-index: 2; }
+.slide.dark::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(rgba(160, 4, 223, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(160, 4, 223, 0.04) 1px, transparent 1px); background-size: 44px 44px; -webkit-mask-image: radial-gradient(ellipse 95% 80% at 50% 40%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 95% 80% at 50% 40%, #000 55%, transparent 100%); }
+.slide.light::before, .slide.warm::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(rgba(82, 0, 168, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(82, 0, 168, 0.035) 1px, transparent 1px); background-size: 44px 44px; -webkit-mask-image: radial-gradient(ellipse 95% 80% at 50% 40%, #000 50%, transparent 100%); mask-image: radial-gradient(ellipse 95% 80% at 50% 40%, #000 50%, transparent 100%); }
+.eyebrow { font-size: clamp(.62rem, .8vw, .75rem); font-weight: 700; letter-spacing: .26em; text-transform: uppercase; color: var(--muted); display: inline-flex; align-items: center; gap: .6rem; }
+.dark .eyebrow { color: var(--muted-light); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--purple); flex: none; box-shadow: 0 0 0 0 var(--purple-glow); animation: pulse 2.6s var(--ease) infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 var(--purple-glow); } 70% { box-shadow: 0 0 0 10px rgba(160, 4, 223, 0); } 100% { box-shadow: 0 0 0 0 rgba(160, 4, 223, 0); } }
+h1, h2, h3 { font-weight: 900; line-height: 1.04; letter-spacing: -.025em; }
+.display { font-size: clamp(2.2rem, 5.6vw, 4.4rem); font-weight: 900; line-height: 1.04; letter-spacing: -.03em; }
+.title { font-size: clamp(1.7rem, 3.8vw, 2.9rem); font-weight: 900; line-height: 1.06; letter-spacing: -.025em; }
+.subtitle { font-size: clamp(1.05rem, 1.75vw, 1.35rem); font-weight: 500; color: var(--muted); line-height: 1.45; }
+.dark .subtitle { color: var(--muted-light); }
+.lede { font-size: clamp(.98rem, 1.35vw, 1.12rem); line-height: 1.6; color: var(--muted); max-width: 64ch; }
+.dark .lede { color: var(--muted-light); }
+.purple { color: var(--purple-bright); }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: clamp(1rem, 2vw, 1.5rem); transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
+.light .card, .warm .card { background: #fff; border-color: var(--hairline); box-shadow: 0 1px 3px rgba(10,9,13,.04); }
+.dark .card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.42); border-color: var(--purple-border); }
+.light .card:hover, .warm .card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(10,9,13,.08); }
+.inner { opacity: 0; transform: scale(.96) translateY(16px); transition: opacity 1.1s cubic-bezier(.16, 1, .3, 1), transform 1.1s cubic-bezier(.16, 1, .3, 1); }
+.slide.visible .inner { opacity: 1; transform: none; }
+.slide.exiting .inner { opacity: 0 !important; transform: scale(.97) translateY(-10px) !important; transition: opacity .38s cubic-bezier(.55, 0, 1, .45), transform .38s cubic-bezier(.55, 0, 1, .45) !important; }
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.slide.visible .reveal { opacity: 1; transform: none; }
+.slide.visible .reveal.d1 { transition-delay: .08s; } .slide.visible .reveal.d2 { transition-delay: .16s; } .slide.visible .reveal.d3 { transition-delay: .24s; } .slide.visible .reveal.d4 { transition-delay: .32s; } .slide.visible .reveal.d5 { transition-delay: .40s; }
+.chrome-foot, .chrome-page, .chrome-side { position: absolute; z-index: 5; font-size: .62rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); opacity: .65; pointer-events: none; }
+.dark .chrome-foot, .dark .chrome-page, .dark .chrome-side { color: var(--muted-light); opacity: .55; }
+.chrome-foot { left: clamp(1.4rem, 6vw, 3.2rem); bottom: clamp(1.2rem, 3vw, 1.8rem); display: flex; align-items: center; gap: .5rem; }
+.chrome-page { right: clamp(1.4rem, 6vw, 3.2rem); bottom: clamp(1.2rem, 3vw, 1.8rem); }
+.chrome-side { right: .5rem; bottom: clamp(1.2rem, 3vw, 1.8rem); transform: rotate(180deg); writing-mode: vertical-rl; letter-spacing: .32em; font-size: .55rem; opacity: .4; }
+.chrome-foot .fdot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); opacity: .9; }
+#progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--purple); width: 0; z-index: 60; transition: width .15s linear; box-shadow: 0 0 10px var(--purple-glow); }
+#dots { position: fixed; right: clamp(.5rem, 1.4vw, 1rem); top: 50%; transform: translateY(-50%); z-index: 55; display: flex; flex-direction: column; gap: 9px; }
+#dots button { width: 9px; height: 9px; border-radius: 50%; border: 1px solid var(--muted); background: transparent; cursor: pointer; padding: 0; transition: all .3s var(--ease); }
+#dots button.active { background: var(--purple); border-color: var(--purple-bright); transform: scale(1.4); box-shadow: 0 0 8px var(--purple-glow); }
+#dots button:hover { border-color: var(--purple-bright); }
+@media(max-width:760px){ #dots { display: none; } .chrome-side { display: none; } }
+.row { display: flex; gap: clamp(1rem, 2.4vw, 2.2rem); align-items: center; flex-wrap: wrap; }
+.col { display: flex; flex-direction: column; }
+.split { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(1.4rem, 4vw, 3.4rem); align-items: center; }
+@media(max-width:880px){ .split { grid-template-columns: 1fr; gap: 1.6rem; } }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.8rem, 1.6vw, 1.2rem); }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.8rem, 1.6vw, 1.2rem); }
+.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(.7rem, 1.4vw, 1rem); }
+@media(max-width:880px){ .grid3, .grid4 { grid-template-columns: 1fr 1fr; } .grid2 { grid-template-columns: 1fr; } }
+@media(max-width:560px){ .grid3, .grid4 { grid-template-columns: 1fr; } }
+.badge { display: inline-flex; align-items: center; gap: .5rem; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: .4rem .75rem; border-radius: 100px; border: 1px solid var(--border); }
+.light .badge, .warm .badge { border-color: var(--hairline); }
+.badge.purple { background: var(--purple-soft); border-color: var(--purple-border); color: var(--purple-bright); }
+.badge.cyan { background: rgba(6,182,212,.1); border-color: rgba(6,182,212,.4); color: var(--cyan); }
+.badge.emerald { background: rgba(16,185,129,.1); border-color: rgba(16,185,129,.4); color: var(--emerald); }
+.badge.red { background: rgba(239,68,68,.1); border-color: rgba(239,68,68,.4); color: var(--red); }
+.badge.amber { background: rgba(245,158,11,.1); border-color: rgba(245,158,11,.4); color: var(--amber); }
+.kbd-hint { position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%); z-index: 55; font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); opacity: .6; display: flex; gap: .6rem; align-items: center; transition: opacity .6s; background: rgba(10,9,13,.75); padding: .3rem .8rem; border-radius: 20px; border: 1px solid var(--border); }
+@media(max-width:760px){ .kbd-hint { display: none; } }
+.sev { display: inline-flex; align-items: center; gap: .4rem; font-size: .68rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; padding: .3rem .65rem; border-radius: 6px; }
+.sev.crit { background: rgba(239,68,68,.14); color: var(--red); }
+.sev.mod { background: rgba(245,158,11,.14); color: var(--amber); }
+.sev.good { background: rgba(16,185,129,.14); color: var(--emerald); }
+@media(max-width:760px){
+  #dots { display: none; } .chrome-side { display: none; }
+  .slide { padding-top: 2.8rem; padding-bottom: 2.8rem; }
+  .inner { max-height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .inner::-webkit-scrollbar { display: none; }
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<nav id="dots" aria-label="Slide navigation"></nav>
+<div class="kbd-hint" id="hint"><span>&#8595; / Space — Next</span><span>·</span><span>&#8593; — Prev</span></div>
+<main class="deck" id="deck">
+
+<section class="slide dark" data-i="1">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>TRANCE AI · WEBSITE AUDIT</div>
+    <h1 class="display reveal d2" style="font-size:clamp(2.3rem,4.8vw,4rem);margin-top:1rem">
+      What bigfoot-adventures.com<br>Gets Right, and What's<br><span class="purple">Quietly Costing Bookings.</span>
+    </h1>
+    <p class="subtitle reveal d3" style="max-width:56ch;margin-top:1rem">
+      A page-by-page pass across the live site — destinations, packages, deals, transport, contact, plus the technical basics. Real findings, not a generic checklist.
+    </p>
+    <div class="reveal d4" style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.2rem">
+      <span class="badge">Prepared Exclusively for Bigfoot Leadership</span>
+      <span class="badge purple"><span class="dot"></span>Site Audit</span>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Presented by Trance AI</div>
+  <div class="chrome-page">01 / 09</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<section class="slide light" data-i="2">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>Scorecard</div>
+    <h2 class="title reveal d2" style="margin:.3rem 0 1rem">Where the Site Actually Stands</h2>
+    <div class="grid2 reveal d3" style="gap:1rem">
+      <div class="card" style="border-top:3px solid var(--red)">
+        <span class="sev crit">Critical</span>
+        <div style="font-weight:900;margin-top:.6rem;color:var(--ink-text)">Expired deals still live on the homepage</div>
+        <div style="font-size:.8rem;color:var(--muted);margin-top:.3rem">Both featured offers expired months ago and are still being promoted</div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--red)">
+        <span class="sev crit">Critical</span>
+        <div style="font-weight:900;margin-top:.6rem;color:var(--ink-text)">Packages page has one package</div>
+        <div style="font-size:.8rem;color:var(--muted);margin-top:.3rem">Copy promises "sample itineraries" (plural); one exists</div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--amber)">
+        <span class="sev mod">Moderate</span>
+        <div style="font-weight:900;margin-top:.6rem;color:var(--ink-text)">No agent or trade path anywhere on the site</div>
+        <div style="font-size:.8rem;color:var(--muted);margin-top:.3rem">Every form and message is written for a consumer, never an agent</div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--emerald)">
+        <span class="sev good">Working Well</span>
+        <div style="font-weight:900;margin-top:.6rem;color:var(--ink-text)">Fleet detail, destination content, real certifications</div>
+        <div style="font-size:.8rem;color:var(--muted);margin-top:.3rem">Genuinely strong groundwork — needs repositioning, not rebuilding</div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Scorecard</div>
+  <div class="chrome-page">02 / 09</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<section class="slide dark" data-i="3">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>Critical Finding</div>
+    <h2 class="title reveal d2" style="margin:.3rem 0 1rem">The Homepage Is Selling Dead Offers</h2>
+    <div class="split reveal d3">
+      <div class="col" style="gap:.9rem">
+        <p class="lede">The "Amazing Deals" section on the homepage features exactly two offers. Both are marked <strong style="color:var(--text)">Expired</strong> on the deals page itself:</p>
+        <div class="card" style="border-left:3px solid var(--red)">
+          <div style="font-weight:700;color:var(--text)">2 Nights Entim Mara Platinum Getaway</div>
+          <div style="font-size:.78rem;color:var(--muted-light);margin-top:.2rem">23% off — valid until Nov 30, 2025 (expired)</div>
+        </div>
+        <div class="card" style="border-left:3px solid var(--red)">
+          <div style="font-weight:700;color:var(--text)">2 Nights High-End Ilkeliani Mara Camp</div>
+          <div style="font-size:.78rem;color:var(--muted-light);margin-top:.2rem">48% off — valid until Nov 15, 2025 (expired)</div>
+        </div>
+      </div>
+      <div class="card" style="background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.3)">
+        <div style="font-weight:900;color:var(--text)">Why it matters</div>
+        <div style="font-size:.85rem;color:var(--muted-light);margin-top:.5rem;line-height:1.6">A visitor who clicks through on a 48% discount that's no longer honored is a trust problem, not just a stale-content one — and it's the first thing "Don't miss out on these incredible deals" shows every visitor.</div>
+        <div style="font-weight:900;color:var(--text);margin-top:1rem">Fix</div>
+        <div style="font-size:.85rem;color:var(--muted-light);margin-top:.3rem">Pull expired deals immediately, add an expiry check so this can't recur silently.</div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Content Hygiene</div>
+  <div class="chrome-page">03 / 09</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<section class="slide light" data-i="4">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>Critical Finding</div>
+    <h2 class="title reveal d2" style="margin:.3rem 0 1rem">The Catalog Is Thinner Than the Copy Suggests</h2>
+    <div class="grid2 reveal d3" style="gap:1.2rem">
+      <div class="card">
+        <div style="font-weight:900;color:var(--ink-text)">Holiday Packages page</div>
+        <div style="font-size:.85rem;color:var(--muted);margin-top:.5rem;line-height:1.6">Copy reads "browse our sample itineraries for inspiration" — the page lists <strong style="color:var(--ink-text)">exactly one</strong> package (Maasai Mara Safari Adventure, 4 days/3 nights, from $3,000).</div>
+      </div>
+      <div class="card">
+        <div style="font-weight:900;color:var(--ink-text)">Deals page</div>
+        <div style="font-size:.85rem;color:var(--muted);margin-top:.5rem;line-height:1.6">"2 Holiday Deals" — both expired, covered on the previous slide. No active promotion exists anywhere on the site right now.</div>
+      </div>
+    </div>
+    <div class="card reveal d4" style="margin-top:1rem;border-left:4px solid var(--purple)">
+      <div style="font-size:.85rem;color:var(--muted);line-height:1.5"><strong style="color:var(--ink-text)">This is a fast fix, not a redesign.</strong> The destinations content (next slide) proves the team can build rich pages — packages and deals just haven't been kept current.</div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Content Hygiene</div>
+  <div class="chrome-page">04 / 09</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<section class="slide dark" data-i="5">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>Structural Finding</div>
+    <h2 class="title reveal d2" style="margin:.2rem 0 1rem">Every Path on the Site Assumes a Consumer</h2>
+    <div class="grid3 reveal d3" style="gap:1rem">
+      <div class="card">
+        <div style="font-weight:900;color:var(--text)">Homepage messaging</div>
+        <div style="font-size:.8rem;color:var(--muted-light);margin-top:.4rem;line-height:1.5">States outright: "no middle agents" — directly at odds with agents being the main revenue driver.</div>
+      </div>
+      <div class="card">
+        <div style="font-weight:900;color:var(--text)">Contact form</div>
+        <div style="font-size:.8rem;color:var(--muted-light);margin-top:.4rem;line-height:1.5">One generic form, free-text "Subject" field. No way to indicate "I'm booking on behalf of a client."</div>
+      </div>
+      <div class="card">
+        <div style="font-weight:900;color:var(--text)">Transport quote form</div>
+        <div style="font-size:.8rem;color:var(--muted-light);margin-top:.4rem;line-height:1.5">Has a Service Type dropdown (Airport/Day Tour/Corporate/Group) — but nothing for trade or agent bookings.</div>
+      </div>
+    </div>
+    <div class="card reveal d4" style="margin-top:1rem;border-left:4px solid var(--purple);background:rgba(160,4,223,.08)">
+      <div style="font-size:.9rem;color:var(--text);line-height:1.5">Also inconsistent: a WhatsApp link appears on the Transport page but not on Contact Us — the fastest channel isn't reliably offered.</div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Structural Gaps</div>
+  <div class="chrome-page">05 / 09</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<section class="slide light" data-i="6">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>Technical &amp; SEO Snapshot</div>
+    <h2 class="title reveal d2" style="margin:.3rem 0 1rem">A Mixed but Fixable Technical Picture</h2>
+    <div class="grid2 reveal d3" style="gap:1rem">
+      <div class="col" style="gap:.7rem">
+        <div class="badge emerald" style="width:fit-content">Solid Foundation</div>
+        <div class="card">
+          <ul style="font-size:.83rem;color:var(--muted);line-height:1.9;padding-left:1.1rem">
+            <li>Structured data (schema.org) present on the homepage</li>
+            <li>Meta description and Open Graph tags are well-written</li>
+            <li>Every image has alt text — no accessibility gap there</li>
+            <li>Mobile viewport meta configured correctly</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col" style="gap:.7rem">
+        <div class="badge amber" style="width:fit-content">Needs Attention</div>
+        <div class="card">
+          <ul style="font-size:.83rem;color:var(--muted);line-height:1.9;padding-left:1.1rem">
+            <li>Homepage has 4 H1 headings — should be one per page for SEO clarity</li>
+            <li>No email address published anywhere, only phone and a web form</li>
+            <li>South Africa listed under "Destinations" without qualifying it's outside East Africa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Technical Snapshot</div>
+  <div class="chrome-page">06 / 09</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<section class="slide dark" data-i="7">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>What's Actually Working</div>
+    <h2 class="title reveal d2" style="margin:.2rem 0 1rem">Don't Rebuild What Isn't Broken</h2>
+    <div class="grid3 reveal d3" style="gap:1rem">
+      <div class="card" style="border-top:3px solid var(--emerald)">
+        <div style="font-weight:900;color:var(--text)">Fleet detail is genuinely strong</div>
+        <div style="font-size:.8rem;color:var(--muted-light);margin-top:.4rem;line-height:1.5">Land Cruiser Prado, Custom Safari Cruisers, Hiace Executive Vans, Coaster buses — specs and use-cases already documented. Just needs to reach agents, not just travelers.</div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--emerald)">
+        <div style="font-weight:900;color:var(--text)">Destinations content is rich</div>
+        <div style="font-size:.8rem;color:var(--muted-light);margin-top:.4rem;line-height:1.5">Kenya, Uganda, and South Africa regions each have real detail — best-time-to-visit, highlights, combinable routes.</div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--emerald)">
+        <div style="font-weight:900;color:var(--text)">Real certifications, underused</div>
+        <div style="font-size:.8rem;color:var(--muted-light);margin-top:.4rem;line-height:1.5">KATO, TOSK, and TRA membership are mentioned once, on the Transport page only — this is exactly the kind of trust signal agents look for and it's buried.</div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Strengths</div>
+  <div class="chrome-page">07 / 09</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<section class="slide light" data-i="8">
+  <div class="inner">
+    <div class="eyebrow reveal d1"><span class="dot"></span>Recommended Fixes</div>
+    <h2 class="title reveal d2" style="margin:.3rem 0 1rem">Prioritized, Not a Wish List</h2>
+    <div class="grid2 reveal d3" style="gap:1.2rem">
+      <div class="col" style="gap:.7rem">
+        <div class="badge red" style="width:fit-content">Fix This Week</div>
+        <div class="card">
+          <ul style="font-size:.83rem;color:var(--muted);line-height:1.9;padding-left:1.1rem">
+            <li>Pull the two expired deals off the homepage and deals page</li>
+            <li>Add at least 2-3 more active packages so the catalog isn't a single entry</li>
+            <li>Add WhatsApp consistently across every page, not just Transport</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col" style="gap:.7rem">
+        <div class="badge purple" style="width:fit-content">Part of the Rebuild</div>
+        <div class="card">
+          <ul style="font-size:.83rem;color:var(--muted);line-height:1.9;padding-left:1.1rem">
+            <li>Add a Travel Trade / Partners section with a rate-request path</li>
+            <li>Rewrite the "no middle agents" homepage line</li>
+            <li>Surface KATO/TOSK/TRA certifications and fleet detail where agents will actually see them</li>
+            <li>Fix the single-H1 structure sitewide</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Recommendations</div>
+  <div class="chrome-page">08 / 09</div>
+  <div class="chrome-side">Internal — Bigfoot Adventures</div>
+</section>
+
+<section class="slide dark" data-i="9">
+  <div class="inner" style="text-align:center">
+    <div class="eyebrow reveal d1" style="justify-content:center"><span class="dot"></span>Bottom Line</div>
+    <h2 class="display reveal d2" style="margin:.6rem 0 .8rem;font-size:clamp(2rem,4.2vw,3.4rem)">
+      The Foundation Is Good.<br><span class="purple">The Upkeep Isn't.</span>
+    </h2>
+    <p class="lede reveal d3" style="margin:0 auto 1.2rem;max-width:64ch;text-align:center">
+      Nothing here requires starting over — the site's bones (destinations, fleet, certifications, technical basics) are solid. The gap is content that went stale and a complete absence of anything built for the audience that actually pays the bills.
+    </p>
+  </div>
+  <div class="chrome-foot"><span class="fdot"></span>Trance AI &amp; Bigfoot Adventures</div>
+  <div class="chrome-page">09 / 09</div>
+  <div class="chrome-side">Internal — Trance AI 2026</div>
+</section>
+
+</main>
+<script>
+(function() {
+  const deck = document.getElementById('deck');
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const progress = document.getElementById('progress');
+  const dotsContainer = document.getElementById('dots');
+  const hint = document.getElementById('hint');
+  let activeIndex = 0;
+  slides.forEach((slide, idx) => {
+    const btn = document.createElement('button');
+    btn.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+    if (idx === 0) btn.classList.add('active');
+    btn.addEventListener('click', () => { slides[idx].scrollIntoView({ behavior: 'smooth' }); });
+    dotsContainer.appendChild(btn);
+  });
+  const dots = Array.from(dotsContainer.querySelectorAll('button'));
+  function updateActiveSlide() {
+    const scrollPos = deck.scrollTop;
+    const viewHeight = window.innerHeight;
+    const currentIndex = Math.round(scrollPos / viewHeight);
+    if (currentIndex !== activeIndex) {
+      if (slides[activeIndex]) slides[activeIndex].classList.add('exiting');
+      activeIndex = currentIndex;
+    }
+    slides.forEach((slide, idx) => {
+      if (idx === activeIndex) { slide.classList.add('visible'); slide.classList.remove('exiting'); }
+      else { slide.classList.remove('visible'); }
+    });
+    dots.forEach((dot, idx) => { dot.classList.toggle('active', idx === activeIndex); });
+    const totalScroll = deck.scrollHeight - viewHeight;
+    const progressPercent = totalScroll > 0 ? (scrollPos / totalScroll) * 100 : 0;
+    progress.style.width = `${progressPercent}%`;
+    if (activeIndex > 1 && hint) { hint.style.opacity = '0'; }
+  }
+  deck.addEventListener('scroll', updateActiveSlide, { passive: true });
+  updateActiveSlide();
+  window.addEventListener('keydown', (e) => {
+    if (['ArrowDown', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); if (activeIndex < slides.length - 1) slides[activeIndex + 1].scrollIntoView({ behavior: 'smooth' }); }
+    else if (['ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); if (activeIndex > 0) slides[activeIndex - 1].scrollIntoView({ behavior: 'smooth' }); }
+    else if (e.key === 'Home') { e.preventDefault(); slides[0].scrollIntoView({ behavior: 'smooth' }); }
+    else if (e.key === 'End') { e.preventDefault(); slides[slides.length - 1].scrollIntoView({ behavior: 'smooth' }); }
+  });
+})();
+</script>
+</body>
+</html>
