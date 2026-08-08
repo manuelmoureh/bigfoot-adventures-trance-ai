@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bigfoot Adventures | Kenya Safari Ground Handler &amp; Tour Operator</title>
+<meta name="description" content="Nairobi-based safari ground handler and tour operator. Trade partners across five continents, 1,492 five-star reviews, in-house fleet and guides across Kenya and East Africa." />
+<style>
+/* ============================================================
+   BIGFOOT ADVENTURES — WEBSITE DRAFT
+   Design read: overhaul redesign for a Kenya safari ground
+   handler, dual audience (travel trade + leisure), trust-first
+   meets cinematic-adventure. Palette drawn from the provided
+   footprint mark and grounded in Maasai shuka red/black/bone.
+   Dials: VARIANCE 6 / MOTION 4 / DENSITY 4
+   ============================================================ */
+:root{
+  --red:#C41E2A;
+  --red-deep:#8E1620;
+  --ink:#18140F;
+  --ink-soft:#241E17;
+  --bone:#F7F2E7;
+  --bone-dim:#EFE8D8;
+  --paper:#FCFAF4;
+  --line:#E4DAC4;
+  --stone:#8A7F6C;
+  --stone-dark:#5B5140;
+  --white:#FFFFFF;
+  --shadow: 0 24px 60px -20px rgba(24,20,15,.35);
+  --radius:2px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --maxw:1320px;
+  --font-display:'Satoshi', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body:'Satoshi', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Consolas, monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.2rem,4vw,3rem)}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:800;line-height:1.05;letter-spacing:-.02em;text-wrap:balance}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.section{padding:clamp(3.2rem,8vw,6.5rem) 0}
+.section-dark{background:var(--ink);color:var(--bone)}
+.section-tint{background:var(--bone-dim)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  padding:.85rem 1.6rem;font-weight:700;font-size:.92rem;letter-spacing:.01em;
+  border-radius:var(--radius);border:1.5px solid transparent;white-space:nowrap;
+  transition:transform .18s var(--ease),background .18s var(--ease),border-color .18s var(--ease);
+  cursor:pointer;
+}
+.btn:active{transform:translateY(1px) scale(.98)}
+.btn-primary{background:var(--red);color:var(--white)}
+.btn-primary:hover{background:var(--red-deep)}
+.btn-ghost-light{border-color:rgba(247,242,231,.4);color:var(--bone)}
+.btn-ghost-light:hover{border-color:var(--bone);background:rgba(247,242,231,.08)}
+.btn-ghost-dark{border-color:var(--ink);color:var(--ink)}
+.btn-ghost-dark:hover{background:var(--ink);color:var(--bone)}
+
+/* ---------- NAV ---------- */
+header{
+  position:sticky;top:0;z-index:80;background:rgba(252,250,244,.92);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+}
+.nav{height:68px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+.brand .mark{width:30px;height:30px;flex:none}
+.navlinks{display:flex;align-items:center;gap:clamp(1.1rem,2vw,2rem);font-size:.88rem;font-weight:600}
+.navlinks a{opacity:.82;transition:opacity .15s}
+.navlinks a:hover{opacity:1}
+.navcta{display:flex;align-items:center;gap:.7rem}
+.navburger{display:none;background:none;border:none;cursor:pointer;padding:.4rem}
+.navburger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;transition:transform .2s,opacity .2s}
+@media(max-width:900px){
+  .navlinks{position:fixed;inset:68px 0 0 0;background:var(--paper);flex-direction:column;justify-content:flex-start;padding:2rem 1.5rem;gap:1.4rem;font-size:1.05rem;transform:translateX(100%);transition:transform .3s var(--ease);}
+  .navlinks.open{transform:translateX(0)}
+  .navburger{display:block}
+  .navcta .btn-ghost-dark{display:none}
+}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:92dvh;display:flex;align-items:flex-end;background:var(--ink);overflow:hidden}
+.hero picture,.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(15,12,9,.92) 8%,rgba(15,12,9,.55) 42%,rgba(15,12,9,.15) 68%,rgba(15,12,9,.05) 100%),linear-gradient(0deg,rgba(15,12,9,.75),rgba(15,12,9,0) 45%)}
+.hero-inner{position:relative;z-index:2;width:100%;padding:clamp(6rem,14vh,9rem) 0 clamp(2.4rem,5vh,3.6rem)}
+.hero-badge{display:inline-flex;align-items:center;gap:.55rem;color:var(--bone);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(247,242,231,.35);padding:.45rem .9rem;border-radius:100px;margin-bottom:1.3rem}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--red)}
+.hero h1{color:var(--white);font-size:clamp(2.4rem,5.4vw,4.4rem);max-width:20ch;margin-bottom:1.1rem}
+.hero p{color:rgba(247,242,231,.86);font-size:clamp(1rem,1.6vw,1.2rem);max-width:44ch;margin-bottom:1.8rem}
+.hero-ctas{display:flex;gap:.9rem;flex-wrap:wrap}
+
+/* ---------- TRUST STRIP ---------- */
+.trust{padding:1.6rem 0;border-bottom:1px solid var(--line)}
+.trust-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.2rem 2.4rem}
+.trust-item{display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-weight:700;color:var(--stone-dark);letter-spacing:.02em}
+.trust-item svg{flex:none;color:var(--red)}
+
+/* ---------- SECTION HEAD ---------- */
+.shead{max-width:56ch;margin-bottom:clamp(2rem,4vw,3rem)}
+.shead h2{font-size:clamp(1.7rem,3.4vw,2.6rem)}
+.shead p{margin-top:.8rem;color:var(--stone-dark);font-size:1.02rem;max-width:52ch}
+.section-dark .shead p{color:rgba(247,242,231,.72)}
+
+/* ---------- WHY US : asymmetric bento ---------- */
+.why-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:auto auto;gap:1rem}
+.why-cell{background:var(--white);border:1px solid var(--line);padding:clamp(1.4rem,2.4vw,2.1rem);display:flex;flex-direction:column;justify-content:flex-end;min-height:230px}
+.why-cell.feature{grid-row:span 2;min-height:auto;background:var(--ink);color:var(--bone);position:relative;overflow:hidden}
+.why-cell.feature img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.why-cell.feature::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,16,12,.92),rgba(20,16,12,.25))}
+.why-cell.feature .content{position:relative;z-index:1}
+.why-cell.red{background:var(--red);color:var(--white);border-color:var(--red)}
+.why-cell h3{font-size:clamp(1.1rem,1.6vw,1.35rem);margin-bottom:.5rem}
+.why-cell p{font-size:.92rem;opacity:.82;line-height:1.55}
+@media(max-width:900px){.why-grid{grid-template-columns:1fr 1fr}.why-cell.feature{grid-row:span 1;min-height:260px}}
+@media(max-width:600px){.why-grid{grid-template-columns:1fr}}
+
+/* ---------- GUIDE TIERS ---------- */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.tier{border:1px solid var(--line);background:var(--white);padding:1.8rem;position:relative}
+.tier::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
+.tier.gold::before{background:#B8862E}
+.tier.silver::before{background:#9A9184}
+.tier.bronze::before{background:var(--red)}
+.tier-label{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.9rem}
+.tier.gold .tier-label{color:#9A6B1F}
+.tier.silver .tier-label{color:#726A5E}
+.tier.bronze .tier-label{color:var(--red)}
+.tier h4{font-size:1.2rem;margin-bottom:.5rem}
+.tier p{font-size:.9rem;color:var(--stone-dark);line-height:1.6}
+.tier .names{margin-top:1rem;font-size:.85rem;font-weight:700;color:var(--ink)}
+@media(max-width:760px){.tiers{grid-template-columns:1fr}}
+.quote-block{margin-top:2.2rem;max-width:46ch}
+.quote-block p{font-size:1.4rem;font-family:var(--font-display);font-weight:700;line-height:1.3;color:var(--red)}
+.quote-block cite{display:block;margin-top:.7rem;font-style:normal;font-size:.85rem;color:var(--stone-dark);font-weight:600}
+
+/* ---------- FLEET ---------- */
+.fleet-wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center}
+.fleet-img{position:relative}
+.fleet-img img{width:100%;height:clamp(260px,38vw,420px);object-fit:cover;border-radius:var(--radius)}
+.fleet-list{display:flex;flex-direction:column}
+.fleet-item{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:baseline;padding:1.1rem 0;border-top:1px solid var(--line)}
+.fleet-list .fleet-item:last-child{border-bottom:1px solid var(--line)}
+.fleet-item .fi-name{font-weight:700;font-size:1rem}
+.fleet-item .fi-use{font-size:.85rem;color:var(--stone-dark)}
+.fleet-item .fi-pax{font-family:var(--font-mono);font-size:.85rem;color:var(--red);font-weight:700;white-space:nowrap}
+@media(max-width:820px){.fleet-wrap{grid-template-columns:1fr}}
+
+/* ---------- DESTINATIONS asymmetric ---------- */
+.dest-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:1rem}
+.dest-grid .dcol{display:flex;flex-direction:column;gap:1rem}
+.dcard{position:relative;overflow:hidden;border-radius:var(--radius);min-height:220px}
+.dcard.tall{min-height:100%}
+.dcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.dcard:hover img{transform:scale(1.05)}
+.dcard::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,12,9,.82) 0%,rgba(15,12,9,.05) 55%)}
+.dcard .dtext{position:absolute;left:0;right:0;bottom:0;padding:1.3rem 1.4rem;z-index:1;color:var(--white)}
+.dcard .dtag{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.dcard h4{font-size:1.15rem;margin-top:.25rem}
+@media(max-width:820px){.dest-grid{grid-template-columns:1fr}.dcard.tall{min-height:260px}}
+
+/* ---------- TRADE SECTION ---------- */
+.trade{background:var(--ink);color:var(--bone);position:relative}
+.trade-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+@media(max-width:820px){.trade-grid{grid-template-columns:1fr}}
+.trade-badges{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.6rem}
+.tbadge{border:1px solid rgba(247,242,231,.3);border-radius:100px;padding:.4rem .85rem;font-size:.76rem;font-weight:700;letter-spacing:.04em}
+.trade-panel{background:var(--ink-soft);border:1px solid rgba(247,242,231,.14);padding:clamp(1.6rem,3vw,2.2rem)}
+.trade-row{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-top:1px solid rgba(247,242,231,.14)}
+.trade-row:first-child{border-top:none}
+.trade-row .tr-k{font-size:.92rem;color:rgba(247,242,231,.85);font-weight:600}
+.trade-row .tr-v{font-family:var(--font-mono);font-size:.85rem;color:var(--bone);opacity:.85}
+.trade-cta{margin-top:1.6rem;display:flex;gap:.8rem;flex-wrap:wrap}
+
+/* ---------- OFFER / PACKAGE ---------- */
+.pkg-card{display:grid;grid-template-columns:1fr 1.4fr;border:1px solid var(--line);background:var(--white)}
+.pkg-img{position:relative;min-height:260px}
+.pkg-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pkg-body{padding:clamp(1.6rem,3vw,2.4rem);display:flex;flex-direction:column;justify-content:center}
+.pkg-meta{display:flex;gap:1.2rem;font-size:.82rem;color:var(--stone-dark);margin:.8rem 0 1.2rem;flex-wrap:wrap}
+.pkg-price{font-family:var(--font-mono);font-size:1.5rem;font-weight:700;color:var(--red)}
+.pkg-price span{font-size:.85rem;color:var(--stone-dark);font-weight:500;font-family:var(--font-body)}
+@media(max-width:760px){.pkg-card{grid-template-columns:1fr}.pkg-img{min-height:200px}}
+
+/* ---------- ADD-ONS ---------- */
+.addon-row{display:flex;gap:1rem;overflow-x:auto;padding-bottom:.5rem;scroll-snap-type:x proximity}
+.addon{flex:0 0 260px;border:1px solid var(--line);background:var(--white);padding:1.3rem;scroll-snap-align:start}
+.addon .an{font-family:var(--font-mono);font-size:.72rem;color:var(--red);font-weight:700}
+.addon h4{font-size:1.02rem;margin:.5rem 0 .4rem}
+.addon p{font-size:.85rem;color:var(--stone-dark)}
+
+/* ---------- FAQ ---------- */
+.faq-item{border-top:1px solid var(--line)}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:none;text-align:left;padding:1.3rem 0;cursor:pointer;font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--ink)}
+.faq-q .plus{flex:none;width:18px;height:18px;position:relative}
+.faq-q .plus::before,.faq-q .plus::after{content:"";position:absolute;background:var(--ink);transition:transform .25s var(--ease)}
+.faq-q .plus::before{top:8px;left:0;width:18px;height:2px}
+.faq-q .plus::after{left:8px;top:0;width:2px;height:18px}
+.faq-item.open .plus::after{transform:rotate(90deg)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s var(--ease)}
+.faq-a > div{overflow:hidden}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a p{padding-bottom:1.3rem;color:var(--stone-dark);font-size:.94rem;max-width:60ch;line-height:1.6}
+
+/* ---------- CONTACT ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,3.4rem)}
+.contact-path{border:1px solid var(--line);padding:clamp(1.5rem,2.6vw,2.2rem);background:var(--white)}
+.contact-path h3{font-size:1.25rem;margin-bottom:.5rem}
+.contact-path p{color:var(--stone-dark);font-size:.92rem;margin-bottom:1.3rem}
+.field{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
+.field label{font-size:.78rem;font-weight:700;color:var(--ink)}
+.field input,.field select,.field textarea{
+  border:1px solid var(--line);background:var(--paper);padding:.7rem .85rem;font-family:var(--font-body);font-size:.92rem;color:var(--ink);border-radius:var(--radius);
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--red);outline-offset:1px;border-color:var(--red)}
+.field input::placeholder,.field textarea::placeholder{color:var(--stone)}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr}}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5vw,3.6rem) 0 1.6rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.2rem;padding-bottom:2.2rem;border-bottom:1px solid rgba(247,242,231,.14)}
+.foot-brand{color:var(--bone);font-family:var(--font-display);font-weight:800;font-size:1.05rem;margin-bottom:.8rem}
+.foot-col h5{color:var(--bone);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.9rem}
+.foot-col a{display:block;font-size:.88rem;padding:.35rem 0;opacity:.85}
+.foot-col a:hover{opacity:1;color:var(--bone)}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;padding-top:1.4rem;font-size:.78rem}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <svg class="mark" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="#C41E2A" stroke-width="2"/><path d="M9 20c1-5 3-9 7-9s6 4 7 9" stroke="#C41E2A" stroke-width="2" stroke-linecap="round"/></svg>
+      Bigfoot Adventures
+    </a>
+    <nav class="navlinks" id="navlinks">
+      <a href="#destinations">Destinations</a>
+      <a href="#fleet">Fleet</a>
+      <a href="#guides">Guides</a>
+      <a href="#trade">Travel Trade</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="navcta">
+      <a href="#trade" class="btn btn-ghost-dark">Trade Partners</a>
+      <a href="#contact" class="btn btn-primary">Plan a Safari</a>
+      <button class="navburger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <img src="assets/generated/hero-mara.webp" alt="Elephant herd crossing the Maasai Mara at sunset" />
+  <div class="wrap hero-inner">
+    <div class="hero-badge"><span class="dot"></span>Nairobi-Based Ground Handler, Since 2013</div>
+    <h1>East Africa, run in-house.</h1>
+    <p>Our own fleet, our own guides, and a Nairobi desk that actually answers, for travel agents and travelers alike.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary">Request a Quote</a>
+      <a href="#trade" class="btn btn-ghost-light">I'm a Travel Agent</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap trust-row">
+    <div class="trust-item"><b class="mono" style="color:var(--red);font-size:1rem">5.0/5</b>&nbsp;1,492 TripAdvisor reviews</div>
+    <div class="trust-item"><b class="mono" style="color:var(--red);font-size:1rem">2013</b>&nbsp;operating in Kenya</div>
+    <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/></svg>KATO Member</div>
+    <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/></svg>TOSK Registered</div>
+    <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/></svg>TRA Registered</div>
+    <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/></svg>Fully Insured Fleet</div>
+    <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/></svg>Travelers' Choice 2026</div>
+  </div>
+</div>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="shead reveal">
+      <h2>Why agents and travelers both end up here.</h2>
+      <p>Every vehicle, guide, and camp relationship runs through our own Nairobi desk. No subcontracted middle layer between the quote and the ground.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-cell feature reveal">
+        <img src="assets/generated/fleet-vehicle.webp" alt="A Bigfoot Adventures safari vehicle on the Mara plains" />
+        <div class="content">
+          <h3>Our own fleet, our own guides</h3>
+          <p>No subcontracted vehicles. Every Land Cruiser, Hiace, and coach on the road belongs to us, driven by guides we've trained ourselves.</p>
+        </div>
+      </div>
+      <div class="why-cell reveal">
+        <h3>A Nairobi desk that answers</h3>
+        <p>Phone, WhatsApp, or email: someone who knows the fleet and the routes picks up, not a call centre reading from a script.</p>
+      </div>
+      <div class="why-cell red reveal">
+        <h3>Founded 2013, one operator since</h3>
+        <p>No ownership changes, no rebrands. Same company, same accountability, from the first email to the airport drop-off.</p>
+      </div>
+      <div class="why-cell reveal" style="grid-column:span 2">
+        <h3>Reviews that name names</h3>
+        <p>1,492 TripAdvisor reviews, and guests keep naming the specific guide who led their trip. That's not an accident. See the reviews below.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint" id="guides">
+  <div class="wrap">
+    <div class="shead reveal">
+      <h2>Guides, ranked by the reviews that already exist.</h2>
+      <p>Multi-lingual, trained across every region we run trips in. Tiering reflects review consistency and repeat-guest requests.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier gold reveal">
+        <div class="tier-label">Gold Tier</div>
+        <h4>Highest review density</h4>
+        <p>Repeat-guest requests, multi-lingual, consistently named across independent TripAdvisor reviews.</p>
+        <div class="names">Samuel</div>
+      </div>
+      <div class="tier silver reveal">
+        <div class="tier-label">Silver Tier</div>
+        <h4>Consistently named</h4>
+        <p>Praised across multiple recent reviews for patience, wildlife knowledge, and calm under pressure.</p>
+        <div class="names">Tony, Francis</div>
+      </div>
+      <div class="tier bronze reveal">
+        <div class="tier-label">Bronze Tier</div>
+        <h4>Building a track record</h4>
+        <p>Newer to the roster, already trending positive across recent trips and routes.</p>
+        <div class="names">Elvis, Lawrence</div>
+      </div>
+    </div>
+    <div class="quote-block reveal">
+      <p>"The best tour guide I have ever had."</p>
+      <cite>Verified TripAdvisor review, on Samuel</cite>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="fleet">
+  <div class="wrap">
+    <div class="shead reveal">
+      <h2>The fleet, built for the terrain.</h2>
+      <p>Regularly serviced, fully insured, and matched to the job, whether that's an airport run or ten days off-road.</p>
+    </div>
+    <div class="fleet-wrap">
+      <div class="fleet-img reveal">
+        <img src="assets/generated/fleet-vehicle.webp" alt="Custom safari vehicle with pop-up roof on the savanna" />
+      </div>
+      <div class="fleet-list reveal">
+        <div class="fleet-item">
+          <div><div class="fi-name">Toyota Land Cruiser Prado</div><div class="fi-use">Airport transfers, executive travel, small groups</div></div>
+          <div class="fi-pax">4-6 pax</div>
+        </div>
+        <div class="fleet-item">
+          <div><div class="fi-name">Custom Safari Land Cruisers</div><div class="fi-use">Pop-up roof, all-terrain, extended safari kit</div></div>
+          <div class="fi-pax">6-8 pax</div>
+        </div>
+        <div class="fleet-item">
+          <div><div class="fi-name">Toyota Hiace Executive Vans</div><div class="fi-use">Group tours, corporate shuttles, family travel</div></div>
+          <div class="fi-pax">6-9 pax</div>
+        </div>
+        <div class="fleet-item">
+          <div><div class="fi-name">Coaster Buses</div><div class="fi-use">Large groups, conference transport, team events</div></div>
+          <div class="fi-pax">20-25 pax</div>
+        </div>
+        <div style="margin-top:1.4rem"><a href="#contact" class="btn btn-ghost-dark">Request Fleet Spec Sheet</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint" id="destinations">
+  <div class="wrap">
+    <div class="shead reveal">
+      <h2>A footprint across East Africa.</h2>
+      <p>Maasai Mara, Amboseli, Samburu, Laikipia, and the coast, plus cross-border routes into Uganda and beyond.</p>
+    </div>
+    <div class="dest-grid">
+      <div class="dcard tall reveal">
+        <img src="assets/generated/hero-mara.webp" alt="Maasai Mara at golden hour" />
+        <div class="dtext"><div class="dtag">Southwestern Kenya</div><h4>Maasai Mara</h4></div>
+      </div>
+      <div class="dcol">
+        <div class="dcard reveal">
+          <img src="assets/generated/amboseli.webp" alt="Elephants beneath Mount Kilimanjaro in Amboseli" />
+          <div class="dtext"><div class="dtag">Southern Kenya</div><h4>Amboseli</h4></div>
+        </div>
+        <div class="dcard reveal">
+          <img src="assets/generated/coast-beach.webp" alt="Diani Beach on the Kenyan coast" />
+          <div class="dtext"><div class="dtag">South Coast</div><h4>Diani Beach</h4></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="deals">
+  <div class="wrap">
+    <div class="shead reveal">
+      <h2>Ready-to-book itinerary.</h2>
+      <p>One sample package below. Every trip is built around your dates, group, and budget, this is a starting point, not a limit.</p>
+    </div>
+    <div class="pkg-card reveal">
+      <div class="pkg-img"><img src="assets/generated/tented-camp.webp" alt="Luxury tented camp at dusk" /></div>
+      <div class="pkg-body">
+        <h3>Maasai Mara Safari Adventure</h3>
+        <div class="pkg-meta">
+          <span>4 days, 3 nights</span><span>Max 6 guests</span><span>Land Cruiser transport</span>
+        </div>
+        <div class="pkg-price">$3,000<span> per person, from</span></div>
+        <div style="margin-top:1.3rem"><a href="#contact" class="btn btn-primary">Request This Itinerary</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section trade" id="trade">
+  <div class="wrap">
+    <div class="trade-grid">
+      <div class="reveal">
+        <h2 style="color:var(--bone);font-size:clamp(1.8rem,3.6vw,2.7rem)">Ground handling for agents who need it done right.</h2>
+        <p style="margin-top:1rem;color:rgba(247,242,231,.78);font-size:1.02rem;max-width:48ch">Established agent partners across India, Japan, Russia, the US, and Spain send us business year-round. We handle the ground, you handle the client.</p>
+        <div class="trade-badges">
+          <span class="tbadge">Multi-lingual guides</span>
+          <span class="tbadge">Own fleet, no subcontracting</span>
+          <span class="tbadge">Airport &amp; MICE transfers</span>
+          <span class="tbadge">Year-round East Africa desk</span>
+        </div>
+        <div class="trade-cta">
+          <a href="#contact" class="btn btn-primary">Request Rate Sheet</a>
+          <a href="tel:+254722972374" class="btn btn-ghost-light">Call the Trade Desk</a>
+        </div>
+      </div>
+      <div class="trade-panel reveal">
+        <div class="trade-row"><span class="tr-k">Source markets served</span><span class="tr-v">IN · JP · RU · US · ES</span></div>
+        <div class="trade-row"><span class="tr-k">Peak migration window</span><span class="tr-v">JUL - OCT</span></div>
+        <div class="trade-row"><span class="tr-k">Fleet capacity range</span><span class="tr-v">4 - 25 pax</span></div>
+        <div class="trade-row"><span class="tr-k">Operator since</span><span class="tr-v">2013</span></div>
+        <div class="trade-row"><span class="tr-k">Certifications</span><span class="tr-v">KATO / TOSK / TRA</span></div>
+        <div class="trade-row"><span class="tr-k">Rate quote turnaround</span><span class="tr-v">Same business day</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="addons">
+  <div class="wrap">
+    <div class="shead reveal">
+      <h2>Already in Nairobi? Add these on.</h2>
+      <p>For guests arriving before or after a safari, or agents building a Nairobi stopover into an itinerary.</p>
+    </div>
+    <div class="addon-row reveal">
+      <div class="addon"><div class="an">Half-Day</div><h4>Nairobi National Park</h4><p>Game drives inside city limits, with the skyline visible on the horizon.</p></div>
+      <div class="addon"><div class="an">1-2 Hours</div><h4>Giraffe Centre</h4><p>Close-up feeding encounters with endangered Rothschild's giraffes.</p></div>
+      <div class="addon"><div class="an">Half-Day</div><h4>David Sheldrick Wildlife Trust</h4><p>Orphaned elephant nursery, viewing hour by advance arrangement.</p></div>
+      <div class="addon"><div class="an">On Arrival</div><h4>Airport Transfers</h4><p>JKIA and Wilson Airport pickups, flight-tracked by our dispatch team.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="wrap" style="max-width:820px">
+    <div class="shead reveal">
+      <h2>Questions we get before booking.</h2>
+    </div>
+    <div id="faqlist">
+      <div class="faq-item reveal">
+        <button class="faq-q">How far in advance should I book?<span class="plus"></span></button>
+        <div class="faq-a"><div><p>For July-October migration season, 4-6 months out gives the best camp availability. Outside peak season, 6-8 weeks is usually enough.</p></div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Do you work with travel agents outside Kenya?<span class="plus"></span></button>
+        <div class="faq-a"><div><p>Yes, this is the core of our business. We currently support agent partners across India, Japan, Russia, the US, and Spain, with rate sheets available on request.</p></div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">What's included in the vehicle rate?<span class="plus"></span></button>
+        <div class="faq-a"><div><p>A driver-guide, fuel, park-standard vehicle maintenance, and radio communication with our Nairobi dispatch. Park fees and accommodation are quoted separately.</p></div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Can you handle corporate or MICE transport?<span class="plus"></span></button>
+        <div class="faq-a"><div><p>Yes. Our Hiace vans and Coaster buses regularly run conference transfers and corporate shuttle programs around Nairobi.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="shead reveal">
+      <h2>Two ways in, one desk behind both.</h2>
+      <p>Traveling yourself, or booking on behalf of a client? Pick the path that fits.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-path reveal">
+        <h3>Planning a Trip</h3>
+        <p>For travelers and families booking directly.</p>
+        <form onsubmit="return false">
+          <div class="field"><label for="cname">Full name</label><input id="cname" type="text" placeholder="Your name" /></div>
+          <div class="field"><label for="cemail">Email address</label><input id="cemail" type="email" placeholder="you@email.com" /></div>
+          <div class="field"><label for="cdates">Travel dates</label><input id="cdates" type="text" placeholder="e.g. 12-18 August" /></div>
+          <div class="field"><label for="cmsg">What are you planning?</label><textarea id="cmsg" rows="3" placeholder="Group size, destinations, budget range"></textarea></div>
+          <button class="btn btn-primary" style="width:100%">Send Enquiry</button>
+        </form>
+      </div>
+      <div class="contact-path reveal">
+        <h3>Travel Trade &amp; Agents</h3>
+        <p>For agencies requesting rates or a new partnership.</p>
+        <form onsubmit="return false">
+          <div class="field"><label for="aname">Agency name</label><input id="aname" type="text" placeholder="Your agency" /></div>
+          <div class="field"><label for="aemail">Work email</label><input id="aemail" type="email" placeholder="you@agency.com" /></div>
+          <div class="field"><label for="amarket">Source market</label><select id="amarket"><option>Select a market</option><option>India</option><option>Japan</option><option>Russia</option><option>United States</option><option>Spain</option><option>Other</option></select></div>
+          <div class="field"><label for="amsg">What do you need?</label><textarea id="amsg" rows="3" placeholder="Rate sheet, new partnership, existing booking"></textarea></div>
+          <button class="btn btn-primary" style="width:100%">Request Rate Sheet</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Bigfoot Adventures</div>
+        <p style="font-size:.88rem;max-width:32ch;line-height:1.6">Adams Mini Mall, Adams Arcade, Suna Road, off Ngong Road, Nairobi, Kenya.</p>
+        <p style="font-size:.88rem;margin-top:1rem">Mon-Sat, 8:00-17:00 EAT</p>
+      </div>
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <a href="#destinations">Destinations</a>
+        <a href="#fleet">Fleet</a>
+        <a href="#guides">Guides</a>
+        <a href="#addons">Nairobi Add-Ons</a>
+      </div>
+      <div class="foot-col">
+        <h5>Trade</h5>
+        <a href="#trade">Travel Trade</a>
+        <a href="#contact">Rate Sheet Request</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="tel:+254722972374">+254 722 972 374</a>
+        <a href="https://wa.me/254722972374">WhatsApp Us</a>
+        <a href="#contact">Email Enquiry</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Bigfoot Adventures Ltd. KATO / TOSK / TRA registered.</span>
+      <span>Nairobi, Kenya</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var burger=document.getElementById('burger');
+  var links=document.getElementById('navlinks');
+  burger.addEventListener('click',function(){links.classList.toggle('open')});
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open')})});
+
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.closest('.faq-item');
+      var open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){o.classList.remove('open')});
+      if(!open){item.classList.add('open')}
+    });
+  });
+
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+  }
+})();
+</script>
+</body>
+</html>
