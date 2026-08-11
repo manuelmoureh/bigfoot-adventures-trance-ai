@@ -3,32 +3,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Bigfoot Adventures | Kenya Safari Ground Handler &amp; Tour Operator</title>
-<meta name="description" content="Nairobi-based safari ground handler and tour operator. Trade partners across five continents, 1,492 five-star reviews, in-house fleet and guides across Kenya and East Africa." />
+<title>Bigfoot Adventures | We Own Every Mile We Drive</title>
+<meta name="description" content="Kenya's most-reviewed safari ground handler. No subcontractors, no surprises: our own fleet, our own guides, run in-house since 2013." />
 <style>
 /* ============================================================
-   BIGFOOT ADVENTURES — WEBSITE DRAFT
-   Design read: overhaul redesign for a Kenya safari ground
-   handler, dual audience (travel trade + leisure), trust-first
-   meets cinematic-adventure. Palette drawn from the provided
-   footprint mark and grounded in Maasai shuka red/black/bone.
-   Dials: VARIANCE 6 / MOTION 4 / DENSITY 4
+   BIGFOOT ADVENTURES — WEBSITE DRAFT v2
+   2026 standard: orchestrated motion, layered depth, a real
+   interactive tool, and copy written to sell, not report.
+   Palette: Maasai shuka red/black/bone, drawn from the mark.
+   Dials: VARIANCE 7 / MOTION 7 / DENSITY 4
    ============================================================ */
 :root{
-  --red:#C41E2A;
-  --red-deep:#8E1620;
-  --ink:#18140F;
-  --ink-soft:#241E17;
-  --bone:#F7F2E7;
-  --bone-dim:#EFE8D8;
-  --paper:#FCFAF4;
-  --line:#E4DAC4;
-  --stone:#8A7F6C;
-  --stone-dark:#5B5140;
-  --white:#FFFFFF;
-  --shadow: 0 24px 60px -20px rgba(24,20,15,.35);
-  --radius:2px;
-  --ease:cubic-bezier(.22,.61,.36,1);
+  --red:#C41E2A; --red-deep:#8E1620; --red-bright:#E8384A;
+  --ink:#18140F; --ink-soft:#241E17;
+  --bone:#F7F2E7; --bone-dim:#EFE8D8; --paper:#FCFAF4;
+  --line:#E4DAC4; --stone:#8A7F6C; --stone-dark:#5B5140; --white:#FFFFFF;
+  --radius:3px; --ease:cubic-bezier(.22,.61,.36,1);
   --maxw:1320px;
   --font-display:'Satoshi', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-body:'Satoshi', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -36,97 +26,90 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  font-family:var(--font-body);
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:default}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.2rem,4vw,3rem)}
 h1,h2,h3,h4{font-family:var(--font-display);font-weight:800;line-height:1.05;letter-spacing:-.02em;text-wrap:balance}
 .mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
-.section{padding:clamp(3.2rem,8vw,6.5rem) 0}
-.section-dark{background:var(--ink);color:var(--bone)}
+.section{padding:clamp(3.4rem,8vw,7rem) 0}
 .section-tint{background:var(--bone-dim)}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-  padding:.85rem 1.6rem;font-weight:700;font-size:.92rem;letter-spacing:.01em;
-  border-radius:var(--radius);border:1.5px solid transparent;white-space:nowrap;
-  transition:transform .18s var(--ease),background .18s var(--ease),border-color .18s var(--ease);
-  cursor:pointer;
-}
-.btn:active{transform:translateY(1px) scale(.98)}
-.btn-primary{background:var(--red);color:var(--white)}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.7rem;font-weight:700;font-size:.92rem;letter-spacing:.01em;border-radius:100px;border:1.5px solid transparent;white-space:nowrap;cursor:pointer;will-change:transform}
+.btn-primary{background:var(--red);color:var(--white);transition:background .18s var(--ease)}
 .btn-primary:hover{background:var(--red-deep)}
-.btn-ghost-light{border-color:rgba(247,242,231,.4);color:var(--bone)}
+.btn-ghost-light{border-color:rgba(247,242,231,.4);color:var(--bone);transition:border-color .18s var(--ease),background .18s var(--ease)}
 .btn-ghost-light:hover{border-color:var(--bone);background:rgba(247,242,231,.08)}
-.btn-ghost-dark{border-color:var(--ink);color:var(--ink)}
+.btn-ghost-dark{border-color:var(--ink);color:var(--ink);transition:background .18s var(--ease),color .18s var(--ease)}
 .btn-ghost-dark:hover{background:var(--ink);color:var(--bone)}
+.magnetic-wrap{display:inline-block}
 
 /* ---------- NAV ---------- */
-header{
-  position:sticky;top:0;z-index:80;background:rgba(252,250,244,.92);
-  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
-}
+header{position:sticky;top:0;z-index:80;background:rgba(252,250,244,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .nav{height:68px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
-.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-weight:800;font-size:1.05rem}
 .brand .mark{width:30px;height:30px;flex:none}
 .navlinks{display:flex;align-items:center;gap:clamp(1.1rem,2vw,2rem);font-size:.88rem;font-weight:600}
-.navlinks a{opacity:.82;transition:opacity .15s}
+.navlinks a{opacity:.82;transition:opacity .15s;position:relative}
+.navlinks a::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:1.5px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease)}
 .navlinks a:hover{opacity:1}
+.navlinks a:hover::after{transform:scaleX(1)}
 .navcta{display:flex;align-items:center;gap:.7rem}
 .navburger{display:none;background:none;border:none;cursor:pointer;padding:.4rem}
 .navburger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;transition:transform .2s,opacity .2s}
 @media(max-width:900px){
-  .navlinks{position:fixed;inset:68px 0 0 0;background:var(--paper);flex-direction:column;justify-content:flex-start;padding:2rem 1.5rem;gap:1.4rem;font-size:1.05rem;transform:translateX(100%);transition:transform .3s var(--ease);}
+  .navlinks{position:fixed;inset:68px 0 0 0;background:var(--paper);flex-direction:column;justify-content:flex-start;padding:2rem 1.5rem;gap:1.4rem;font-size:1.05rem;transform:translateX(100%);transition:transform .35s var(--ease)}
   .navlinks.open{transform:translateX(0)}
   .navburger{display:block}
   .navcta .btn-ghost-dark{display:none}
 }
 
 /* ---------- HERO ---------- */
-.hero{position:relative;min-height:92dvh;display:flex;align-items:flex-end;background:var(--ink);overflow:hidden}
-.hero picture,.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(15,12,9,.92) 8%,rgba(15,12,9,.55) 42%,rgba(15,12,9,.15) 68%,rgba(15,12,9,.05) 100%),linear-gradient(0deg,rgba(15,12,9,.75),rgba(15,12,9,0) 45%)}
-.hero-inner{position:relative;z-index:2;width:100%;padding:clamp(6rem,14vh,9rem) 0 clamp(2.4rem,5vh,3.6rem)}
-.hero-badge{display:inline-flex;align-items:center;gap:.55rem;color:var(--bone);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(247,242,231,.35);padding:.45rem .9rem;border-radius:100px;margin-bottom:1.3rem}
-.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--red)}
-.hero h1{color:var(--white);font-size:clamp(2.4rem,5.4vw,4.4rem);max-width:20ch;margin-bottom:1.1rem}
-.hero p{color:rgba(247,242,231,.86);font-size:clamp(1rem,1.6vw,1.2rem);max-width:44ch;margin-bottom:1.8rem}
-.hero-ctas{display:flex;gap:.9rem;flex-wrap:wrap}
+.hero{position:relative;min-height:94dvh;display:flex;align-items:flex-end;background:var(--ink);overflow:hidden}
+.hero-media{position:absolute;inset:-4% -4% -4% -4%;will-change:transform}
+.hero-media img{width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(15,12,9,.94) 6%,rgba(15,12,9,.6) 40%,rgba(15,12,9,.18) 66%,rgba(15,12,9,.06) 100%),linear-gradient(0deg,rgba(15,12,9,.78),rgba(15,12,9,0) 42%)}
+.hero-inner{position:relative;z-index:2;width:100%;padding:clamp(6rem,14vh,9rem) 0 clamp(2.6rem,5vh,3.8rem)}
+.hero-badge{display:inline-flex;align-items:center;gap:.55rem;color:var(--bone);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(247,242,231,.35);padding:.45rem .9rem;border-radius:100px;margin-bottom:1.4rem;opacity:0}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 2.2s ease infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(196,30,42,.55)}50%{box-shadow:0 0 0 6px rgba(196,30,42,0)}}
+.hero h1{color:var(--white);font-size:clamp(2.6rem,6vw,5rem);max-width:16ch;margin-bottom:1.2rem;overflow:hidden}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line span{display:inline-block;transform:translateY(110%)}
+.hero p{color:rgba(247,242,231,.88);font-size:clamp(1.02rem,1.6vw,1.22rem);max-width:44ch;margin-bottom:1.9rem;opacity:0}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;opacity:0}
+@media(prefers-reduced-motion:reduce){.hero-badge,.hero p,.hero-ctas{opacity:1}.hero h1 .line span{transform:none}}
 
-/* ---------- TRUST STRIP ---------- */
-.trust{padding:1.6rem 0;border-bottom:1px solid var(--line)}
+/* ---------- TRUST STRIP w/ counters ---------- */
+.trust{padding:1.8rem 0;border-bottom:1px solid var(--line)}
 .trust-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.2rem 2.4rem}
-.trust-item{display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-weight:700;color:var(--stone-dark);letter-spacing:.02em}
+.trust-item{display:flex;align-items:center;gap:.55rem;font-size:.82rem;font-weight:700;color:var(--stone-dark);letter-spacing:.02em}
 .trust-item svg{flex:none;color:var(--red)}
+.trust-num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;color:var(--red);font-size:1.05rem;font-weight:800}
 
 /* ---------- SECTION HEAD ---------- */
-.shead{max-width:56ch;margin-bottom:clamp(2rem,4vw,3rem)}
-.shead h2{font-size:clamp(1.7rem,3.4vw,2.6rem)}
-.shead p{margin-top:.8rem;color:var(--stone-dark);font-size:1.02rem;max-width:52ch}
-.section-dark .shead p{color:rgba(247,242,231,.72)}
+.shead{max-width:58ch;margin-bottom:clamp(2.2rem,4vw,3.2rem)}
+.shead h2{font-size:clamp(1.8rem,3.6vw,2.8rem)}
+.shead p{margin-top:.9rem;color:var(--stone-dark);font-size:1.04rem;max-width:52ch}
 
 /* ---------- WHY US : asymmetric bento ---------- */
 .why-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:auto auto;gap:1rem}
-.why-cell{background:var(--white);border:1px solid var(--line);padding:clamp(1.4rem,2.4vw,2.1rem);display:flex;flex-direction:column;justify-content:flex-end;min-height:230px}
-.why-cell.feature{grid-row:span 2;min-height:auto;background:var(--ink);color:var(--bone);position:relative;overflow:hidden}
-.why-cell.feature img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
-.why-cell.feature::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,16,12,.92),rgba(20,16,12,.25))}
-.why-cell.feature .content{position:relative;z-index:1}
+.why-cell{background:var(--white);border:1px solid var(--line);padding:clamp(1.5rem,2.4vw,2.2rem);display:flex;flex-direction:column;justify-content:flex-end;min-height:230px;transition:border-color .2s var(--ease)}
+.why-cell:hover{border-color:var(--red)}
+.why-cell.feature{grid-row:span 2;min-height:auto;background:var(--ink);color:var(--bone);position:relative;overflow:hidden;border-color:var(--ink)}
+.why-cell.feature .media{position:absolute;inset:0;overflow:hidden}
+.why-cell.feature img{position:absolute;inset:-6%;width:112%;height:112%;object-fit:cover;opacity:.5;will-change:transform}
+.why-cell.feature::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,16,12,.94),rgba(20,16,12,.2));z-index:1}
+.why-cell.feature .content{position:relative;z-index:2}
 .why-cell.red{background:var(--red);color:var(--white);border-color:var(--red)}
-.why-cell h3{font-size:clamp(1.1rem,1.6vw,1.35rem);margin-bottom:.5rem}
-.why-cell p{font-size:.92rem;opacity:.82;line-height:1.55}
-@media(max-width:900px){.why-grid{grid-template-columns:1fr 1fr}.why-cell.feature{grid-row:span 1;min-height:260px}}
+.why-cell h3{font-size:clamp(1.15rem,1.6vw,1.4rem);margin-bottom:.55rem}
+.why-cell p{font-size:.93rem;opacity:.85;line-height:1.6}
+@media(max-width:900px){.why-grid{grid-template-columns:1fr 1fr}.why-cell.feature{grid-row:span 1;min-height:280px}}
 @media(max-width:600px){.why-grid{grid-template-columns:1fr}}
 
 /* ---------- GUIDE TIERS ---------- */
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
-.tier{border:1px solid var(--line);background:var(--white);padding:1.8rem;position:relative}
+.tier{border:1px solid var(--line);background:var(--white);padding:1.9rem;position:relative;overflow:hidden;transition:transform .25s var(--ease)}
+.tier:hover{transform:translateY(-4px)}
 .tier::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
 .tier.gold::before{background:#B8862E}
 .tier.silver::before{background:#9A9184}
@@ -135,65 +118,84 @@ header{
 .tier.gold .tier-label{color:#9A6B1F}
 .tier.silver .tier-label{color:#726A5E}
 .tier.bronze .tier-label{color:var(--red)}
-.tier h4{font-size:1.2rem;margin-bottom:.5rem}
+.tier h4{font-size:1.22rem;margin-bottom:.5rem}
 .tier p{font-size:.9rem;color:var(--stone-dark);line-height:1.6}
-.tier .names{margin-top:1rem;font-size:.85rem;font-weight:700;color:var(--ink)}
+.tier .names{margin-top:1.1rem;font-size:.85rem;font-weight:700;color:var(--ink)}
 @media(max-width:760px){.tiers{grid-template-columns:1fr}}
-.quote-block{margin-top:2.2rem;max-width:46ch}
-.quote-block p{font-size:1.4rem;font-family:var(--font-display);font-weight:700;line-height:1.3;color:var(--red)}
-.quote-block cite{display:block;margin-top:.7rem;font-style:normal;font-size:.85rem;color:var(--stone-dark);font-weight:600}
+.quote-block{margin-top:2.4rem;max-width:48ch}
+.quote-block p{font-size:1.5rem;font-family:var(--font-display);font-weight:700;line-height:1.28;color:var(--red)}
+.quote-block cite{display:block;margin-top:.8rem;font-style:normal;font-size:.85rem;color:var(--stone-dark);font-weight:600}
+
+/* ---------- FLEET MATCH TOOL ---------- */
+.match-tool{background:var(--ink);color:var(--bone);border-radius:8px;padding:clamp(1.6rem,3vw,2.4rem);margin-bottom:2.4rem}
+.match-tool .mt-label{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red-bright);margin-bottom:.4rem}
+.match-tool h3{color:var(--white);font-size:clamp(1.3rem,2.2vw,1.7rem);margin-bottom:1.4rem}
+.mt-row{margin-bottom:1.3rem}
+.mt-row > div:first-child{font-size:.82rem;font-weight:700;color:rgba(247,242,231,.7);margin-bottom:.6rem}
+.mt-opts{display:flex;gap:.6rem;flex-wrap:wrap}
+.mt-opt{border:1.5px solid rgba(247,242,231,.28);background:transparent;color:var(--bone);padding:.6rem 1.1rem;border-radius:100px;font-size:.85rem;font-weight:700;cursor:pointer;transition:all .2s var(--ease)}
+.mt-opt:hover{border-color:rgba(247,242,231,.6)}
+.mt-opt.active{background:var(--red);border-color:var(--red);color:var(--white)}
+.mt-result{margin-top:1.6rem;padding-top:1.6rem;border-top:1px solid rgba(247,242,231,.16);display:none}
+.mt-result.show{display:flex;gap:1rem;align-items:center}
+.mt-result img{width:84px;height:64px;object-fit:cover;border-radius:4px;flex:none}
+.mt-result .mrname{font-weight:800;color:var(--white);font-size:1.05rem}
+.mt-result .mrdesc{font-size:.85rem;color:rgba(247,242,231,.72);margin-top:.2rem}
 
 /* ---------- FLEET ---------- */
 .fleet-wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center}
-.fleet-img{position:relative}
-.fleet-img img{width:100%;height:clamp(260px,38vw,420px);object-fit:cover;border-radius:var(--radius)}
+.fleet-img{position:relative;overflow:hidden;border-radius:8px}
+.fleet-img img{width:100%;height:clamp(260px,38vw,420px);object-fit:cover;will-change:transform}
 .fleet-list{display:flex;flex-direction:column}
-.fleet-item{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:baseline;padding:1.1rem 0;border-top:1px solid var(--line)}
+.fleet-item{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:baseline;padding:1.15rem .6rem;margin:0 -.6rem;border-top:1px solid var(--line);transition:transform .25s var(--ease),background .25s var(--ease)}
 .fleet-list .fleet-item:last-child{border-bottom:1px solid var(--line)}
+.fleet-item:hover{transform:translateX(.4rem);background:var(--bone-dim)}
+.fleet-item.matched{transform:translateX(.4rem);background:rgba(196,30,42,.07)}
 .fleet-item .fi-name{font-weight:700;font-size:1rem}
 .fleet-item .fi-use{font-size:.85rem;color:var(--stone-dark)}
 .fleet-item .fi-pax{font-family:var(--font-mono);font-size:.85rem;color:var(--red);font-weight:700;white-space:nowrap}
 @media(max-width:820px){.fleet-wrap{grid-template-columns:1fr}}
 
-/* ---------- DESTINATIONS asymmetric ---------- */
+/* ---------- DESTINATIONS ---------- */
 .dest-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:1rem}
 .dest-grid .dcol{display:flex;flex-direction:column;gap:1rem}
-.dcard{position:relative;overflow:hidden;border-radius:var(--radius);min-height:220px}
+.dcard{position:relative;overflow:hidden;border-radius:8px;min-height:220px}
 .dcard.tall{min-height:100%}
-.dcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
-.dcard:hover img{transform:scale(1.05)}
-.dcard::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,12,9,.82) 0%,rgba(15,12,9,.05) 55%)}
-.dcard .dtext{position:absolute;left:0;right:0;bottom:0;padding:1.3rem 1.4rem;z-index:1;color:var(--white)}
-.dcard .dtag{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
-.dcard h4{font-size:1.15rem;margin-top:.25rem}
+.dcard img{position:absolute;inset:-10% -10% -10% -10%;width:120%;height:120%;object-fit:cover;will-change:transform}
+.dcard::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,12,9,.85) 0%,rgba(15,12,9,.05) 55%)}
+.dcard .dtext{position:absolute;left:0;right:0;bottom:0;padding:1.4rem 1.5rem;z-index:1;color:var(--white)}
+.dcard .dtag{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.78}
+.dcard h4{font-size:1.2rem;margin-top:.28rem}
 @media(max-width:820px){.dest-grid{grid-template-columns:1fr}.dcard.tall{min-height:260px}}
 
 /* ---------- TRADE SECTION ---------- */
-.trade{background:var(--ink);color:var(--bone);position:relative}
-.trade-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.trade{background:var(--ink);color:var(--bone);position:relative;overflow:hidden}
+.trade::before{content:"";position:absolute;top:-30%;right:-10%;width:60%;height:160%;background:radial-gradient(circle,rgba(196,30,42,.16),transparent 65%);pointer-events:none}
+.trade-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start;position:relative;z-index:1}
 @media(max-width:820px){.trade-grid{grid-template-columns:1fr}}
-.trade-badges{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.6rem}
-.tbadge{border:1px solid rgba(247,242,231,.3);border-radius:100px;padding:.4rem .85rem;font-size:.76rem;font-weight:700;letter-spacing:.04em}
-.trade-panel{background:var(--ink-soft);border:1px solid rgba(247,242,231,.14);padding:clamp(1.6rem,3vw,2.2rem)}
-.trade-row{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-top:1px solid rgba(247,242,231,.14)}
+.trade-badges{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.7rem}
+.tbadge{border:1px solid rgba(247,242,231,.3);border-radius:100px;padding:.42rem .9rem;font-size:.76rem;font-weight:700;letter-spacing:.04em}
+.trade-panel{background:var(--ink-soft);border:1px solid rgba(247,242,231,.14);padding:clamp(1.7rem,3vw,2.3rem);border-radius:8px}
+.trade-row{display:flex;justify-content:space-between;align-items:center;padding:1.05rem 0;border-top:1px solid rgba(247,242,231,.14)}
 .trade-row:first-child{border-top:none}
 .trade-row .tr-k{font-size:.92rem;color:rgba(247,242,231,.85);font-weight:600}
 .trade-row .tr-v{font-family:var(--font-mono);font-size:.85rem;color:var(--bone);opacity:.85}
-.trade-cta{margin-top:1.6rem;display:flex;gap:.8rem;flex-wrap:wrap}
+.trade-cta{margin-top:1.7rem;display:flex;gap:.8rem;flex-wrap:wrap}
 
-/* ---------- OFFER / PACKAGE ---------- */
-.pkg-card{display:grid;grid-template-columns:1fr 1.4fr;border:1px solid var(--line);background:var(--white)}
-.pkg-img{position:relative;min-height:260px}
-.pkg-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.pkg-body{padding:clamp(1.6rem,3vw,2.4rem);display:flex;flex-direction:column;justify-content:center}
-.pkg-meta{display:flex;gap:1.2rem;font-size:.82rem;color:var(--stone-dark);margin:.8rem 0 1.2rem;flex-wrap:wrap}
-.pkg-price{font-family:var(--font-mono);font-size:1.5rem;font-weight:700;color:var(--red)}
+/* ---------- PACKAGE ---------- */
+.pkg-card{display:grid;grid-template-columns:1fr 1.4fr;border:1px solid var(--line);background:var(--white);border-radius:8px;overflow:hidden}
+.pkg-img{position:relative;min-height:260px;overflow:hidden}
+.pkg-img img{position:absolute;inset:-8%;width:116%;height:116%;object-fit:cover}
+.pkg-body{padding:clamp(1.7rem,3vw,2.5rem);display:flex;flex-direction:column;justify-content:center}
+.pkg-meta{display:flex;gap:1.2rem;font-size:.82rem;color:var(--stone-dark);margin:.85rem 0 1.3rem;flex-wrap:wrap}
+.pkg-price{font-family:var(--font-mono);font-size:1.55rem;font-weight:700;color:var(--red)}
 .pkg-price span{font-size:.85rem;color:var(--stone-dark);font-weight:500;font-family:var(--font-body)}
 @media(max-width:760px){.pkg-card{grid-template-columns:1fr}.pkg-img{min-height:200px}}
 
 /* ---------- ADD-ONS ---------- */
 .addon-row{display:flex;gap:1rem;overflow-x:auto;padding-bottom:.5rem;scroll-snap-type:x proximity}
-.addon{flex:0 0 260px;border:1px solid var(--line);background:var(--white);padding:1.3rem;scroll-snap-align:start}
+.addon{flex:0 0 260px;border:1px solid var(--line);background:var(--white);padding:1.35rem;scroll-snap-align:start;border-radius:6px;transition:transform .2s var(--ease),border-color .2s var(--ease)}
+.addon:hover{transform:translateY(-3px);border-color:var(--red)}
 .addon .an{font-family:var(--font-mono);font-size:.72rem;color:var(--red);font-weight:700}
 .addon h4{font-size:1.02rem;margin:.5rem 0 .4rem}
 .addon p{font-size:.85rem;color:var(--stone-dark)}
@@ -214,14 +216,13 @@ header{
 
 /* ---------- CONTACT ---------- */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,3.4rem)}
-.contact-path{border:1px solid var(--line);padding:clamp(1.5rem,2.6vw,2.2rem);background:var(--white)}
-.contact-path h3{font-size:1.25rem;margin-bottom:.5rem}
+.contact-path{border:1px solid var(--line);padding:clamp(1.6rem,2.6vw,2.3rem);background:var(--white);border-radius:8px;transition:border-color .2s var(--ease)}
+.contact-path:hover{border-color:var(--red)}
+.contact-path h3{font-size:1.3rem;margin-bottom:.5rem}
 .contact-path p{color:var(--stone-dark);font-size:.92rem;margin-bottom:1.3rem}
 .field{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
 .field label{font-size:.78rem;font-weight:700;color:var(--ink)}
-.field input,.field select,.field textarea{
-  border:1px solid var(--line);background:var(--paper);padding:.7rem .85rem;font-family:var(--font-body);font-size:.92rem;color:var(--ink);border-radius:var(--radius);
-}
+.field input,.field select,.field textarea{border:1px solid var(--line);background:var(--paper);padding:.7rem .85rem;font-family:var(--font-body);font-size:.92rem;color:var(--ink);border-radius:6px}
 .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--red);outline-offset:1px;border-color:var(--red)}
 .field input::placeholder,.field textarea::placeholder{color:var(--stone)}
 @media(max-width:820px){.contact-grid{grid-template-columns:1fr}}
@@ -231,15 +232,15 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.2rem;padding-bottom:2.2rem;border-bottom:1px solid rgba(247,242,231,.14)}
 .foot-brand{color:var(--bone);font-family:var(--font-display);font-weight:800;font-size:1.05rem;margin-bottom:.8rem}
 .foot-col h5{color:var(--bone);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.9rem}
-.foot-col a{display:block;font-size:.88rem;padding:.35rem 0;opacity:.85}
+.foot-col a{display:block;font-size:.88rem;padding:.35rem 0;opacity:.85;transition:opacity .15s}
 .foot-col a:hover{opacity:1;color:var(--bone)}
 .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;padding-top:1.4rem;font-size:.78rem}
 @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}}
 
-/* ---------- REVEAL ---------- */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-.reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+/* ---------- REVEAL (GSAP-driven, JS toggles .in) ---------- */
+.reveal{opacity:0;transform:translateY(28px)}
+.reveal.in{transition:opacity .8s var(--ease),transform .8s var(--ease);opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -258,34 +259,33 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
       <a href="#contact">Contact</a>
     </nav>
     <div class="navcta">
-      <a href="#trade" class="btn btn-ghost-dark">Trade Partners</a>
-      <a href="#contact" class="btn btn-primary">Plan a Safari</a>
+      <a href="#trade" class="btn btn-ghost-dark magnetic">Trade Partners</a>
+      <a href="#contact" class="btn btn-primary magnetic">Plan My Safari</a>
       <button class="navburger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <section class="hero" id="top">
-  <img src="assets/generated/hero-mara.webp" alt="Elephant herd crossing the Maasai Mara at sunset" />
+  <div class="hero-media" id="heroMedia"><img src="assets/generated/hero-mara.webp" alt="Elephant herd crossing the Maasai Mara at sunset" /></div>
   <div class="wrap hero-inner">
-    <div class="hero-badge"><span class="dot"></span>Nairobi-Based Ground Handler, Since 2013</div>
-    <h1>East Africa, run in-house.</h1>
-    <p>Our own fleet, our own guides, and a Nairobi desk that actually answers, for travel agents and travelers alike.</p>
-    <div class="hero-ctas">
-      <a href="#contact" class="btn btn-primary">Request a Quote</a>
-      <a href="#trade" class="btn btn-ghost-light">I'm a Travel Agent</a>
+    <div class="hero-badge" id="heroBadge"><span class="dot"></span>Ground Handler, Nairobi, Since 2013</div>
+    <h1 id="heroTitle"><span class="line"><span>We own every mile</span></span><span class="line"><span>we drive.</span></span></h1>
+    <p id="heroSub">No subcontractors. No surprises. The highest-rated safari operator in Kenya, run entirely in-house.</p>
+    <div class="hero-ctas" id="heroCtas">
+      <a href="#contact" class="btn btn-primary magnetic">Plan My Safari</a>
+      <a href="#trade" class="btn btn-ghost-light magnetic">I'm a Travel Agent</a>
     </div>
   </div>
 </section>
 
 <div class="trust">
   <div class="wrap trust-row">
-    <div class="trust-item"><b class="mono" style="color:var(--red);font-size:1rem">5.0/5</b>&nbsp;1,492 TripAdvisor reviews</div>
-    <div class="trust-item"><b class="mono" style="color:var(--red);font-size:1rem">2013</b>&nbsp;operating in Kenya</div>
+    <div class="trust-item"><span class="trust-num" data-count="5.0">0.0</span>/5, 1,492 reviews</div>
+    <div class="trust-item"><span class="trust-num" data-count="2013" data-nocomma="1">0</span>, operating in Kenya</div>
     <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/></svg>KATO Member</div>
     <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/></svg>TOSK Registered</div>
     <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/></svg>TRA Registered</div>
-    <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/></svg>Fully Insured Fleet</div>
     <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/></svg>Travelers' Choice 2026</div>
   </div>
 </div>
@@ -293,28 +293,28 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
 <section class="section" id="about">
   <div class="wrap">
     <div class="shead reveal">
-      <h2>Why agents and travelers both end up here.</h2>
-      <p>Every vehicle, guide, and camp relationship runs through our own Nairobi desk. No subcontracted middle layer between the quote and the ground.</p>
+      <h2>The difference is who owns what.</h2>
+      <p>Most operators broker your trip out to someone else's vehicles and someone else's guides. We don't. That's the entire pitch, and it's why agents keep sending us their clients.</p>
     </div>
     <div class="why-grid">
       <div class="why-cell feature reveal">
-        <img src="assets/generated/fleet-vehicle.webp" alt="A Bigfoot Adventures safari vehicle on the Mara plains" />
+        <div class="media"><img src="assets/generated/fleet-vehicle.webp" alt="A Bigfoot Adventures safari vehicle on the Mara plains" /></div>
         <div class="content">
-          <h3>Our own fleet, our own guides</h3>
-          <p>No subcontracted vehicles. Every Land Cruiser, Hiace, and coach on the road belongs to us, driven by guides we've trained ourselves.</p>
+          <h3>Every vehicle is ours.</h3>
+          <p>When something breaks down 200km from Nairobi, we're not waiting on a subcontractor to sort it out. Our fleet, our mechanics, our problem to fix, fast.</p>
         </div>
       </div>
       <div class="why-cell reveal">
-        <h3>A Nairobi desk that answers</h3>
-        <p>Phone, WhatsApp, or email: someone who knows the fleet and the routes picks up, not a call centre reading from a script.</p>
+        <h3>A human answers. Every time.</h3>
+        <p>No script-reading call centre. Whoever picks up has actually driven the route you're asking about.</p>
       </div>
       <div class="why-cell red reveal">
-        <h3>Founded 2013, one operator since</h3>
-        <p>No ownership changes, no rebrands. Same company, same accountability, from the first email to the airport drop-off.</p>
+        <h3>Since 2013. Zero rebrands.</h3>
+        <p>Same company, same number, since day one. If something goes wrong, there's exactly one person to call, and it's us.</p>
       </div>
       <div class="why-cell reveal" style="grid-column:span 2">
-        <h3>Reviews that name names</h3>
-        <p>1,492 TripAdvisor reviews, and guests keep naming the specific guide who led their trip. That's not an accident. See the reviews below.</p>
+        <h3>1,492 reviews. They keep naming names.</h3>
+        <p>Guests don't just leave five stars, they name the specific guide who made the trip. That's not luck, it's who we hire. Meet the roster below.</p>
       </div>
     </div>
   </div>
@@ -323,26 +323,26 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
 <section class="section section-tint" id="guides">
   <div class="wrap">
     <div class="shead reveal">
-      <h2>Guides, ranked by the reviews that already exist.</h2>
-      <p>Multi-lingual, trained across every region we run trips in. Tiering reflects review consistency and repeat-guest requests.</p>
+      <h2>Ask for them by name.</h2>
+      <p>We didn't build this list. Our guests did, one five-star review at a time.</p>
     </div>
     <div class="tiers">
       <div class="tier gold reveal">
         <div class="tier-label">Gold Tier</div>
-        <h4>Highest review density</h4>
-        <p>Repeat-guest requests, multi-lingual, consistently named across independent TripAdvisor reviews.</p>
+        <h4>Requested by name</h4>
+        <p>Repeat guests ask for these guides specifically. Multi-lingual, and the most consistently named across independent reviews.</p>
         <div class="names">Samuel</div>
       </div>
       <div class="tier silver reveal">
         <div class="tier-label">Silver Tier</div>
-        <h4>Consistently named</h4>
-        <p>Praised across multiple recent reviews for patience, wildlife knowledge, and calm under pressure.</p>
+        <h4>Consistently praised</h4>
+        <p>Called out across multiple recent reviews for patience, wildlife knowledge, and staying calm when a trip goes sideways.</p>
         <div class="names">Tony, Francis</div>
       </div>
       <div class="tier bronze reveal">
         <div class="tier-label">Bronze Tier</div>
-        <h4>Building a track record</h4>
-        <p>Newer to the roster, already trending positive across recent trips and routes.</p>
+        <h4>Rising fast</h4>
+        <p>Newer to the roster, already trending positive across recent routes. Worth requesting before everyone else catches on.</p>
         <div class="names">Elvis, Lawrence</div>
       </div>
     </div>
@@ -356,31 +356,61 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
 <section class="section" id="fleet">
   <div class="wrap">
     <div class="shead reveal">
-      <h2>The fleet, built for the terrain.</h2>
-      <p>Regularly serviced, fully insured, and matched to the job, whether that's an airport run or ten days off-road.</p>
+      <h2>Built for where the road ends.</h2>
+      <p>Four vehicle classes, every one serviced, insured, and matched to the job, whether that's an airport pickup or ten days off-road.</p>
     </div>
+
+    <div class="match-tool reveal">
+      <div class="mt-label">Instant Fleet Match</div>
+      <h3>Tell us the trip. We'll tell you the vehicle.</h3>
+      <div class="mt-row">
+        <div>How many travelers?</div>
+        <div class="mt-opts" data-group="size">
+          <button class="mt-opt" data-val="small">1-4</button>
+          <button class="mt-opt" data-val="mid">5-8</button>
+          <button class="mt-opt" data-val="large">9-15</button>
+          <button class="mt-opt" data-val="xlarge">16+</button>
+        </div>
+      </div>
+      <div class="mt-row">
+        <div>What's the trip?</div>
+        <div class="mt-opts" data-group="type">
+          <button class="mt-opt" data-val="safari">Safari / Game Drive</button>
+          <button class="mt-opt" data-val="airport">Airport Transfer</button>
+          <button class="mt-opt" data-val="corporate">Corporate / MICE</button>
+        </div>
+      </div>
+      <div class="mt-result" id="mtResult">
+        <img src="assets/generated/fleet-vehicle.webp" alt="" id="mtResultImg" />
+        <div>
+          <div class="mrname" id="mtResultName"></div>
+          <div class="mrdesc" id="mtResultDesc"></div>
+        </div>
+      </div>
+    </div>
+
     <div class="fleet-wrap">
       <div class="fleet-img reveal">
         <img src="assets/generated/fleet-vehicle.webp" alt="Custom safari vehicle with pop-up roof on the savanna" />
       </div>
       <div class="fleet-list reveal">
-        <div class="fleet-item">
+        <div class="fleet-item" data-vehicle="prado">
           <div><div class="fi-name">Toyota Land Cruiser Prado</div><div class="fi-use">Airport transfers, executive travel, small groups</div></div>
           <div class="fi-pax">4-6 pax</div>
         </div>
-        <div class="fleet-item">
+        <div class="fleet-item" data-vehicle="cruiser">
           <div><div class="fi-name">Custom Safari Land Cruisers</div><div class="fi-use">Pop-up roof, all-terrain, extended safari kit</div></div>
           <div class="fi-pax">6-8 pax</div>
         </div>
-        <div class="fleet-item">
+        <div class="fleet-item" data-vehicle="hiace">
           <div><div class="fi-name">Toyota Hiace Executive Vans</div><div class="fi-use">Group tours, corporate shuttles, family travel</div></div>
           <div class="fi-pax">6-9 pax</div>
         </div>
-        <div class="fleet-item">
+        <div class="fleet-item" data-vehicle="coaster">
           <div><div class="fi-name">Coaster Buses</div><div class="fi-use">Large groups, conference transport, team events</div></div>
           <div class="fi-pax">20-25 pax</div>
         </div>
-        <div style="margin-top:1.4rem"><a href="#contact" class="btn btn-ghost-dark">Request Fleet Spec Sheet</a></div>
+        <div style="margin-top:1.4rem"><a href="#contact" class="btn btn-ghost-dark magnetic">Request Fleet Spec Sheet</a></div>
       </div>
     </div>
   </div>
@@ -389,8 +419,8 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
 <section class="section section-tint" id="destinations">
   <div class="wrap">
     <div class="shead reveal">
-      <h2>A footprint across East Africa.</h2>
-      <p>Maasai Mara, Amboseli, Samburu, Laikipia, and the coast, plus cross-border routes into Uganda and beyond.</p>
+      <h2>One footprint, all of East Africa.</h2>
+      <p>Maasai Mara, Amboseli, Samburu, Laikipia, the coast, plus cross-border routes into Uganda. Wherever the itinerary goes, we've already driven it.</p>
     </div>
     <div class="dest-grid">
       <div class="dcard tall reveal">
@@ -414,8 +444,8 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
 <section class="section" id="deals">
   <div class="wrap">
     <div class="shead reveal">
-      <h2>Ready-to-book itinerary.</h2>
-      <p>One sample package below. Every trip is built around your dates, group, and budget, this is a starting point, not a limit.</p>
+      <h2>Not sure where to start? Here's one we'd book.</h2>
+      <p>Every itinerary gets built around your dates, group, and budget. This is a starting point, not a limit.</p>
     </div>
     <div class="pkg-card reveal">
       <div class="pkg-img"><img src="assets/generated/tented-camp.webp" alt="Luxury tented camp at dusk" /></div>
@@ -425,7 +455,7 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
           <span>4 days, 3 nights</span><span>Max 6 guests</span><span>Land Cruiser transport</span>
         </div>
         <div class="pkg-price">$3,000<span> per person, from</span></div>
-        <div style="margin-top:1.3rem"><a href="#contact" class="btn btn-primary">Request This Itinerary</a></div>
+        <div style="margin-top:1.3rem"><a href="#contact" class="btn btn-primary magnetic">Request This Itinerary</a></div>
       </div>
     </div>
   </div>
@@ -435,8 +465,8 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
   <div class="wrap">
     <div class="trade-grid">
       <div class="reveal">
-        <h2 style="color:var(--bone);font-size:clamp(1.8rem,3.6vw,2.7rem)">Ground handling for agents who need it done right.</h2>
-        <p style="margin-top:1rem;color:rgba(247,242,231,.78);font-size:1.02rem;max-width:48ch">Established agent partners across India, Japan, Russia, the US, and Spain send us business year-round. We handle the ground, you handle the client.</p>
+        <h2 style="color:var(--bone);font-size:clamp(1.9rem,3.8vw,2.9rem)">Your clients. Our ground game.</h2>
+        <p style="margin-top:1rem;color:rgba(247,242,231,.8);font-size:1.04rem;max-width:48ch">Agent partners across five countries already trust us with their clients' safaris. We absorb the logistics risk, so you never have to explain a breakdown, a no-show, or a missed transfer to someone who booked through you.</p>
         <div class="trade-badges">
           <span class="tbadge">Multi-lingual guides</span>
           <span class="tbadge">Own fleet, no subcontracting</span>
@@ -444,8 +474,8 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
           <span class="tbadge">Year-round East Africa desk</span>
         </div>
         <div class="trade-cta">
-          <a href="#contact" class="btn btn-primary">Request Rate Sheet</a>
-          <a href="tel:+254722972374" class="btn btn-ghost-light">Call the Trade Desk</a>
+          <a href="#contact" class="btn btn-primary magnetic">Request Rate Sheet</a>
+          <a href="tel:+254722972374" class="btn btn-ghost-light magnetic">Call the Trade Desk</a>
         </div>
       </div>
       <div class="trade-panel reveal">
@@ -463,8 +493,8 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
 <section class="section" id="addons">
   <div class="wrap">
     <div class="shead reveal">
-      <h2>Already in Nairobi? Add these on.</h2>
-      <p>For guests arriving before or after a safari, or agents building a Nairobi stopover into an itinerary.</p>
+      <h2>Already on the ground? We've got you covered.</h2>
+      <p>For guests arriving before or after a safari, or agents building a Nairobi stopover into a longer itinerary.</p>
     </div>
     <div class="addon-row reveal">
       <div class="addon"><div class="an">Half-Day</div><h4>Nairobi National Park</h4><p>Game drives inside city limits, with the skyline visible on the horizon.</p></div>
@@ -478,7 +508,7 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
 <section class="section section-tint">
   <div class="wrap" style="max-width:820px">
     <div class="shead reveal">
-      <h2>Questions we get before booking.</h2>
+      <h2>Straight answers, before you ask twice.</h2>
     </div>
     <div id="faqlist">
       <div class="faq-item reveal">
@@ -487,7 +517,7 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
       </div>
       <div class="faq-item reveal">
         <button class="faq-q">Do you work with travel agents outside Kenya?<span class="plus"></span></button>
-        <div class="faq-a"><div><p>Yes, this is the core of our business. We currently support agent partners across India, Japan, Russia, the US, and Spain, with rate sheets available on request.</p></div></div>
+        <div class="faq-a"><div><p>Yes, it's the core of our business. We currently support agent partners across India, Japan, Russia, the US, and Spain, with rate sheets available on request.</p></div></div>
       </div>
       <div class="faq-item reveal">
         <button class="faq-q">What's included in the vehicle rate?<span class="plus"></span></button>
@@ -504,8 +534,8 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
 <section class="section" id="contact">
   <div class="wrap">
     <div class="shead reveal">
-      <h2>Two ways in, one desk behind both.</h2>
-      <p>Traveling yourself, or booking on behalf of a client? Pick the path that fits.</p>
+      <h2>Let's get this moving.</h2>
+      <p>Traveling yourself, or booking on behalf of a client? Pick the path that fits, someone from our Nairobi desk replies the same business day either way.</p>
     </div>
     <div class="contact-grid">
       <div class="contact-path reveal">
@@ -516,7 +546,7 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
           <div class="field"><label for="cemail">Email address</label><input id="cemail" type="email" placeholder="you@email.com" /></div>
           <div class="field"><label for="cdates">Travel dates</label><input id="cdates" type="text" placeholder="e.g. 12-18 August" /></div>
           <div class="field"><label for="cmsg">What are you planning?</label><textarea id="cmsg" rows="3" placeholder="Group size, destinations, budget range"></textarea></div>
-          <button class="btn btn-primary" style="width:100%">Send Enquiry</button>
+          <button class="btn btn-primary magnetic" style="width:100%">Send Enquiry</button>
         </form>
       </div>
       <div class="contact-path reveal">
@@ -527,7 +557,7 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
           <div class="field"><label for="aemail">Work email</label><input id="aemail" type="email" placeholder="you@agency.com" /></div>
           <div class="field"><label for="amarket">Source market</label><select id="amarket"><option>Select a market</option><option>India</option><option>Japan</option><option>Russia</option><option>United States</option><option>Spain</option><option>Other</option></select></div>
           <div class="field"><label for="amsg">What do you need?</label><textarea id="amsg" rows="3" placeholder="Rate sheet, new partnership, existing booking"></textarea></div>
-          <button class="btn btn-primary" style="width:100%">Request Rate Sheet</button>
+          <button class="btn btn-primary magnetic" style="width:100%">Request Rate Sheet</button>
         </form>
       </div>
     </div>
@@ -568,13 +598,21 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
 (function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasGsap = typeof gsap !== 'undefined';
+  if(hasGsap) gsap.registerPlugin(ScrollTrigger);
+
+  /* nav */
   var burger=document.getElementById('burger');
   var links=document.getElementById('navlinks');
   burger.addEventListener('click',function(){links.classList.toggle('open')});
   links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open')})});
 
+  /* faq accordion */
   document.querySelectorAll('.faq-q').forEach(function(btn){
     btn.addEventListener('click',function(){
       var item=btn.closest('.faq-item');
@@ -584,14 +622,117 @@ footer{background:var(--ink);color:rgba(247,242,231,.65);padding:clamp(2.6rem,5v
     });
   });
 
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
-    },{threshold:.12});
-    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  /* hero entrance timeline */
+  if(hasGsap && !reduceMotion){
+    var tl = gsap.timeline({defaults:{ease:'power3.out'}});
+    tl.to('#heroBadge',{opacity:1,duration:.6},.1)
+      .to('.hero h1 .line span',{y:'0%',duration:.9,stagger:.12},.15)
+      .to('#heroSub',{opacity:1,duration:.7},.55)
+      .to('#heroCtas',{opacity:1,duration:.7},.7);
+  } else {
+    document.getElementById('heroBadge').style.opacity=1;
+    document.querySelectorAll('.hero h1 .line span').forEach(function(s){s.style.transform='none'});
+    document.getElementById('heroSub').style.opacity=1;
+    document.getElementById('heroCtas').style.opacity=1;
+  }
+
+  /* scroll reveal */
+  if(hasGsap && !reduceMotion){
+    document.querySelectorAll('.reveal').forEach(function(el,i){
+      ScrollTrigger.create({
+        trigger: el, start:'top 88%',
+        onEnter: function(){ el.classList.add('in') }
+      });
+    });
   } else {
     document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
   }
+
+  /* animated counters */
+  document.querySelectorAll('.trust-num').forEach(function(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    var isDecimal = el.getAttribute('data-count').indexOf('.') > -1;
+    if(reduceMotion || !hasGsap){ el.textContent = el.getAttribute('data-count'); return; }
+    ScrollTrigger.create({
+      trigger: el, start:'top 92%', once:true,
+      onEnter: function(){
+        var obj = {v:0};
+        gsap.to(obj,{v:target,duration:1.4,ease:'power2.out',onUpdate:function(){
+          el.textContent = isDecimal ? obj.v.toFixed(1) : Math.round(obj.v);
+        }});
+      }
+    });
+  });
+
+  /* parallax: hero media, destination cards, why-cell feature, fleet image */
+  if(hasGsap && !reduceMotion){
+    gsap.to('#heroMedia',{yPercent:12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+    document.querySelectorAll('.dcard img, .why-cell.feature img, .fleet-img img, .pkg-img img').forEach(function(img){
+      gsap.to(img,{yPercent:8,ease:'none',scrollTrigger:{trigger:img.closest('div'),start:'top bottom',end:'bottom top',scrub:true}});
+    });
+  }
+
+  /* magnetic buttons */
+  if(!reduceMotion){
+    document.querySelectorAll('.magnetic').forEach(function(btn){
+      btn.addEventListener('mousemove',function(e){
+        var r = btn.getBoundingClientRect();
+        var x = e.clientX - r.left - r.width/2;
+        var y = e.clientY - r.top - r.height/2;
+        if(hasGsap){ gsap.to(btn,{x:x*.28,y:y*.5,duration:.3,ease:'power2.out'}) }
+        else { btn.style.transform = 'translate(' + (x*.2) + 'px,' + (y*.35) + 'px)' }
+      });
+      btn.addEventListener('mouseleave',function(){
+        if(hasGsap){ gsap.to(btn,{x:0,y:0,duration:.5,ease:'elastic.out(1,0.4)'}) }
+        else { btn.style.transform = 'none' }
+      });
+    });
+  }
+
+  /* Instant Fleet Match tool */
+  var mtState = {size:null, type:null};
+  var vehicles = {
+    prado:{name:'Toyota Land Cruiser Prado', desc:'4-6 pax, luxury 4WD, ideal for airport and executive transfers.'},
+    cruiser:{name:'Custom Safari Land Cruiser', desc:'6-8 pax, pop-up roof, built for off-road game drives.'},
+    cruiserMulti:{name:'Custom Safari Land Cruisers (convoy)', desc:'Multiple 6-8 pax vehicles, radio-linked for larger safari groups.'},
+    hiace:{name:'Toyota Hiace Executive Van', desc:'6-9 pax, reclining seats and AC, built for groups and corporate shuttles.'},
+    coaster:{name:'Coaster Bus', desc:'20-25 pax, climate control and PA system, built for conferences and large groups.'}
+  };
+  function matchVehicle(size, type){
+    if(type==='safari'){
+      if(size==='large' || size==='xlarge') return 'cruiserMulti';
+      return 'cruiser';
+    }
+    if(type==='airport'){
+      if(size==='small') return 'prado';
+      if(size==='mid') return 'hiace';
+      return 'coaster';
+    }
+    if(type==='corporate'){
+      if(size==='small' || size==='mid') return 'hiace';
+      return 'coaster';
+    }
+    return null;
+  }
+  document.querySelectorAll('.mt-opt').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var group = btn.closest('.mt-opts').getAttribute('data-group');
+      btn.closest('.mt-opts').querySelectorAll('.mt-opt').forEach(function(b){b.classList.remove('active')});
+      btn.classList.add('active');
+      mtState[group] = btn.getAttribute('data-val');
+      if(mtState.size && mtState.type){
+        var key = matchVehicle(mtState.size, mtState.type);
+        var v = vehicles[key];
+        document.getElementById('mtResultName').textContent = v.name;
+        document.getElementById('mtResultDesc').textContent = v.desc;
+        document.getElementById('mtResult').classList.add('show');
+        document.querySelectorAll('.fleet-item').forEach(function(fi){fi.classList.remove('matched')});
+        var matchKey = key==='cruiserMulti' ? 'cruiser' : key;
+        var target = document.querySelector('.fleet-item[data-vehicle="'+matchKey+'"]');
+        if(target){ target.classList.add('matched') }
+      }
+    });
+  });
 })();
 </script>
 </body>
