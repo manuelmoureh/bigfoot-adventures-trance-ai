@@ -46,33 +46,52 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:800;line-height:1.05;let
 .btn-ghost-ink:hover{background:var(--ink);color:var(--paper)}
 
 /* ---------- NAV ---------- */
-header{position:fixed;top:0;left:0;right:0;z-index:80;padding:1.4rem 0}
+header{position:fixed;top:0;left:0;right:0;z-index:80;padding:1.1rem 0;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
-.brand{display:flex;align-items:center;gap:.55rem;font-family:var(--font-display);font-weight:800;font-size:1.02rem;color:var(--paper)}
+.brand{display:flex;align-items:center;gap:.55rem;font-family:var(--font-display);font-weight:800;font-size:1.02rem;color:var(--ink)}
 .brand .mark{width:26px;height:26px;flex:none}
-.navlinks{display:flex;align-items:center;gap:clamp(1.2rem,2.4vw,2.2rem);font-size:.85rem;font-weight:600;color:var(--paper)}
-.navlinks a{opacity:.85;transition:opacity .15s}
+.navlinks{display:flex;align-items:center;gap:clamp(1.2rem,2.4vw,2.2rem);font-size:.85rem;font-weight:600;color:var(--ink)}
+.navlinks a{opacity:.75;transition:opacity .15s}
 .navlinks a:hover{opacity:1}
+.navcta{display:flex;align-items:center;gap:1.6rem}
 .navburger{display:none;background:none;border:none;cursor:pointer;padding:.4rem}
-.navburger span{display:block;width:20px;height:2px;background:var(--paper);margin:5px 0}
+.navburger span{display:block;width:20px;height:2px;background:var(--ink);margin:5px 0}
 @media(max-width:860px){
-  .navlinks{position:fixed;inset:0;background:var(--ink);flex-direction:column;justify-content:center;gap:1.6rem;font-size:1.2rem;transform:translateY(-100%);transition:transform .35s var(--ease)}
-  .navlinks.open{transform:translateY(0)}
+  .navcta .btn{display:none}
+  .navlinks{position:fixed;inset:0;background:var(--paper);flex-direction:column;justify-content:center;gap:1.6rem;font-size:1.2rem;opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility 0s .3s}
+  .navlinks.open{opacity:1;visibility:visible;transition:opacity .3s var(--ease),visibility 0s}
   .navburger{display:block;position:relative;z-index:90}
 }
 
-/* ---------- HERO ---------- */
-.hero{position:relative;height:100dvh;min-height:640px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
-.hero-media{position:absolute;inset:-4%;will-change:transform}
-.hero-media img{width:100%;height:100%;object-fit:cover}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,20,20,.86) 0%,rgba(20,20,20,.15) 42%,rgba(20,20,20,.42) 100%)}
-.hero-inner{position:relative;z-index:2;text-align:center;padding:0 1.2rem clamp(2.6rem,5vh,3.6rem)}
-.hero h1{font-size:clamp(4.2rem,15vw,10.5rem);font-weight:900;letter-spacing:-.04em;color:var(--paper);line-height:.9;overflow:hidden}
-.hero h1 span{display:inline-block;transform:translateY(115%)}
-.hero p{max-width:44ch;margin:1.1rem auto 0;color:rgba(255,255,255,.82);font-size:clamp(.95rem,1.4vw,1.08rem);opacity:0}
-.hero-cta{margin-top:1.7rem;opacity:0}
-@media(prefers-reduced-motion:reduce){.hero h1 span{transform:none}.hero p,.hero-cta{opacity:1}}
-.hero-divider{position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--red);z-index:3}
+/* ---------- PILL W/ ARROW ---------- */
+.btn-arrow{padding-right:.45rem;gap:.7rem}
+.arrow-circle{width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.btn-primary .arrow-circle{background:rgba(255,255,255,.28)}
+.btn-ghost-ink .arrow-circle{background:rgba(20,20,20,.08)}
+
+/* ---------- HERO (light, contained photo) ---------- */
+.hero{background:var(--paper);color:var(--ink);padding:clamp(7.5rem,16vh,10rem) 0 clamp(3rem,7vw,5rem)}
+.hero-content{text-align:center;max-width:760px;margin:0 auto}
+.hero h1{font-size:clamp(2.3rem,5.2vw,3.9rem);color:var(--ink)}
+.hero-content p{max-width:46ch;margin:1.1rem auto 0;color:var(--stone);font-size:clamp(.98rem,1.4vw,1.1rem)}
+.hero-cta{margin-top:1.8rem}
+.hero-photo{position:relative;margin:clamp(2.4rem,5vw,3.6rem) auto 0;max-width:1100px;border-radius:18px;overflow:hidden;aspect-ratio:16/9;box-shadow:0 30px 70px -30px rgba(20,20,20,.35)}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-badge{position:absolute;background:var(--paper);border-radius:12px;box-shadow:0 14px 32px -10px rgba(20,20,20,.3);padding:.85rem 1.05rem;display:flex;align-items:center;gap:.7rem}
+.hero-badge-stat{top:1.2rem;right:1.2rem;background:var(--red);color:var(--paper);flex-direction:column;align-items:flex-start;gap:.05rem}
+.hb-num{font-family:var(--font-mono);font-size:1.35rem;font-weight:800;line-height:1}
+.hb-num span{font-size:.78rem;font-weight:600;opacity:.85}
+.hb-label{font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.hero-badge-trust{bottom:1.2rem;left:1.2rem;color:var(--ink)}
+.hero-badge-trust svg{flex:none;color:var(--red)}
+.hero-badge-trust span{font-size:.76rem;font-weight:700;line-height:1.3}
+@media(max-width:640px){
+  .hero-badge{padding:.6rem .8rem;border-radius:9px;gap:.4rem}
+  .hb-num{font-size:1.05rem}
+  .hb-label{font-size:.6rem}
+  .hero-badge-trust span{font-size:.66rem}
+  .hero-badge-trust svg{width:16px;height:16px}
+}
 
 /* ---------- CATEGORY ROW ---------- */
 .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.4rem}
@@ -225,18 +244,32 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
       <a href="#trade">Trade</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="navburger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="navcta">
+      <a href="#contact" class="btn btn-primary btn-arrow magnetic">Contact Us <span class="arrow-circle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <button class="navburger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
 <section class="hero" id="top">
-  <div class="hero-media" id="heroMedia"><img src="assets/real/fleet-action.webp" alt="A Bigfoot Adventures safari vehicle and guests watching an elephant in Amboseli" /></div>
-  <div class="hero-inner">
-    <h1 id="heroTitle"><span>Safari.</span></h1>
-    <p id="heroSub">No subcontractors. Our own fleet, our own guides, run from Nairobi since 2013.</p>
-    <div class="hero-cta" id="heroCta"><a href="#contact" class="btn btn-primary magnetic">Plan My Safari</a></div>
+  <div class="wrap">
+    <div class="hero-content reveal">
+      <h1>We Own Every Mile We Drive.</h1>
+      <p>No subcontractors. Our own fleet, our own guides, run from Nairobi since 2013.</p>
+      <div class="hero-cta"><a href="#contact" class="btn btn-primary btn-arrow magnetic">Plan My Safari <span class="arrow-circle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
+    </div>
+    <div class="hero-photo reveal">
+      <img src="assets/real/fleet-action.webp" alt="A Bigfoot Adventures safari vehicle and guests watching an elephant in Amboseli" />
+      <div class="hero-badge hero-badge-stat">
+        <div class="hb-num">5.0<span> / 5</span></div>
+        <div class="hb-label">1,492 Reviews</div>
+      </div>
+      <div class="hero-badge hero-badge-trust">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+        <span>Travelers' Choice,<br>every year since 2019</span>
+      </div>
+    </div>
   </div>
-  <div class="hero-divider"></div>
 </section>
 
 <section class="section section-light" id="fleet-cats">
@@ -577,21 +610,9 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
   });
 
   if(hasGsap && !reduceMotion){
-    gsap.timeline({defaults:{ease:'power3.out'}})
-      .to('.hero h1 span',{y:'0%',duration:1,},.1)
-      .to('#heroSub',{opacity:1,duration:.7},.5)
-      .to('#heroCta',{opacity:1,duration:.7},.65);
-  } else {
-    document.querySelectorAll('.hero h1 span').forEach(function(s){s.style.transform='none'});
-    document.getElementById('heroSub').style.opacity=1;
-    document.getElementById('heroCta').style.opacity=1;
-  }
-
-  if(hasGsap && !reduceMotion){
     document.querySelectorAll('.reveal').forEach(function(el){
       ScrollTrigger.create({trigger:el,start:'top 88%',onEnter:function(){el.classList.add('in')}});
     });
-    gsap.to('#heroMedia',{yPercent:12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
     document.querySelectorAll('.cat-card img, .band-media img').forEach(function(img){
       gsap.to(img,{yPercent:8,ease:'none',scrollTrigger:{trigger:img.closest('div').parentElement,start:'top bottom',end:'bottom top',scrub:true}});
     });
