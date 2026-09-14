@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Hero } from "./components/Hero";
 import { WhyUs, Guides, Fleet, HowItWorks, Testimonials, Trade, FAQ } from "./components/Sections";
-import { AgentSegments } from "./components/AgentSections";
+import { AgentSegments, TrustBar } from "./components/AgentSections";
 import { ArrowBtn } from "./components/ui";
 import { OrganizationSchema, FaqSchema } from "./components/Schema";
 import { FAQS } from "./data";
@@ -21,6 +21,11 @@ export default function Home() {
       <OrganizationSchema />
       <FaqSchema faqs={FAQS} />
       <Hero />
+      <section className="bg-ink text-paper py-6">
+        <div className="mx-auto max-w-[1320px] px-5 sm:px-8 flex justify-center">
+          <TrustBar />
+        </div>
+      </section>
       <AgentSegments />
       <WhyUs />
       <Guides />
