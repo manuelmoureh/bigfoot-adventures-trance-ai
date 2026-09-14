@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "./components/Hero";
 import { WhyUs, Guides, Fleet, HowItWorks, Testimonials, Trade, FAQ } from "./components/Sections";
 import { AgentSegments, TrustBar } from "./components/AgentSections";
+import { FleetSlider } from "./components/FleetSlider";
 import { ArrowBtn } from "./components/ui";
 import { OrganizationSchema, FaqSchema } from "./components/Schema";
 import { FAQS } from "./data";
@@ -26,6 +27,7 @@ export default function Home() {
           <TrustBar light />
         </div>
       </section>
+      <FleetSlider />
       <AgentSegments />
       <WhyUs />
       <Guides />
