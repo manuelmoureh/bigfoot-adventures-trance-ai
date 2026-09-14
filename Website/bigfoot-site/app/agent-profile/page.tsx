@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { trackEvent } from "../components/ui";
+import { BASE_PATH } from "../basePath";
 
 export default function AgentProfilePage() {
   return (
@@ -23,10 +25,7 @@ export default function AgentProfilePage() {
 
         <div className="border border-line rounded-lg p-8 sm:p-12 print:border-0 print:p-0">
           <div className="flex items-center gap-3 mb-8">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="15" stroke="#E31E24" strokeWidth="2" />
-              <path d="M9 20c1-5 3-9 7-9s6 4 7 9" stroke="#E31E24" strokeWidth="2" strokeLinecap="round" />
-            </svg>
+            <Image src={`${BASE_PATH}/brand/logo.webp`} alt="" width={36} height={32} />
             <div className="font-black text-xl">Bigfoot Adventures Ltd</div>
           </div>
 

@@ -2,7 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, List, X } from "@phosphor-icons/react";
+import { BASE_PATH } from "../basePath";
 
 const LINKS = [
   { href: "/for-travel-agents", label: "For Travel Agents" },
@@ -44,11 +46,8 @@ export function Nav() {
       }`}
     >
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8 h-[68px] flex items-center justify-between">
-        <Link href="/" className={`flex items-center gap-2 font-black transition-colors ${dark ? "text-ink" : "text-paper"}`}>
-          <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
-            <circle cx="16" cy="16" r="15" stroke="#E31E24" strokeWidth="2" />
-            <path d="M9 20c1-5 3-9 7-9s6 4 7 9" stroke="#E31E24" strokeWidth="2" strokeLinecap="round" />
-          </svg>
+        <Link href="/" className={`flex items-center gap-2.5 font-black transition-colors ${dark ? "text-ink" : "text-paper"}`}>
+          <Image src={`${BASE_PATH}/brand/logo.webp`} alt="" width={34} height={30} className="shrink-0" priority />
           Bigfoot Adventures
         </Link>
 

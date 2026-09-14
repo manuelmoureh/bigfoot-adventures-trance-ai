@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import { BASE_PATH } from "../basePath";
 
 export function Footer() {
   return (
@@ -7,7 +9,10 @@ export function Footer() {
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8 pt-14 pb-6">
         <div className="grid grid-cols-2 md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-9 pb-9 border-b border-white/10">
           <div>
-            <div className="text-paper font-black text-lg mb-3">Bigfoot Adventures</div>
+            <div className="flex items-center gap-2.5 text-paper font-black text-lg mb-3">
+              <Image src={`${BASE_PATH}/brand/logo.webp`} alt="" width={28} height={25} className="shrink-0" />
+              Bigfoot Adventures
+            </div>
             <p className="text-sm max-w-[32ch] leading-relaxed">
               Adams Mini Mall, Adams Arcade, Suna Road, off Ngong Road, Nairobi, Kenya.
             </p>
