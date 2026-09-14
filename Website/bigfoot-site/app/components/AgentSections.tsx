@@ -1,29 +1,43 @@
 "use client";
 
 import Image from "next/image";
-import { Reveal, Eyebrow, ArrowBtn } from "./ui";
+import { Reveal, Eyebrow, ArrowBtn, TripAdvisorIcon } from "./ui";
 import { BASE_PATH } from "../basePath";
-import { Airplane, Van, UsersThree, Anchor, Globe } from "@phosphor-icons/react";
+import { Airplane, Van, UsersThree, Anchor, Globe, ShieldCheck, CalendarBlank, Lightning } from "@phosphor-icons/react";
 
 const TRUST = [
-  "TRA / KATO / TOSK registered",
-  "1,400+ TripAdvisor reviews, 4.9/5",
-  "Founded 2013, zero rebrands",
-  "Same business day rate turnaround",
-];
+  { icon: ShieldCheck, label: "TRA / KATO / TOSK registered" },
+  { icon: "tripadvisor", label: "1,400+ TripAdvisor reviews, 4.9/5" },
+  { icon: CalendarBlank, label: "Founded 2013" },
+  { icon: Lightning, label: "Same business day rate turnaround" },
+] as const;
 
 export function TrustBar({ light = false }: { light?: boolean }) {
   return (
-    <div className="flex flex-wrap gap-2.5">
-      {TRUST.map((t) => (
-        <span
-          key={t}
-          className={`rounded-full border px-4 py-1.5 text-sm font-bold ${
-            light ? "border-line text-ink" : "border-white/28 text-paper"
-          }`}
-        >
-          {t}
-        </span>
+    <div
+      className={`flex flex-col sm:flex-row sm:mx-auto rounded-2xl border divide-y sm:divide-y-0 sm:divide-x ${
+        light
+          ? "border-line bg-white shadow-[0_1px_2px_rgba(15,15,15,.04),0_16px_32px_-20px_rgba(15,15,15,.16)] divide-line"
+          : "border-white/12 bg-white/[0.04] divide-white/12"
+      }`}
+    >
+      {TRUST.map((item) => (
+        <div key={item.label} className="flex items-center justify-center sm:justify-start gap-3 px-5 sm:px-6 py-4">
+          <span
+            className={`grid place-items-center w-9 h-9 rounded-full shrink-0 ${
+              item.icon === "tripadvisor" ? "bg-[#00AF87]/12" : light ? "bg-red/10" : "bg-red/15"
+            }`}
+          >
+            {item.icon === "tripadvisor" ? (
+              <TripAdvisorIcon size={17} />
+            ) : (
+              <item.icon size={16} weight="bold" className="text-red" />
+            )}
+          </span>
+          <span className={`text-[13px] sm:text-sm font-bold leading-snug ${light ? "text-ink" : "text-paper"}`}>
+            {item.label}
+          </span>
+        </div>
       ))}
     </div>
   );

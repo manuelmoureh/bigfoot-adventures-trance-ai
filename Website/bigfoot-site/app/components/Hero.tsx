@@ -5,22 +5,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowRight } from "@phosphor-icons/react";
 import { BASE_PATH } from "../basePath";
-
-// TripAdvisor's owl mark, simplified — used at small size in the trust badge.
-function TripAdvisorIcon({ size = 16 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="7" cy="13.5" r="5" fill="white" />
-      <circle cx="17" cy="13.5" r="5" fill="white" />
-      <circle cx="7" cy="13.5" r="2.4" fill="#00AF87" />
-      <circle cx="17" cy="13.5" r="2.4" fill="#00AF87" />
-      <path
-        d="M12 7.2c-2.1-1.9-5.2-2.4-8.3-1.4L2 6.4l1.1 1.3c.5-.2 1-.3 1.5-.4a6.2 6.2 0 0 1 7.4 3.1 6.2 6.2 0 0 1 7.4-3.1c.5.1 1 .2 1.5.4L22 6.4l-1.7-.6c-3.1-1-6.2-.5-8.3 1.4Z"
-        fill="#00AF87"
-      />
-    </svg>
-  );
-}
+import { TripAdvisorIcon } from "./ui";
 
 // Reduced-motion is handled by the global CSS media query in globals.css,
 // not a JS branch — see the comment in components/ui.tsx's Reveal for why.
