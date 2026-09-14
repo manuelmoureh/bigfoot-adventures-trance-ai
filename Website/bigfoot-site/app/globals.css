@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --red: #E31E24;
+  --red-deep: #A8161A;
+  --ink: #141414;
+  --ink-soft: #1F1F1F;
+  --paper: #FFFFFF;
+  --stone: #6B6560;
+  --stone-dim: #F2F0EE;
+  --line: #E7E3DF;
+}
+
+@theme inline {
+  --color-red: var(--red);
+  --color-red-deep: var(--red-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-stone: var(--stone);
+  --color-stone-dim: var(--stone-dim);
+  --color-line: var(--line);
+  --font-display: var(--font-satoshi), ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-satoshi), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  header, footer {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+}
