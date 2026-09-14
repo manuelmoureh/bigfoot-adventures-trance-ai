@@ -27,14 +27,14 @@ export function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[38%_50%] sm:object-[center_46%]"
+          className="object-cover object-[left_center] sm:object-[center_66%]"
         />
       </div>
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(8,10,14,.66) 0%, rgba(8,10,14,.46) 26%, rgba(8,10,14,.16) 48%, rgba(8,10,14,0) 64%), linear-gradient(0deg, rgba(8,10,14,.62) 0%, rgba(8,10,14,.22) 24%, rgba(8,10,14,0) 42%), linear-gradient(180deg, rgba(8,10,14,.38) 0%, rgba(8,10,14,0) 16%)",
+            "linear-gradient(90deg, rgba(8,10,14,.72) 0%, rgba(8,10,14,.54) 22%, rgba(8,10,14,.24) 38%, rgba(8,10,14,0) 56%), linear-gradient(0deg, rgba(8,10,14,.92) 0%, rgba(8,10,14,.5) 12%, rgba(8,10,14,.14) 26%, rgba(8,10,14,0) 42%), linear-gradient(180deg, rgba(8,10,14,.38) 0%, rgba(8,10,14,0) 16%)",
         }}
       />
 
@@ -44,9 +44,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-[540px] text-left"
+            className="max-w-[400px] text-left"
           >
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-4">
+            <div className="flex flex-col items-start gap-1.5 mb-3">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-red px-3 py-1 text-xs font-extrabold">
                 <Star size={13} weight="fill" />
                 5.0 · 1,492 Reviews
@@ -54,18 +54,18 @@ export function Hero() {
               <span className="text-xs font-bold text-white/85">Travelers&apos; Choice, every year since 2019</span>
             </div>
             <h1
-              className="font-black leading-[0.98] tracking-tight"
-              style={{ fontSize: "clamp(2.1rem, 4.4vw, 3.3rem)", textShadow: "0 4px 24px rgba(0,0,0,.45)" }}
+              className="font-black leading-[1.02] tracking-tight"
+              style={{ fontSize: "clamp(1.85rem, 3.4vw, 2.65rem)", textShadow: "0 4px 24px rgba(0,0,0,.5)" }}
             >
               Ground Handling in Kenya, Run by the People Who Drive It.
             </h1>
             <p
-              className="mt-4 max-w-[46ch] text-white/90"
-              style={{ fontSize: "clamp(.98rem, 1.3vw, 1.1rem)", textShadow: "0 2px 12px rgba(0,0,0,.4)" }}
+              className="mt-3 max-w-[38ch] text-white/90"
+              style={{ fontSize: "clamp(.92rem, 1.2vw, 1.02rem)", textShadow: "0 2px 12px rgba(0,0,0,.45)" }}
             >
               No subcontractors. Our own fleet, our own multilingual guides, one Nairobi desk — quoting your clients&apos; safaris since 2013.
             </p>
-            <div className="mt-7 flex flex-wrap items-center gap-3">
+            <div className="mt-6 flex flex-wrap items-center gap-3">
               <Link
                 href="/request-a-rate"
                 className="inline-flex items-center gap-2.5 rounded-full bg-red pl-7 pr-2 py-2 font-bold text-paper hover:bg-red-deep transition-colors"
