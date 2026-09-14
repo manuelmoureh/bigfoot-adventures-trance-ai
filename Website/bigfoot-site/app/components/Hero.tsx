@@ -3,8 +3,24 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { ArrowRight, Star } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react";
 import { BASE_PATH } from "../basePath";
+
+// TripAdvisor's owl mark, simplified — used at small size in the trust badge.
+function TripAdvisorIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="7" cy="13.5" r="5" fill="white" />
+      <circle cx="17" cy="13.5" r="5" fill="white" />
+      <circle cx="7" cy="13.5" r="2.4" fill="#00AF87" />
+      <circle cx="17" cy="13.5" r="2.4" fill="#00AF87" />
+      <path
+        d="M12 7.2c-2.1-1.9-5.2-2.4-8.3-1.4L2 6.4l1.1 1.3c.5-.2 1-.3 1.5-.4a6.2 6.2 0 0 1 7.4 3.1 6.2 6.2 0 0 1 7.4-3.1c.5.1 1 .2 1.5.4L22 6.4l-1.7-.6c-3.1-1-6.2-.5-8.3 1.4Z"
+        fill="#00AF87"
+      />
+    </svg>
+  );
+}
 
 // Reduced-motion is handled by the global CSS media query in globals.css,
 // not a JS branch — see the comment in components/ui.tsx's Reveal for why.
@@ -50,8 +66,11 @@ export function Hero() {
             className="max-w-[400px] text-left"
           >
             <div className="hidden sm:flex flex-col items-start gap-1.5 mb-3">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-red px-3 py-1 text-xs font-extrabold">
-                <Star size={13} weight="fill" />
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-extrabold text-white"
+                style={{ backgroundColor: "#00AF87" }}
+              >
+                <TripAdvisorIcon size={14} />
                 5.0 · 1,492 Reviews
               </span>
               <span className="text-xs font-bold text-white/85">Travelers&apos; Choice, every year since 2019</span>
@@ -60,29 +79,29 @@ export function Hero() {
               className="font-black leading-[1.02] tracking-tight"
               style={{ fontSize: "clamp(1.4rem, 3.4vw, 2.65rem)", textShadow: "0 4px 24px rgba(0,0,0,.5)" }}
             >
-              Ground Handling in Kenya, Run by the People Who Drive It.
+              East Africa&apos;s Ground Partner for Authentic Safaris
             </h1>
             <p
               className="mt-2 sm:mt-3 max-w-[38ch] text-white/90 hidden sm:block"
               style={{ fontSize: "clamp(.92rem, 1.2vw, 1.02rem)", textShadow: "0 2px 12px rgba(0,0,0,.45)" }}
             >
-              No subcontractors. Our own fleet, our own multilingual guides, one Nairobi desk — quoting your clients&apos; safaris since 2013.
+              Trusted by travel agents worldwide.
             </p>
             <div className="mt-3 sm:mt-6 flex flex-wrap items-center gap-2 sm:gap-3">
+              <Link
+                href="/fleet"
+                className="inline-flex items-center px-6 py-2.5 rounded-full border border-white/40 font-bold text-sm sm:text-base hover:border-white transition-colors"
+              >
+                View Our Fleet
+              </Link>
               <Link
                 href="/request-a-rate"
                 className="inline-flex items-center gap-2.5 rounded-full bg-red pl-5 sm:pl-7 pr-2 py-1.5 sm:py-2 font-bold text-sm sm:text-base text-paper hover:bg-red-deep transition-colors"
               >
-                Request a Rate
+                Request A Rate
                 <span className="grid place-items-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/25">
                   <ArrowRight size={13} weight="bold" />
                 </span>
-              </Link>
-              <Link
-                href="/plan-a-trip"
-                className="hidden sm:inline-flex items-center px-6 py-2.5 rounded-full border border-white/40 font-bold text-sm hover:border-white transition-colors"
-              >
-                Planning your own trip?
               </Link>
             </div>
           </motion.div>
