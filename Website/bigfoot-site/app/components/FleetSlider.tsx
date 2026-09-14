@@ -80,12 +80,20 @@ export function FleetSlider() {
               active === i ? "opacity-100" : "opacity-35"
             }`}
           >
+            <div
+              className="absolute bottom-[3%] left-1/2 -translate-x-1/2 w-[46%] h-[9%] rounded-[50%]"
+              style={{
+                background:
+                  "radial-gradient(ellipse at center, rgba(15,15,15,.3) 0%, rgba(15,15,15,.16) 45%, rgba(15,15,15,0) 75%)",
+                filter: "blur(3px)",
+              }}
+            />
             <Image
               src={v.img}
               alt={`${v.name} — Bigfoot Adventures fleet vehicle`}
               fill
               sizes="(min-width: 1024px) 54vw, (min-width: 640px) 68vw, 90vw"
-              className="object-contain"
+              className="object-contain object-bottom"
             />
           </div>
         ))}
