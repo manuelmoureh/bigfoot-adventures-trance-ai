@@ -15,11 +15,11 @@ const files = [
 
 (async () => {
   for (const f of files) {
-    const out = path.join(dest, f.replace("_transparent.png", ".webp"));
+    const out = path.join(dest, f.replace("_transparent.png", ".png"));
     const meta = await sharp(path.join(src, f)).metadata();
     await sharp(path.join(src, f))
-      .resize({ width: 1400, withoutEnlargement: true })
-      .webp({ quality: 90 })
+      .resize({ width: 2100, withoutEnlargement: true })
+      .png({ compressionLevel: 9 })
       .toFile(out);
     console.log(f, "->", out, meta.width + "x" + meta.height);
   }

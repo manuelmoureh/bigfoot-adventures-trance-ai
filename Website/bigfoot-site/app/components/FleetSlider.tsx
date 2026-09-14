@@ -11,7 +11,7 @@ const VEHICLES = [
   { key: "landcruiser", name: "Custom Safari Land Cruiser" },
   { key: "alphard", name: "Toyota Alphard" },
   { key: "coaster", name: "Coaster Bus" },
-].map((v) => ({ ...v, img: `${BASE_PATH}/images/fleet/${v.key}.webp` }));
+].map((v) => ({ ...v, img: `${BASE_PATH}/images/fleet/${v.key}.png` }));
 
 export function FleetSlider() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -68,7 +68,7 @@ export function FleetSlider() {
 
       <div
         ref={trackRef}
-        className="mt-10 flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-4 sm:gap-6 px-[13%] sm:px-[27%] lg:px-[32%] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="mt-10 flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-4 sm:gap-6 px-[5%] sm:px-[16%] lg:px-[23%] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {VEHICLES.map((v, i) => (
           <div
@@ -84,7 +84,7 @@ export function FleetSlider() {
               src={v.img}
               alt={`${v.name} — Bigfoot Adventures fleet vehicle`}
               fill
-              sizes="(min-width: 1024px) 36vw, (min-width: 640px) 46vw, 74vw"
+              sizes="(min-width: 1024px) 54vw, (min-width: 640px) 68vw, 90vw"
               className="object-contain"
             />
           </div>
