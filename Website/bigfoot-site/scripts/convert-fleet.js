@@ -20,9 +20,10 @@ const files = [
     const { data } = await sharp(path.join(src, f)).raw().ensureAlpha().toBuffer({ resolveWithObject: true });
     const corner = [data[0], data[1], data[2], data[3]];
     await sharp(path.join(src, f))
-      .resize({ width: 2100, withoutEnlargement: true })
-      .png({ compressionLevel: 9 })
+      .resize({ width: 900, withoutEnlargement: true })
+      .png({ compressionLevel: 9, palette: true, quality: 82 })
       .toFile(out);
-    console.log(f, "->", out, meta.width + "x" + meta.height, "hasAlpha:", meta.hasAlpha, "corner:", corner);
+    const outSize = fs.statSync(out).size;
+    console.log(f, "->", out, meta.width + "x" + meta.height, "hasAlpha:", meta.hasAlpha, "corner:", corner, "outBytes:", outSize);
   }
 })();
