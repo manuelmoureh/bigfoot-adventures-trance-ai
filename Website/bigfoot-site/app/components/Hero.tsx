@@ -34,13 +34,16 @@ export function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(8,10,14,.72) 0%, rgba(8,10,14,.54) 22%, rgba(8,10,14,.24) 38%, rgba(8,10,14,0) 56%), linear-gradient(0deg, rgba(20,20,20,1) 0%, rgba(20,20,20,1) 10%, rgba(20,20,20,.75) 20%, rgba(8,10,14,.32) 32%, rgba(8,10,14,0) 48%), linear-gradient(180deg, rgba(8,10,14,.38) 0%, rgba(8,10,14,0) 16%)",
+            "linear-gradient(90deg, rgba(8,10,14,.72) 0%, rgba(8,10,14,.54) 22%, rgba(8,10,14,.24) 38%, rgba(8,10,14,0) 56%), linear-gradient(0deg, rgba(20,20,20,1) 0%, rgba(20,20,20,1) 14%, rgba(20,20,20,0) 20%), linear-gradient(180deg, rgba(8,10,14,.38) 0%, rgba(8,10,14,0) 16%)",
         }}
       />
-      {/* Solid band exactly matching the trust-bar section's bg-ink color,
-          so the seam between hero and next section is a true color match,
-          not a gradient asymptotically approaching it. */}
-      <div className="absolute bottom-0 inset-x-0 h-[6%] bg-ink" />
+      {/* Solid band, exact match to the trust-bar section's bg-ink color.
+          No gradual fade through it — a long semi-transparent dark overlay
+          reads as a grey/washed-out band next to a vivid photo and a pure
+          black bar, no matter how it's tuned. This is a short, sharp cut
+          instead: full photo color up to ~20% from the bottom, then a fast
+          transition straight into solid, fully-opaque black. */}
+      <div className="absolute bottom-0 inset-x-0 h-[14%] bg-ink" />
 
       <div className="relative z-10 min-h-[92dvh] flex items-end sm:items-center">
         <div className="w-full mx-auto max-w-[1320px] px-5 sm:px-8 pb-14 pt-28 sm:py-0">
