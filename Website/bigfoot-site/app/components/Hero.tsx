@@ -34,7 +34,7 @@ export function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(90deg, rgba(8,10,14,.72) 0%, rgba(8,10,14,.54) 22%, rgba(8,10,14,.24) 38%, rgba(8,10,14,0) 56%), linear-gradient(0deg, rgba(8,10,14,.92) 0%, rgba(8,10,14,.5) 12%, rgba(8,10,14,.14) 26%, rgba(8,10,14,0) 42%), linear-gradient(180deg, rgba(8,10,14,.38) 0%, rgba(8,10,14,0) 16%)",
+            "linear-gradient(90deg, rgba(8,10,14,.72) 0%, rgba(8,10,14,.54) 22%, rgba(8,10,14,.24) 38%, rgba(8,10,14,0) 56%), linear-gradient(0deg, rgba(8,10,14,1) 0%, rgba(8,10,14,1) 6%, rgba(8,10,14,.7) 16%, rgba(8,10,14,.3) 28%, rgba(8,10,14,0) 44%), linear-gradient(180deg, rgba(8,10,14,.38) 0%, rgba(8,10,14,0) 16%)",
         }}
       />
 
