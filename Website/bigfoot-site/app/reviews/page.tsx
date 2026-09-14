@@ -16,7 +16,7 @@ export default function ReviewsPage() {
       <ReviewSchema voices={VOICES} />
       <PageHero
         eyebrow="Guest Reviews"
-        title="Not just five stars. Named guides."
+        title="Reviews"
         lead="Guests don't just leave five stars, they name the specific guide who made the trip. That's not luck, it's who we hire."
       />
       <Testimonials />

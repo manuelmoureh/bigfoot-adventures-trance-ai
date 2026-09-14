@@ -13,7 +13,7 @@ export default function DestinationsPage() {
     <>
       <PageHero
         eyebrow="Where We Operate"
-        title="Kenya first. The rest of East Africa, on request."
+        title="Destinations"
         lead="We don't over-specify a fixed circuit — tell us the itinerary and we'll tell you what's confirmed and what needs a quick check first."
       />
       <DestinationsGrid />

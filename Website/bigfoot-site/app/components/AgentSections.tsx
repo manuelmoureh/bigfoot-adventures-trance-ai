@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Reveal, Eyebrow, ArrowBtn } from "./ui";
+import { BASE_PATH } from "../basePath";
 import { Airplane, Van, UsersThree, Anchor, Globe } from "@phosphor-icons/react";
 
 const TRUST = [
@@ -15,7 +16,7 @@ export function TrustBar() {
   return (
     <div className="flex flex-wrap gap-2.5">
       {TRUST.map((t) => (
-        <span key={t} className="rounded-full border border-white/28 px-4 py-1.5 text-sm font-bold">
+        <span key={t} className="rounded-full border border-white/28 px-4 py-1.5 text-sm font-bold text-paper">
           {t}
         </span>
       ))}
@@ -131,7 +132,7 @@ export function CompanyProfileSummary() {
           </div>
         </Reveal>
         <Reveal className="relative rounded-lg overflow-hidden aspect-[4/3]">
-          <Image src="/images/tented-camp.webp" alt="Bigfoot Adventures tented camp setup" fill className="object-cover" />
+          <Image src={`${BASE_PATH}/images/tented-camp.webp`} alt="Bigfoot Adventures tented camp setup" fill className="object-cover" />
         </Reveal>
       </div>
     </section>
@@ -155,7 +156,7 @@ export function DayToursUpsell() {
           <p className="text-xs text-stone mt-3">[CLIENT TO CONFIRM: swap in the exact Viator/TripAdvisor Experiences listing URL once shared.]</p>
         </Reveal>
         <Reveal className="relative rounded-lg overflow-hidden aspect-[4/3]">
-          <Image src="/images/amboseli.webp" alt="Wildlife viewing near Nairobi" fill className="object-cover" />
+          <Image src={`${BASE_PATH}/images/amboseli.webp`} alt="Wildlife viewing near Nairobi" fill className="object-cover" />
         </Reveal>
       </div>
     </section>

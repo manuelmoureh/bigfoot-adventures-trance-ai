@@ -23,3 +23,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# next.js 16 auto-generated agent-rules files (dev-server byproduct, not authored)
+/AGENTS.md
+/CLAUDE.md

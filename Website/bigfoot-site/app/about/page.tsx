@@ -14,7 +14,7 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About Us"
-        title="Bigfoot Adventures Ltd — Nairobi, since 2013."
+        title="About Us"
         lead="Founded 2013. TRA, KATO, and TOSK registered. Every vehicle in our fleet is company-owned; every guide is full-time staff — no subcontracted drivers, ever."
       />
       <WhyUs />

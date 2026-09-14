@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { ArrowRight, List, X } from "@phosphor-icons/react";
 
 const LINKS = [
@@ -43,24 +44,24 @@ export function Nav() {
       }`}
     >
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8 h-[68px] flex items-center justify-between">
-        <a href="/" className={`flex items-center gap-2 font-black transition-colors ${dark ? "text-ink" : "text-paper"}`}>
+        <Link href="/" className={`flex items-center gap-2 font-black transition-colors ${dark ? "text-ink" : "text-paper"}`}>
           <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
             <circle cx="16" cy="16" r="15" stroke="#E31E24" strokeWidth="2" />
             <path d="M9 20c1-5 3-9 7-9s6 4 7 9" stroke="#E31E24" strokeWidth="2" strokeLinecap="round" />
           </svg>
           Bigfoot Adventures
-        </a>
+        </Link>
 
         <nav className={`hidden lg:flex items-center gap-7 text-sm font-semibold transition-colors ${dark ? "text-ink" : "text-paper"}`}>
           {LINKS.map((l) => (
-            <a key={l.href} href={l.href} className="opacity-80 hover:opacity-100 transition-opacity">
+            <Link key={l.href} href={l.href} className="opacity-80 hover:opacity-100 transition-opacity">
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-4">
-          <a
+          <Link
             href="/request-a-rate"
             className="hidden lg:inline-flex items-center gap-2.5 rounded-full bg-red pl-5 pr-1.5 py-1.5 text-sm font-bold text-paper hover:bg-red-deep transition-colors"
           >
@@ -68,7 +69,7 @@ export function Nav() {
             <span className="grid place-items-center w-7 h-7 rounded-full bg-white/25">
               <ArrowRight size={13} weight="bold" />
             </span>
-          </a>
+          </Link>
           <button
             aria-label="Menu"
             aria-expanded={open}
@@ -86,17 +87,17 @@ export function Nav() {
         }`}
       >
         {LINKS.map((l) => (
-          <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-1">
+          <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-1">
             {l.label}
-          </a>
+          </Link>
         ))}
-        <a
+        <Link
           href="/plan-a-trip"
           onClick={() => setOpen(false)}
           className="py-1 text-stone text-base"
         >
           Planning your own trip?
-        </a>
+        </Link>
       </nav>
     </header>
   );

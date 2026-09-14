@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHero } from "../components/ui";
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ export default function PrivacyPage() {
           <p className="text-stone leading-relaxed">
             Under Kenya&apos;s Data Protection Act and, where applicable, the EU/UK GDPR, you may request access to,
             correction of, or deletion of your data by contacting us at the details on our{" "}
-            <a href="/contact" className="text-red font-semibold">Contact page</a>.
+            <Link href="/contact" className="text-red font-semibold">Contact page</Link>.
           </p>
           <h2 className="font-black text-xl mt-8 mb-3">Retention</h2>
           <p className="text-stone leading-relaxed">

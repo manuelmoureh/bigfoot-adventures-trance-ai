@@ -14,7 +14,7 @@ export default function Services() {
     <>
       <PageHero
         eyebrow="What We Run"
-        title="Every service line, run in-house."
+        title="Ground Handling Services"
         lead="No subcontracted vehicles, no freelance day-hire guides. If it's on this page, it's ours."
       />
       <ServicesGrid />

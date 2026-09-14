@@ -13,7 +13,7 @@ export default function NairobiDayTours() {
     <>
       <PageHero
         eyebrow="Nairobi Add-On"
-        title="Already in Nairobi? Don't waste the layover."
+        title="Nairobi Day Tours"
         lead="A half-day upsell path for guests already booked or transiting, using the exact same fleet and guides as the main safari."
       />
       <DayToursUpsell />

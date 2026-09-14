@@ -13,7 +13,7 @@ export default function FleetPage() {
     <>
       <PageHero
         eyebrow="The Fleet"
-        title="Built for where the road ends."
+        title="Fleet"
         lead="Four vehicle classes, every one ours, serviced, and insured. Use the match tool below to see which class fits your group."
       />
       <Fleet />

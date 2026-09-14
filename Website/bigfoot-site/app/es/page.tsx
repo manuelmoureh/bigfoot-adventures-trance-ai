@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Bigfoot Adventures | Operador Terrestre en Kenia",
@@ -17,11 +18,11 @@ export default function SpanishStub() {
           Somos un operador terrestre (DMC) con sede en Nairobi, fundado en 2013. Flota propia, guías multilingües
           en plantilla, sin subcontratistas. Escríbanos para tarifas.
         </p>
-        <a href="/request-a-rate" className="inline-flex items-center rounded-full bg-red text-paper font-bold text-sm px-6 py-3 hover:bg-red-deep transition-colors">
+        <Link href="/request-a-rate" className="inline-flex items-center rounded-full bg-red text-paper font-bold text-sm px-6 py-3 hover:bg-red-deep transition-colors">
           Request a Rate
-        </a>
+        </Link>
         <p className="text-sm text-stone mt-6">
-          Sitio completo en inglés: <a href="/for-travel-agents" className="text-red font-semibold">/for-travel-agents</a>
+          Sitio completo en inglés: <Link href="/for-travel-agents" className="text-red font-semibold">/for-travel-agents</Link>
         </p>
       </div>
     </div>

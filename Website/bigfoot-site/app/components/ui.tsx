@@ -1,14 +1,32 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import Link from "next/link";
+import { motion } from "motion/react";
 import { ArrowRight, WhatsappLogo } from "@phosphor-icons/react";
 
+// Reduced-motion users are handled by the global CSS media query in
+// globals.css (zeroes animation/transition duration), not a JS branch here.
+//
+// whileInView + viewport.once fires its "in view" transition for anything
+// already inside the initial viewport before React finishes comparing the
+// SSR markup (motion mutates the DOM via a ref, outside React's own
+// reconciliation), which trips a hydration-mismatch warning even though the
+// content itself renders correctly. Gating the animated version behind a
+// post-mount flag makes the SSR and first-paint markup agree exactly:
+// content in the initial viewport simply appears (no fade-in flash), and
+// below-the-fold content still animates in on scroll once mounted.
 export function Reveal({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  const reduce = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
-      initial={reduce ? false : { opacity: 0, y: 26 }}
+      initial={{ opacity: 0, y: 26 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -43,17 +61,27 @@ export function ArrowBtn({
     variant === "primary"
       ? "bg-red text-paper hover:bg-red-deep"
       : "bg-transparent border border-ink text-ink hover:bg-ink hover:text-paper";
+  const className = `inline-flex items-center gap-2.5 rounded-full pl-6 pr-1.5 py-1.5 font-bold text-sm transition-colors ${styles}`;
+  const arrow = (
+    <span className={`grid place-items-center w-7 h-7 rounded-full ${variant === "primary" ? "bg-white/25" : "bg-ink/8"}`}>
+      <ArrowRight size={13} weight="bold" />
+    </span>
+  );
+
+  if (href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("tel:")) {
+    return (
+      <a href={href} onClick={onClick} className={className} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined}>
+        {children}
+        {arrow}
+      </a>
+    );
+  }
+
   return (
-    <a
-      href={href}
-      onClick={onClick}
-      className={`inline-flex items-center gap-2.5 rounded-full pl-6 pr-1.5 py-1.5 font-bold text-sm transition-colors ${styles}`}
-    >
+    <Link href={href} onClick={onClick} className={className}>
       {children}
-      <span className={`grid place-items-center w-7 h-7 rounded-full ${variant === "primary" ? "bg-white/25" : "bg-ink/8"}`}>
-        <ArrowRight size={13} weight="bold" />
-      </span>
-    </a>
+      {arrow}
+    </Link>
   );
 }
 

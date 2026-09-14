@@ -6,6 +6,7 @@ import { motion } from "motion/react";
 import { Star, CaretDown } from "@phosphor-icons/react";
 import { Reveal, Eyebrow, ArrowBtn } from "./ui";
 import { FAQS, VOICES } from "../data";
+import { BASE_PATH } from "../basePath";
 
 export function WhyUs() {
   return (
@@ -20,7 +21,7 @@ export function WhyUs() {
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
           <Reveal className="md:row-span-2 relative rounded-lg overflow-hidden bg-ink text-paper min-h-[260px] md:min-h-full">
-            <Image src="/images/fleet-vehicle.webp" alt="Bigfoot Adventures safari vehicle" fill className="object-cover opacity-50" />
+            <Image src={`${BASE_PATH}/images/fleet-vehicle.webp`} alt="Bigfoot Adventures safari vehicle" fill className="object-cover opacity-50" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/95 to-ink/20" />
             <div className="relative p-6 h-full flex flex-col justify-end">
               <h3 className="font-black text-xl mb-2">Every vehicle is ours.</h3>
@@ -81,10 +82,10 @@ export function Guides() {
 }
 
 const FLEET = [
-  { key: "prado", name: "Toyota Land Cruiser Prado", pax: "4-6 pax", meta: ["Executive", "4WD"], img: "/images/fleet-vehicle.webp" },
-  { key: "cruiser", name: "Custom Safari Land Cruiser", pax: "6-8 pax", meta: ["Pop-up roof", "All-terrain"], img: "/images/fleet-action.webp" },
-  { key: "hiace", name: "Toyota Hiace Executive Van", pax: "6-9 pax", meta: ["Reclining seats", "AC"], img: "/images/hero-mara.webp" },
-  { key: "coaster", name: "Coaster Bus", pax: "20-25 pax", meta: ["Climate control", "PA system"], img: "/images/coast-beach.webp" },
+  { key: "prado", name: "Toyota Land Cruiser Prado", pax: "4-6 pax", meta: ["Executive", "4WD"], img: `${BASE_PATH}/images/fleet-vehicle.webp` },
+  { key: "cruiser", name: "Custom Safari Land Cruiser", pax: "6-8 pax", meta: ["Pop-up roof", "All-terrain"], img: `${BASE_PATH}/images/fleet-action.webp` },
+  { key: "hiace", name: "Toyota Hiace Executive Van", pax: "6-9 pax", meta: ["Reclining seats", "AC"], img: `${BASE_PATH}/images/hero-mara.webp` },
+  { key: "coaster", name: "Coaster Bus", pax: "20-25 pax", meta: ["Climate control", "PA system"], img: `${BASE_PATH}/images/coast-beach.webp` },
 ];
 
 const MATCH: Record<string, { name: string; desc: string }> = {
@@ -200,7 +201,7 @@ export function Journey() {
   return (
     <section className="relative py-28 overflow-hidden">
       <div className="absolute -inset-[6%]">
-        <Image src="/images/hero-mara.webp" alt="Elephant herd at sunset in the Maasai Mara" fill className="object-cover" />
+        <Image src={`${BASE_PATH}/images/hero-mara.webp`} alt="Elephant herd at sunset in the Maasai Mara" fill className="object-cover" />
       </div>
       <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,20,20,.55), rgba(20,20,20,.9))" }} />
       <div className="relative mx-auto max-w-[1320px] px-5 sm:px-8">

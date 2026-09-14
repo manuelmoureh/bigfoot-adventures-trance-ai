@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Bigfoot Adventures | Наземный оператор в Кении",
@@ -17,11 +18,11 @@ export default function RussianStub() {
           Мы — наземный оператор (DMC) со штаб-квартирой в Найроби, основанный в 2013 году. Собственный автопарк,
           штатные многоязычные гиды, без субподрядчиков. Напишите нам, чтобы получить тарифы.
         </p>
-        <a href="/request-a-rate" className="inline-flex items-center rounded-full bg-red text-paper font-bold text-sm px-6 py-3 hover:bg-red-deep transition-colors">
+        <Link href="/request-a-rate" className="inline-flex items-center rounded-full bg-red text-paper font-bold text-sm px-6 py-3 hover:bg-red-deep transition-colors">
           Request a Rate
-        </a>
+        </Link>
         <p className="text-sm text-stone mt-6">
-          Полный сайт на английском: <a href="/for-travel-agents" className="text-red font-semibold">/for-travel-agents</a>
+          Полный сайт на английском: <Link href="/for-travel-agents" className="text-red font-semibold">/for-travel-agents</Link>
         </p>
       </div>
     </div>

@@ -21,4 +21,4 @@ Consolidated into `Handoff/Client_Walkthrough.html` at handoff. Living list — 
 
 ## Deployment
 12. Where should the rebuilt site actually go live — replace bigfoot-adventures.com (requires DNS/hosting access we don't have), or run as a separate agent-facing microsite (e.g. agents.bigfoot-adventures.com or a Vercel/Netlify subdomain)? This audit deliberately did not decide this (live deploy/DNS change is a hard stop) — needs Daniel's call.
-13. `npm audit`: 1 critical severity vulnerability in a transitive dependency (matches Vuria's identical stack, so likely portfolio-wide) — flagging for a coordinated fix across projects rather than a one-off patch here if it needs a breaking bump.
+13. ~~`npm audit`: 1 critical severity vulnerability~~ — **RESOLVED this pass**: patched Next.js 16.3.1 → 16.3.5 (non-breaking), `npm audit` now clean. Worth checking whether Vuria and other portfolio projects on the same Next.js version need the same patch.

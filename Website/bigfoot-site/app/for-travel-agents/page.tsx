@@ -17,7 +17,7 @@ export default function ForTravelAgents() {
         title="Your clients. Our ground game, from airport to camp."
         lead="We're a Nairobi-based DMC — Land Cruisers, Hiace vans, and Coaster buses we own outright, multilingual driver-guides on our own payroll, and one desk that answers the same business day. Agent partners across five source markets already send us their Kenya bookings."
       />
-      <section className="py-10 bg-ink">
+      <section className="py-10 bg-ink text-paper">
         <div className="mx-auto max-w-[1320px] px-5 sm:px-8 flex justify-center">
           <TrustBar />
         </div>
