@@ -21,9 +21,9 @@ export default function Home() {
       <OrganizationSchema />
       <FaqSchema faqs={FAQS} />
       <Hero />
-      <section className="bg-ink text-paper py-6">
+      <section className="pt-14 pb-8 bg-paper">
         <div className="mx-auto max-w-[1320px] px-5 sm:px-8 flex justify-center">
-          <TrustBar />
+          <TrustBar light />
         </div>
       </section>
       <AgentSegments />

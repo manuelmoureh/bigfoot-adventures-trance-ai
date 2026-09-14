@@ -12,11 +12,16 @@ const TRUST = [
   "Same business day rate turnaround",
 ];
 
-export function TrustBar() {
+export function TrustBar({ light = false }: { light?: boolean }) {
   return (
     <div className="flex flex-wrap gap-2.5">
       {TRUST.map((t) => (
-        <span key={t} className="rounded-full border border-white/28 px-4 py-1.5 text-sm font-bold text-paper">
+        <span
+          key={t}
+          className={`rounded-full border px-4 py-1.5 text-sm font-bold ${
+            light ? "border-line text-ink" : "border-white/28 text-paper"
+          }`}
+        >
           {t}
         </span>
       ))}
