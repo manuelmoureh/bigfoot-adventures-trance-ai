@@ -9,24 +9,27 @@ import { BASE_PATH } from "../basePath";
 // Reduced-motion is handled by the global CSS media query in globals.css,
 // not a JS branch — see the comment in components/ui.tsx's Reveal for why.
 //
-// The image renders at its natural 2880x1800 (16:10) aspect ratio, full
-// width, height auto — the section's height is simply whatever that
-// works out to at the current viewport width. No object-fit:cover, no
-// crop-position tuning: the whole photo is always visible, on every
-// screen size, guaranteed. Text overlays on top via absolute positioning
-// sized to match the image exactly.
+// The image's native ratio (2880x1800, 16:10) has a lot of empty sky at
+// the top — fine on mobile, where the box is already short, but wasteful
+// on wider screens. From sm: up, the box locks to a shorter ratio
+// (2880x1260, i.e. the bottom 70% of the photo) and object-position:bottom
+// anchors to the bottom, so the crop only ever removes sky off the top —
+// the subject (vehicle, elephant, ground) is never touched, and the full
+// width is always shown either way (the box is wider-aspect than the
+// photo at every breakpoint, so cover never crops left/right).
 export function Hero() {
   return (
     <section id="hero" className="relative overflow-hidden text-paper">
-      <Image
-        src={`${BASE_PATH}/images/hero-safari-vehicle.webp`}
-        alt="A Bigfoot Adventures safari vehicle stopped near an elephant on the Amboseli plains"
-        width={2880}
-        height={1800}
-        priority
-        sizes="100vw"
-        className="block w-full h-auto"
-      />
+      <div className="relative w-full aspect-[2880/1800] sm:aspect-[2880/1260]">
+        <Image
+          src={`${BASE_PATH}/images/hero-safari-vehicle.webp`}
+          alt="A Bigfoot Adventures safari vehicle stopped near an elephant on the Amboseli plains"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-bottom"
+        />
+      </div>
       {/* Just enough darkening for text legibility: a left-side scrim behind
           the text column, and a light top scrim so the nav reads over the
           photo. */}
