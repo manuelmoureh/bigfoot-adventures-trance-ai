@@ -44,9 +44,9 @@ export function TrustBar({ light = false }: { light?: boolean }) {
 }
 
 const SEGMENTS = [
-  { title: "Outbound tour operator building a Kenya program", desc: "Contracted DMC rates, full fleet and guide roster to plan against.", href: "/services", cta: "See Services" },
-  { title: "Independent agency with a client already booked", desc: "Skip the back-and-forth — send dates and group size, get a same-day quote.", href: "/request-a-rate", cta: "Request a Rate" },
-  { title: "OTA or wholesaler scoping East Africa", desc: "Fleet capacity, coverage, and cross-border reach at a glance.", href: "/fleet", cta: "See the Fleet" },
+  { title: "Building a Kenya program from scratch?", desc: "Get contracted rates and a full fleet-and-guide roster to plan your season around.", href: "/services", cta: "See Services" },
+  { title: "Already got a client booked?", desc: "Send us dates and group size — you'll have a quote back the same day.", href: "/request-a-rate", cta: "Request a Rate" },
+  { title: "Scoping East Africa for your platform?", desc: "See what we run, where we cover, and how far our reach goes across borders.", href: "/fleet", cta: "See the Fleet" },
 ];
 
 export function AgentSegments() {
@@ -55,7 +55,7 @@ export function AgentSegments() {
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
         <Reveal>
           <Eyebrow>Who This Is For</Eyebrow>
-          <h2 className="text-3xl sm:text-4xl font-black max-w-[20ch]">Wherever you sit in the trade, there&apos;s a fast path.</h2>
+          <h2 className="text-3xl sm:text-4xl font-black max-w-[20ch]">However you work with us, we make it fast.</h2>
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
           {SEGMENTS.map((s) => (

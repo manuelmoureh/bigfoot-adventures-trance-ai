@@ -21,7 +21,7 @@ export function WhyUs() {
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
           <Reveal className="md:row-span-2 relative rounded-lg overflow-hidden bg-ink text-paper min-h-[260px] md:min-h-full">
-            <Image src={`${BASE_PATH}/images/fleet-vehicle.webp`} alt="Bigfoot Adventures safari vehicle" fill className="object-cover opacity-50" />
+            <Image src={`${BASE_PATH}/images/fleet-cruiser-street.webp`} alt="A Bigfoot Adventures safari Land Cruiser, branded, parked in Nairobi" fill className="object-cover opacity-50" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/95 to-ink/20" />
             <div className="relative p-6 h-full flex flex-col justify-end">
               <h3 className="font-black text-xl mb-2">Every vehicle is ours.</h3>
@@ -33,8 +33,8 @@ export function WhyUs() {
             <p className="text-sm text-stone">No script-reading call centre. Whoever picks up has driven the route you&apos;re asking about.</p>
           </Reveal>
           <Reveal className="rounded-lg bg-red text-paper p-6 flex flex-col justify-end min-h-[230px]">
-            <h3 className="font-black text-lg mb-2">Since 2013. Zero rebrands.</h3>
-            <p className="text-sm opacity-85">Same company, same number, since day one. One person to call if something goes wrong: us.</p>
+            <h3 className="font-black text-lg mb-2">One company, since 2013.</h3>
+            <p className="text-sm opacity-85">Same name, same number, since day one. One person to call if something goes wrong: us.</p>
           </Reveal>
           <Reveal className="md:col-span-2 rounded-lg border border-line p-6 flex flex-col justify-end min-h-[160px]">
             <h3 className="font-black text-lg mb-2">1,492 reviews. They keep naming names.</h3>
@@ -49,7 +49,7 @@ export function WhyUs() {
 const TIERS = [
   { tier: "Gold", color: "#B8862E", title: "Requested by name", desc: "Repeat guests ask for these guides specifically, multi-lingual and consistently named across reviews.", names: "Samuel" },
   { tier: "Silver", color: "#8A8378", title: "Consistently praised", desc: "Called out across multiple recent reviews for patience, knowledge, and staying calm under pressure.", names: "Tony, Francis" },
-  { tier: "Bronze", color: "#E31E24", title: "Rising fast", desc: "Newer to the roster, already trending positive across recent routes.", names: "Elvis, Lawrence" },
+  { tier: "Bronze", color: "#E31E24", title: "New name, already loved", desc: "Newer to the roster, and already earning great reviews from recent guests.", names: "Elvis, Lawrence" },
 ];
 
 export function Guides() {
@@ -82,10 +82,10 @@ export function Guides() {
 }
 
 const FLEET = [
-  { key: "prado", name: "Toyota Land Cruiser Prado", pax: "4-6 pax", meta: ["Executive", "4WD"], img: `${BASE_PATH}/images/fleet-vehicle.webp` },
-  { key: "cruiser", name: "Custom Safari Land Cruiser", pax: "6-8 pax", meta: ["Pop-up roof", "All-terrain"], img: `${BASE_PATH}/images/fleet-action.webp` },
+  { key: "prado", name: "Toyota Land Cruiser Prado", pax: "4-6 pax", meta: ["Executive", "4WD"], img: `${BASE_PATH}/images/fleet-prado-street.webp` },
+  { key: "cruiser", name: "Custom Safari Land Cruiser", pax: "6-8 pax", meta: ["Pop-up roof", "All-terrain"], img: `${BASE_PATH}/images/fleet-cruiser-street.webp` },
   { key: "hiace", name: "Toyota Hiace Executive Van", pax: "6-9 pax", meta: ["Reclining seats", "AC"], img: `${BASE_PATH}/images/hero-mara.webp` },
-  { key: "coaster", name: "Coaster Bus", pax: "20-25 pax", meta: ["Climate control", "PA system"], img: `${BASE_PATH}/images/coast-beach.webp` },
+  { key: "coaster", name: "Coaster Bus", pax: "20-25 pax", meta: ["Climate control", "PA system"], img: `${BASE_PATH}/images/fleet-coaster-street.webp` },
 ];
 
 const MATCH: Record<string, { name: string; desc: string }> = {
