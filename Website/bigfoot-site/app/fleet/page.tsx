@@ -5,7 +5,7 @@ import { Fleet } from "../components/Sections";
 export const metadata: Metadata = {
   title: "Fleet | Land Cruisers, Hiace Vans, Coaster Buses — Bigfoot Adventures",
   description:
-    "Four vehicle classes, every one company-owned, serviced, and insured: Land Cruiser Prado, custom safari Land Cruisers, Hiace Executive vans, and Coaster buses, 4-25 pax.",
+    "Five vehicle classes, every one company-owned, serviced, and insured: Land Cruiser Prado, custom safari Land Cruisers, Hiace Executive vans, Alphard, and Coaster buses, 4-25 pax.",
 };
 
 export default function FleetPage() {
@@ -14,7 +14,7 @@ export default function FleetPage() {
       <PageHero
         eyebrow="The Fleet"
         title="Fleet"
-        lead="Four vehicle classes, every one ours, serviced, and insured. Use the match tool below to see which class fits your group."
+        lead="Five vehicle classes, every one ours, serviced, and insured. Use the match tool below to see which class fits your group."
       />
       <Fleet />
       <section className="py-20 bg-stone-dim text-center">

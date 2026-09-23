@@ -84,7 +84,8 @@ export function Guides() {
 const FLEET = [
   { key: "prado", name: "Toyota Land Cruiser Prado", pax: "4-6 pax", meta: ["Executive", "4WD"], img: `${BASE_PATH}/images/fleet-prado-street.webp` },
   { key: "cruiser", name: "Custom Safari Land Cruiser", pax: "6-8 pax", meta: ["Pop-up roof", "All-terrain"], img: `${BASE_PATH}/images/fleet-cruiser-street.webp` },
-  { key: "hiace", name: "Toyota Hiace Executive Van", pax: "6-9 pax", meta: ["Reclining seats", "AC"], img: `${BASE_PATH}/images/hero-mara.webp` },
+  { key: "hiace", name: "Toyota Hiace Executive Van", pax: "6-9 pax", meta: ["Reclining seats", "AC"], img: `${BASE_PATH}/images/fleet-hiace-street.webp` },
+  { key: "alphard", name: "Toyota Alphard", pax: "6-8 pax", meta: ["VIP", "Executive"], img: `${BASE_PATH}/images/fleet-alphard-street.webp` },
   { key: "coaster", name: "Coaster Bus", pax: "20-25 pax", meta: ["Climate control", "PA system"], img: `${BASE_PATH}/images/fleet-coaster-street.webp` },
 ];
 
@@ -114,10 +115,10 @@ export function Fleet() {
         <Reveal>
           <Eyebrow>The Fleet</Eyebrow>
           <h2 className="text-3xl sm:text-4xl font-black max-w-[18ch]">Built for where the road ends.</h2>
-          <p className="mt-3 text-stone max-w-[52ch]">Four vehicle classes, every one ours, serviced, and insured.</p>
+          <p className="mt-3 text-stone max-w-[52ch]">Five vehicle classes, every one ours, serviced, and insured.</p>
         </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
           {FLEET.map((v) => (
             <Reveal key={v.key} className="rounded-lg border border-line overflow-hidden bg-paper">
               <div className="relative aspect-[16/10]">
