@@ -1,3 +1,5 @@
+import { TRIPADVISOR_URL } from "../links";
+
 const BASE_URL = "https://manuelmoureh.github.io/bigfoot-adventures-site";
 
 export function OrganizationSchema() {
@@ -8,6 +10,7 @@ export function OrganizationSchema() {
     url: BASE_URL,
     telephone: "+254722972374",
     foundingDate: "2013",
+    sameAs: [TRIPADVISOR_URL],
     address: {
       "@type": "PostalAddress",
       streetAddress: "Adams Mini Mall, Adams Arcade, Suna Road, off Ngong Road",

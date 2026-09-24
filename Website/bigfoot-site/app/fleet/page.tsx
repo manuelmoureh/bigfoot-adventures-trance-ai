@@ -17,7 +17,7 @@ export default function FleetPage() {
         lead="Five vehicle classes, every one ours, serviced, and insured. Use the match tool below to see which class fits your group."
       />
       <Fleet />
-      <section className="py-20 bg-stone-dim text-center">
+      <section className="py-12 sm:py-20 bg-stone-dim text-center">
         <div className="mx-auto max-w-[640px] px-5 sm:px-8 flex flex-col items-center gap-6">
           <h2 className="text-2xl sm:text-3xl font-black">Ready to book a vehicle class?</h2>
           <ArrowBtn href="/request-a-rate">Request a Rate</ArrowBtn>

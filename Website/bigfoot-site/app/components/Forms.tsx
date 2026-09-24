@@ -80,7 +80,7 @@ export function RateRequestForm() {
         <div className="text-xs font-bold mb-2">Service type</div>
         <div className="flex flex-wrap gap-2">
           {SERVICE_TYPES.map((s) => (
-            <label key={s} className="inline-flex items-center gap-2 border border-line rounded-full px-3.5 py-1.5 text-xs font-semibold cursor-pointer has-[:checked]:bg-red has-[:checked]:text-paper has-[:checked]:border-red transition-colors">
+            <label key={s} className="inline-flex items-center gap-2 border border-line rounded-full px-4 min-h-11 text-[13px] font-semibold cursor-pointer has-[:checked]:bg-red has-[:checked]:text-paper has-[:checked]:border-red transition-colors">
               <input type="checkbox" name={`service_${s}`} className="sr-only" />
               {s}
             </label>

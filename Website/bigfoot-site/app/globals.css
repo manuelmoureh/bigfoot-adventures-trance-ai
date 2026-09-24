@@ -23,8 +23,10 @@
   --font-display: var(--font-satoshi), ui-sans-serif, system-ui, sans-serif;
 }
 
-* {
-  border-color: var(--line);
+@layer base {
+  * {
+    border-color: var(--line);
+  }
 }
 
 html {

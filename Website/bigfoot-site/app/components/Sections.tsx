@@ -3,14 +3,29 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
-import { Star, CaretDown } from "@phosphor-icons/react";
+import { Star, CaretDown, ArrowUpRight } from "@phosphor-icons/react";
 import { Reveal, Eyebrow, ArrowBtn } from "./ui";
 import { FAQS, VOICES } from "../data";
 import { BASE_PATH } from "../basePath";
+import { TRIPADVISOR_URL, PHONE_TEL } from "../links";
+
+function TripAdvisorLink({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <a
+      href={TRIPADVISOR_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex items-center gap-1.5 font-bold text-[#00875F] hover:underline underline-offset-4 min-h-11 ${className}`}
+    >
+      {children}
+      <ArrowUpRight size={14} weight="bold" />
+    </a>
+  );
+}
 
 export function WhyUs() {
   return (
-    <section className="py-24 bg-paper">
+    <section className="py-14 sm:py-24 bg-paper">
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
         <Reveal>
           <Eyebrow>Who We Are</Eyebrow>
@@ -37,8 +52,9 @@ export function WhyUs() {
             <p className="text-sm opacity-85">Same name, same number, since day one. One person to call if something goes wrong: us.</p>
           </Reveal>
           <Reveal className="md:col-span-2 rounded-lg border border-line p-6 flex flex-col justify-end min-h-[160px]">
-            <h3 className="font-black text-lg mb-2">1,492 reviews. They keep naming names.</h3>
+            <h3 className="font-black text-lg mb-2">1,490+ reviews. They keep naming names.</h3>
             <p className="text-sm text-stone">Guests don&apos;t just leave five stars, they name the specific guide who made the trip. That&apos;s not luck, it&apos;s who we hire.</p>
+            <TripAdvisorLink className="mt-2 text-sm">Read them on TripAdvisor</TripAdvisorLink>
           </Reveal>
         </div>
       </div>
@@ -54,7 +70,7 @@ const TIERS = [
 
 export function Guides() {
   return (
-    <section id="guides" className="py-24 bg-stone-dim">
+    <section id="guides" className="py-14 sm:py-24 bg-stone-dim">
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
         <Reveal>
           <Eyebrow>What Guests Say</Eyebrow>
@@ -75,6 +91,7 @@ export function Guides() {
         <Reveal className="mt-10 max-w-[48ch]">
           <p className="text-2xl font-black text-red leading-tight">&quot;The best tour guide I have ever had.&quot;</p>
           <cite className="block mt-3 not-italic text-sm text-stone font-semibold">Verified TripAdvisor review, on Samuel</cite>
+          <TripAdvisorLink className="text-sm">Check the reviews yourself</TripAdvisorLink>
         </Reveal>
       </div>
     </section>
@@ -110,7 +127,7 @@ export function Fleet() {
   const result = size && type ? MATCH[matchVehicle(size, type)!] : null;
 
   return (
-    <section id="fleet" className="py-24 bg-paper">
+    <section id="fleet" className="py-14 sm:py-24 bg-paper">
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
         <Reveal>
           <Eyebrow>The Fleet</Eyebrow>
@@ -118,19 +135,20 @@ export function Fleet() {
           <p className="mt-3 text-stone max-w-[52ch]">Five vehicle classes, every one ours, serviced, and insured.</p>
         </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+        {/* Phones: swipeable row so five cards don't become ~2,000px of scrolling. sm+: the grid. */}
+        <div className="mt-8 sm:mt-10 -mx-5 px-5 flex gap-3 overflow-x-auto snap-x snap-mandatory scroll-px-5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:px-0 sm:pb-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-4 sm:overflow-visible">
           {FLEET.map((v) => (
-            <Reveal key={v.key} className="rounded-lg border border-line overflow-hidden bg-paper">
+            <Reveal key={v.key} className="shrink-0 w-[82%] snap-start sm:w-auto rounded-lg border border-line overflow-hidden bg-paper">
               <div className="relative aspect-[16/10]">
-                <Image src={v.img} alt={v.name} fill className="object-cover" />
+                <Image src={v.img} alt={v.name} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 82vw" className="object-cover" />
               </div>
               <div className="p-5">
                 <h4 className="font-black text-lg">{v.name}</h4>
-                <div className="flex gap-3 text-xs text-stone mt-2 mb-4 flex-wrap">
+                <div className="flex gap-3 text-[13px] text-stone mt-2 mb-4 flex-wrap">
                   <span>{v.pax}</span>
                   {v.meta.map((m) => <span key={m}>{m}</span>)}
                 </div>
-                <ArrowBtn href="#contact" variant="ink">Explore Fleet</ArrowBtn>
+                <ArrowBtn href="/request-a-rate" variant="ink">Get a rate for this</ArrowBtn>
               </div>
             </Reveal>
           ))}
@@ -147,7 +165,7 @@ export function Fleet() {
                 <button
                   key={val}
                   onClick={() => setSize(val)}
-                  className={`rounded-full border px-4 py-2 text-sm font-bold transition-colors ${
+                  className={`rounded-full border px-4 min-h-11 text-sm font-bold transition-colors ${
                     size === val ? "bg-red border-red" : "border-white/25 hover:border-white/50"
                   }`}
                 >
@@ -164,7 +182,7 @@ export function Fleet() {
                 <button
                   key={val}
                   onClick={() => setType(val)}
-                  className={`rounded-full border px-4 py-2 text-sm font-bold transition-colors ${
+                  className={`rounded-full border px-4 min-h-11 text-sm font-bold transition-colors ${
                     type === val ? "bg-red border-red" : "border-white/25 hover:border-white/50"
                   }`}
                 >
@@ -200,9 +218,9 @@ export function Journey() {
     "We're at the airport before you land",
   ];
   return (
-    <section className="relative py-28 overflow-hidden">
+    <section className="relative py-10 sm:py-16 sm:py-28 overflow-hidden">
       <div className="absolute -inset-[6%]">
-        <Image src={`${BASE_PATH}/images/hero-mara.webp`} alt="Elephant herd at sunset in the Maasai Mara" fill className="object-cover" />
+        <Image src={`${BASE_PATH}/images/gallery/elephant-amboseli-lg.webp`} alt="A Bigfoot safari vehicle beside an elephant in Amboseli" fill sizes="100vw" className="object-cover" />
       </div>
       <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,20,20,.55), rgba(20,20,20,.9))" }} />
       <div className="relative mx-auto max-w-[1320px] px-5 sm:px-8">
@@ -230,7 +248,7 @@ export function HowItWorks() {
     { n: "04", t: "You travel, we're there", d: "Same team from pickup to drop-off." },
   ];
   return (
-    <section className="py-24 bg-paper">
+    <section className="py-14 sm:py-24 bg-paper">
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
         <Reveal>
           <Eyebrow>How It Works</Eyebrow>
@@ -252,7 +270,7 @@ export function HowItWorks() {
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-stone-dim">
+    <section className="py-14 sm:py-24 bg-stone-dim">
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
         <Reveal>
           <Eyebrow>Guest Reviews</Eyebrow>
@@ -268,6 +286,10 @@ export function Testimonials() {
             </Reveal>
           ))}
         </div>
+        <Reveal className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1">
+          <span className="text-sm text-stone">These are a few of 1,490+ reviews.</span>
+          <TripAdvisorLink className="text-sm">Read them all on TripAdvisor</TripAdvisorLink>
+        </Reveal>
       </div>
     </section>
   );
@@ -283,7 +305,7 @@ export function Trade() {
     ["Rate quote turnaround", "Same business day"],
   ];
   return (
-    <section id="trade" className="relative py-24 bg-ink text-paper overflow-hidden">
+    <section id="trade" className="relative py-14 sm:py-24 bg-ink text-paper overflow-hidden">
       <div
         className="absolute -top-1/3 -right-[10%] w-3/5 h-[160%] pointer-events-none"
         style={{ background: "radial-gradient(circle, rgba(227,30,36,.16), transparent 65%)" }}
@@ -301,8 +323,8 @@ export function Trade() {
             ))}
           </div>
           <div className="flex flex-wrap gap-3 mt-7">
-            <ArrowBtn href="#contact">Request Rate Sheet</ArrowBtn>
-            <a href="tel:+254722972374" className="inline-flex items-center px-6 py-3 rounded-full border border-white/35 font-bold text-sm hover:border-white transition-colors">Call the Trade Desk</a>
+            <ArrowBtn href="/request-a-rate">Request Rate Sheet</ArrowBtn>
+            <a href={PHONE_TEL} className="inline-flex items-center px-6 py-3 rounded-full border border-white/35 font-bold text-sm hover:border-white transition-colors">Call the Trade Desk</a>
           </div>
         </Reveal>
         <Reveal className="rounded-lg bg-ink-soft border border-white/14 p-7">
@@ -321,7 +343,7 @@ export function Trade() {
 export function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
   return (
-    <section className="py-24 bg-stone-dim">
+    <section className="py-14 sm:py-24 bg-stone-dim">
       <div className="mx-auto max-w-[820px] px-5 sm:px-8">
         <Reveal>
           <Eyebrow>Before You Ask</Eyebrow>

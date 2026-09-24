@@ -3,14 +3,16 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, List, X } from "@phosphor-icons/react";
+import { ArrowRight, List, Phone, WhatsappLogo, X } from "@phosphor-icons/react";
 import { BASE_PATH } from "../basePath";
+import { PHONE_TEL, WHATSAPP_URL } from "../links";
 
 const LINKS = [
   { href: "/for-travel-agents", label: "For Travel Agents" },
   { href: "/services", label: "Services" },
   { href: "/fleet", label: "Fleet" },
   { href: "/guides", label: "Guides" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/reviews", label: "Reviews" },
   { href: "/contact", label: "Contact" },
 ];
@@ -46,12 +48,12 @@ export function Nav() {
       }`}
     >
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8 h-[68px] flex items-center justify-between">
-        <Link href="/" className={`flex items-center gap-2.5 font-black transition-colors ${dark ? "text-ink" : "text-paper"}`}>
+        <Link href="/" className={`flex items-center gap-2.5 py-2 font-black transition-colors ${dark ? "text-ink" : "text-paper"}`}>
           <Image src={`${BASE_PATH}/brand/logo.webp`} alt="" width={34} height={30} className="shrink-0" priority />
           Bigfoot Adventures
         </Link>
 
-        <nav className={`hidden lg:flex items-center gap-7 text-sm font-semibold transition-colors ${dark ? "text-ink" : "text-paper"}`}>
+        <nav className={`hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-semibold transition-colors ${dark ? "text-ink" : "text-paper"}`}>
           {LINKS.map((l) => (
             <Link key={l.href} href={l.href} className="opacity-80 hover:opacity-100 transition-opacity">
               {l.label}
@@ -73,29 +75,53 @@ export function Nav() {
             aria-label="Menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className={`lg:hidden ${dark ? "text-ink" : "text-paper"}`}
+            className={`lg:hidden grid place-items-center w-11 h-11 -mr-2 ${dark ? "text-ink" : "text-paper"}`}
           >
-            {open ? <X size={24} /> : <List size={24} />}
+            {open ? <X size={26} /> : <List size={26} />}
           </button>
         </div>
       </div>
 
       <nav
-        className={`lg:hidden bg-paper text-ink px-5 pb-6 flex flex-col gap-4 text-lg font-semibold border-t border-line transition-all duration-200 ${
+        aria-label="Mobile menu"
+        className={`lg:hidden absolute top-full inset-x-0 max-h-[calc(100svh-68px)] overflow-y-auto bg-paper text-ink px-5 pt-2 pb-6 flex flex-col text-lg font-semibold border-b border-line shadow-xl transition-all duration-200 ${
           open ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
       >
         {LINKS.map((l) => (
-          <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-1">
+          <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-3.5 border-b border-line last:border-b-0">
             {l.label}
           </Link>
         ))}
         <Link
           href="/plan-a-trip"
           onClick={() => setOpen(false)}
-          className="py-1 text-stone text-base"
+          className="py-3.5 text-stone text-base border-t border-line"
         >
           Planning your own trip?
+        </Link>
+        <div className="mt-2 grid grid-cols-2 gap-3">
+          <a
+            href={PHONE_TEL}
+            className="inline-flex items-center justify-center gap-2 h-12 rounded-full border border-line text-base font-bold"
+          >
+            <Phone size={18} weight="bold" /> Call
+          </a>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 h-12 rounded-full bg-[#25D366] text-white text-base font-bold"
+          >
+            <WhatsappLogo size={20} weight="fill" /> WhatsApp
+          </a>
+        </div>
+        <Link
+          href="/request-a-rate"
+          onClick={() => setOpen(false)}
+          className="mt-3 inline-flex items-center justify-center h-12 rounded-full bg-red text-paper text-base font-bold"
+        >
+          Request a Rate
         </Link>
       </nav>
     </header>

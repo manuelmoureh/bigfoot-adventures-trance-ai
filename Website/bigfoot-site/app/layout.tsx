@@ -4,6 +4,7 @@ import { satoshi } from "./fonts";
 import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
 import { WhatsAppFAB } from "./components/ui";
+import { MobileActionBar } from "./components/MobileBar";
 
 export const metadata: Metadata = {
   title: {
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <WhatsAppFAB />
+        <MobileActionBar />
       </body>
     </html>
   );

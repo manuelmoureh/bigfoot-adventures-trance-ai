@@ -45,11 +45,12 @@ export default function AgentProfilePage() {
                 ["Toyota Land Cruiser Prado", "4-6 pax", "Executive / airport transfers"],
                 ["Custom Safari Land Cruiser", "6-8 pax", "Pop-up roof, off-road game drives"],
                 ["Toyota Hiace Executive Van", "6-9 pax", "Corporate shuttles, groups"],
+                ["Toyota Alphard", "6-8 pax", "VIP / executive transfers"],
                 ["Coaster Bus", "20-25 pax", "Conferences, large groups"],
               ].map((row) => (
                 <tr key={row[0]} className="border-b border-line last:border-0">
-                  <td className="py-2 font-semibold">{row[0]}</td>
-                  <td className="py-2 text-stone">{row[1]}</td>
+                  <td className="py-2 pr-3 font-semibold">{row[0]}</td>
+                  <td className="py-2 pr-3 text-stone whitespace-nowrap">{row[1]}</td>
                   <td className="py-2 text-stone">{row[2]}</td>
                 </tr>
               ))}
@@ -64,8 +65,6 @@ export default function AgentProfilePage() {
               <tr><td className="py-2 font-semibold">Bronze</td><td className="py-2 text-stone">Elvis, Lawrence</td></tr>
             </tbody>
           </table>
-          <p className="text-xs text-stone mb-8">Tier assignments pending final client confirmation — see internal Open Questions log.</p>
-
           <h2 className="font-black text-lg mb-3 pb-2 border-b border-line">Certifications</h2>
           <p className="mb-8 text-sm">Tourism Regulatory Authority (TRA) · Kenya Association of Tour Operators (KATO) · Tours and Safaris Kenya (TOSK)</p>
 

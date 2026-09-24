@@ -5,7 +5,7 @@ import { ReviewSchema } from "../components/Schema";
 import { VOICES } from "../data";
 
 export const metadata: Metadata = {
-  title: "Reviews | 1,400+ TripAdvisor Reviews, 4.9/5 — Bigfoot Adventures",
+  title: "Reviews | 1,490+ TripAdvisor Reviews, Rated 5.0 — Bigfoot Adventures",
   description:
     "Real, attributed TripAdvisor reviews naming the specific guide who led the trip. Not just five stars — named guides, every time.",
 };
@@ -21,7 +21,7 @@ export default function ReviewsPage() {
       />
       <Testimonials />
       <Guides />
-      <section className="py-20 bg-paper text-center">
+      <section className="py-12 sm:py-20 bg-paper text-center">
         <div className="mx-auto max-w-[640px] px-5 sm:px-8 flex flex-col items-center gap-6">
           <h2 className="text-2xl sm:text-3xl font-black">Want the full review history for due diligence?</h2>
           <ArrowBtn href="/agent-profile">Download the Agent Profile</ArrowBtn>

@@ -15,7 +15,7 @@ export default function ContactPage() {
         title="One Nairobi desk. Same business day, either way."
         lead="Traveling yourself, or booking on behalf of a client? Pick the path that fits below."
       />
-      <section className="py-16 bg-paper">
+      <section className="py-10 sm:py-16 bg-paper">
         <div className="mx-auto max-w-[720px] px-5 sm:px-8">
           <Reveal className="flex flex-col gap-4 mb-12">
             <a href="tel:+254722972374" className="flex items-center gap-4 border border-line rounded-lg px-5 py-4 hover:border-red transition-colors">

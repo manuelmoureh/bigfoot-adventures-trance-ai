@@ -51,7 +51,7 @@ export function FleetSlider() {
   }, []);
 
   return (
-    <section className="py-24 bg-stone-dim">
+    <section className="py-14 sm:py-24 bg-stone-dim">
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
         <Reveal className="text-center">
           <Eyebrow>
@@ -63,7 +63,7 @@ export function FleetSlider() {
 
       <div
         ref={trackRef}
-        className="mt-10 flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-4 sm:gap-6 px-[28%] sm:px-[33%] lg:px-[37%] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="mt-10 flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-3 sm:gap-6 px-[12%] sm:px-[33%] lg:px-[37%] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {VEHICLES.map((v, i) => (
           <div
@@ -111,8 +111,10 @@ export function FleetSlider() {
               type="button"
               aria-label={`Go to ${v.name}`}
               onClick={() => scrollToIndex(i)}
-              className={`h-1.5 rounded-full transition-all ${active === i ? "w-7 bg-red" : "w-1.5 bg-line"}`}
-            />
+              className="grid place-items-center h-11 px-1"
+            >
+              <span className={`block h-1.5 rounded-full transition-all ${active === i ? "w-7 bg-red" : "w-1.5 bg-stone/40"}`} />
+            </button>
           ))}
         </div>
         <button

@@ -77,7 +77,7 @@ export function ArrowBtn({
     variant === "primary"
       ? "bg-red text-paper hover:bg-red-deep"
       : "bg-transparent border border-ink text-ink hover:bg-ink hover:text-paper";
-  const className = `inline-flex items-center gap-2.5 rounded-full pl-6 pr-1.5 py-1.5 font-bold text-sm transition-colors ${styles}`;
+  const className = `inline-flex items-center gap-2.5 rounded-full pl-6 pr-2 py-2 font-bold text-sm transition-colors ${styles}`;
   const arrow = (
     <span className={`grid place-items-center w-7 h-7 rounded-full ${variant === "primary" ? "bg-white/25" : "bg-ink/8"}`}>
       <ArrowRight size={13} weight="bold" />
@@ -116,7 +116,7 @@ export function Field({
 }) {
   return (
     <label className="flex flex-col gap-1.5">
-      <span className="text-xs font-bold">
+      <span className="text-[13px] font-bold">
         {label}
         {required && <span className="text-red"> *</span>}
       </span>
@@ -125,7 +125,7 @@ export function Field({
         name={name}
         required={required}
         placeholder={placeholder}
-        className="border border-line bg-stone-dim rounded-md px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red"
+        className="border border-line bg-stone-dim rounded-md px-3.5 py-3 min-h-12 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-red"
       />
     </label>
   );
@@ -144,16 +144,16 @@ export function TextArea({
 }) {
   return (
     <label className="flex flex-col gap-1.5">
-      <span className="text-xs font-bold">
+      <span className="text-[13px] font-bold">
         {label}
         {required && <span className="text-red"> *</span>}
       </span>
       <textarea
         name={name}
         required={required}
-        rows={3}
+        rows={4}
         placeholder={placeholder}
-        className="border border-line bg-stone-dim rounded-md px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red"
+        className="border border-line bg-stone-dim rounded-md px-3.5 py-3 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-red"
       />
     </label>
   );
@@ -169,7 +169,7 @@ export function PageHero({
   lead?: string;
 }) {
   return (
-    <section className="pt-36 pb-16 bg-stone-dim">
+    <section className="pt-28 pb-10 sm:pt-36 sm:pb-16 bg-stone-dim">
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
         <Reveal>
           <Eyebrow>{eyebrow}</Eyebrow>
@@ -244,7 +244,7 @@ export function WhatsAppFAB() {
       rel="noopener noreferrer"
       aria-label="Chat with Bigfoot Adventures on WhatsApp"
       onClick={() => trackEvent("whatsapp_click", { source: "fab" })}
-      className={`fixed z-40 bottom-5 right-5 grid place-items-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl transition-all duration-300 ${
+      className={`hidden md:grid print:hidden fixed z-40 bottom-5 right-5 place-items-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl transition-all duration-300 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
       }`}
     >

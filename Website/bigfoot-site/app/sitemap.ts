@@ -10,6 +10,7 @@ const ROUTES = [
   "services",
   "fleet",
   "guides",
+  "gallery",
   "destinations",
   "reviews",
   "about",

@@ -29,7 +29,7 @@ export default function GuidesPage() {
       </section>
       <Guides />
       <Testimonials />
-      <section className="py-20 bg-paper text-center">
+      <section className="py-12 sm:py-20 bg-paper text-center">
         <div className="mx-auto max-w-[640px] px-5 sm:px-8 flex flex-col items-center gap-6">
           <h2 className="text-2xl sm:text-3xl font-black">Want a specific guide for a repeat client?</h2>
           <ArrowBtn href="/request-a-rate">Request a Rate</ArrowBtn>
